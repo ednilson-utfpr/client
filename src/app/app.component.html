@@ -1,20 +1,118 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div *ngIf="isAuthenticated" class="page-topbar">
+  <div class="logo-area">
 
+  </div>
+  <div class="quick-area">
+    <div class="pull-left">
+      <ul class="info-menu left-links list-inline list-unstyled">
+        <li class="sidebar-toggle-wrap">
+          <a href="#" data-toggle="sidebar" class="sidebar_toggle">
+            <i class="fa fa-bars"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="pull-right">
+      <ul class="info-menu right-links list-inline list-unstyled">
+        <li class="profile">
+          <a href="#" data-toggle="dropdown" class="toggle">
+            <img src="assets/images/user.png" alt="user-image" class="img-circle img-inline">
+            <span>Admin <i class="fa fa-angle-down"></i></span>
+          </a>
+          <ul class="dropdown-menu profile animated fadeIn">
+            <li>
+              <a href="#settings">
+                <i class="fa fa-wrench"></i>
+                Settings
+              </a>
+            </li>
+            <li>
+              <a href="#profile">
+                <i class="fa fa-user"></i>
+                Profile
+              </a>
+            </li>
+            <li>
+              <a href="#help">
+                <i class="fa fa-info"></i>
+                Help
+              </a>
+            </li>
+            <li class="last">
+              <a href="javascript:;" (click)="logout()">
+                <i class="fa fa-lock"></i>
+                Logout
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+<!-- END TOPBAR -->
+<!-- START CONTAINER -->
+<div *ngIf="isAuthenticated" class="page-container row-fluid container-fluid">
+
+  <!-- SIDEBAR - START -->
+
+  <div class="page-sidebar pagescroll">
+
+    <!-- MAIN MENU - START -->
+    <div class="page-sidebar-wrapper" id="main-menu-wrapper">
+      <div class="profile-info row">
+        <div class="profile-image col-xs-4">
+          <a href="#">
+            <img alt="" src="" class="img-responsive img-circle">
+          </a>
+        </div>
+
+        <div class="profile-details col-xs-8">
+          <h3>
+            <a href="#">Admin</a>
+            <span class="profile-status online"></span>
+          </h3>
+          <p class="profile-title">Administrador</p>
+        </div>
+      </div>
+
+      <ul class="wraplist">
+        <li class="menusection">Main</li>
+        <li>
+          <a href="index.html">
+            <i class="fa fa-dashboard"></i>
+            <span class="title">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:;">
+            <i class="fa fa-columns"></i>
+            <span class="title">Layouts</span>
+            <span class="arrow "></span>
+          </a>
+          <ul class="sub-menu">
+            <li>
+              <a class="" href="layout-default.html">Default Layout</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- MAIN MENU - END -->
+
+  </div>
+  <!--  SIDEBAR - END -->
+  <!-- START CONTENT -->
+  <section id="main-content">
+    <section class="wrapper main-wrapper row">
+      <router-outlet></router-outlet>
+      <!-- MAIN CONTENT AREA ENDS -->
+    </section>
+  </section>
+  <!-- END CONTENT -->
+
+</div>
+<!-- END CONTAINER -->
+
+<router-outlet *ngIf="!isAuthenticated"></router-outlet>
