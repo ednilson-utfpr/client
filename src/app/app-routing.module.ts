@@ -6,7 +6,6 @@ import {HomeComponent} from './home/home.component';
 import {ProdutoComponent} from './produto/produto.component';
 import { SetorComponent } from './setor/setor.component';
 import { CargoComponent } from './cargo/cargo.component';
-import { FuncionarioComponent } from './funcionario/funcionario.component';
 
 const routes: Routes = [
   {
@@ -14,8 +13,8 @@ const routes: Routes = [
       {path: '', component: HomeComponent},
       {path: 'produto', component: ProdutoComponent},
       {path: 'setor', component: SetorComponent},
-      {path: 'cargo', component: CargoComponent},
-      {path: 'funcionario', component: FuncionarioComponent}
+      {path: 'cargo', component: CargoComponent}
+    
     ]
   },
   {path: 'login', component: LoginComponent}

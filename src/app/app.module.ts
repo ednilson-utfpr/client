@@ -11,7 +11,6 @@ import {HomeModule} from './home/home.module';
 import {ProdutoModule} from './produto/produto.module';
 import { SetorModule } from './setor/setor.module';
 import { CargoModule } from './cargo/cargo.module';
-import { FuncionarioModule } from './funcionario/funcionario.module';
 
 
 @NgModule({
@@ -27,8 +26,7 @@ import { FuncionarioModule } from './funcionario/funcionario.module';
     HomeModule,
     ProdutoModule, 
     SetorModule,
-    CargoModule,
-    FuncionarioModule
+    CargoModule   
   ],
   providers: [
     {
