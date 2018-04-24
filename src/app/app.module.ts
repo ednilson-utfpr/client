@@ -9,6 +9,7 @@ import {AppRouting} from './app-routing.module';
 import {LoginModule} from './login/login.module';
 import {HomeModule} from './home/home.module';
 import {ProdutoModule} from './produto/produto.module';
+import { SetorModule } from './setor/setor.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {ProdutoModule} from './produto/produto.module';
     HttpClientModule,
     LoginModule,
     HomeModule,
-    ProdutoModule
+    ProdutoModule, 
+    SetorModule
   ],
   providers: [
     {
