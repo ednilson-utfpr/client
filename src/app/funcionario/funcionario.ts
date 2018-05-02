@@ -13,9 +13,9 @@ export class Funcionario {
 
   salario: number;
 
-  setor: Setor;
+  //setor: Setor;
 
-  cargo: Cargo;
+  //cargo: Cargo;
 
   //pessoa: Pessoa;
 
