@@ -1,0 +1,55 @@
+<button class="btn btn-primary" (click)="novo()">Criar novo</button>
+
+<p-table [value]="setores">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Descrição</th>
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-setor>
+    <tr>
+      <td>{{setor.id}}</td>
+      <td>{{setor.descricao}}</td>
+      <td>
+        <button class="btn btn-primary" (click)="editar(setor)">
+          <i class="fa fa-edit"></i>
+        </button>
+        <button class="btn btn-danger" (click)="remover(setor)">
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+
+<p-dialog header="Cadastro"
+          [(visible)]="showDialog"
+          modal="modal"
+          [responsive]="true"
+          [width]="500">
+
+  <div class="row">
+
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="descricao">Descrição</label>
+        <input type="text"
+               id="descricao"
+               name="descricao"
+               class="form-control"
+               [(ngModel)]="setorEdit.descricao">
+      </div>
+    </div>
+
+  </div>
+
+
+  <p-footer>
+
+    <button type="button" class="btn btn-default" (click)="showDialog = false">Cancelar</button>
+    <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
+  </p-footer>
+</p-dialog>
