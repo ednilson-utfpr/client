@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FuncionarioService} from './funcionario.service';
 import {Funcionario} from './funcionario';
+import { CargoService } from '../cargo/cargo.service';
+import { Cargo } from '../cargo/cargo';
 
 @Component({
   templateUrl: './funcionario.component.html',
@@ -11,12 +13,15 @@ export class FuncionarioComponent implements OnInit {
   funcionarios: Funcionario[];
   showDialog = false;
   funcionarioEdit = new Funcionario();
+  cargos: Cargo[];
 
-  constructor(private funcionarioService: FuncionarioService) {
+  constructor(private funcionarioService: FuncionarioService, private cargoService: CargoService) {
+    
   }
 
   ngOnInit(): void {
     this.findAll();
+    this.cargoService.findAll().subscribe(e => this.cargos = e);
   }
 
   findAll() {

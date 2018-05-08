@@ -94,25 +94,12 @@
       </div>
 
 
-      <mat-form-field>
-        <mat-select placeholder="Cargo food">
-          <mat-option *ngFor="let cargo of cargos" [value]="cargo.nome">
-            {{ cargo.nome }}
-          </mat-option>
-        </mat-select>  
-      </mat-form-field>>
-
-
-
       <div class="form-group">
           <label for="cargo">Cargo</label>
-          <input type="text"
-                id="cargo"
-                  name="cargo"
-                  class="form-control"
-                  [(ngModel)]="funcionarioEdit.cargo.nome">
+        <p-dropdown [options]="cargos" [(ngModel)]="funcionarioEdit.cargo" optionLabel="nome"></p-dropdown>
       </div>
 
+      
       <div class="form-group">
         <label for="salario">Salário</label>
         <input type="number"
