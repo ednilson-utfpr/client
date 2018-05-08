@@ -93,6 +93,17 @@
                   [(ngModel)]="funcionarioEdit.setor.descricao">
       </div>
 
+
+      <mat-form-field>
+        <mat-select placeholder="Cargo food">
+          <mat-option *ngFor="let cargo of cargos" [value]="cargo.nome">
+            {{ cargo.nome }}
+          </mat-option>
+        </mat-select>  
+      </mat-form-field>>
+
+
+
       <div class="form-group">
           <label for="cargo">Cargo</label>
           <input type="text"
