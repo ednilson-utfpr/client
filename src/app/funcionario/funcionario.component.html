@@ -57,46 +57,24 @@
                   [(ngModel)]="funcionarioEdit.matricula">
         </div>
 
-      <div class="form-group">
-          <label for="pessoa">Pessoa</label>
-          <input type="text"
-                  id="pessoa"
-                  name="pessoa"
-                  class="form-control"
-                  [(ngModel)]="funcionarioEdit.pessoa.nome">
-      </div>
+     
 
       <div class="form-group">
           <label for="admissao">Admissão</label>
-          <input type="date"
-                  id="admissao"
-                  name="admissao"
-                  class="form-control"
-                  [(ngModel)]="funcionarioEdit.admissao">
+          <p-calendar name="adissao" [(ngModel)]="funcionarioEdit.admissao"></p-calendar>
       </div>
 
-      <div class="form-group">
-          <label for="ativo">Ativo</label>
-          <input type="checkbox"
-                  id="ativo"
-                  name="ativo"
-                  class="form-control"
-                  [(ngModel)]="funcionarioEdit.ativo">
-      </div>
+      <p-checkbox name="ativo" [(ngModel)]="funcionarioEdit.ativo" label="Ativo" binary="true"></p-checkbox>
+
 
       <div class="form-group">
           <label for="setor">Setor</label>
-          <input type="text"
-                  id="setor"
-                  name="setor"
-                  class="form-control"
-                  [(ngModel)]="funcionarioEdit.setor.descricao">
+        <p-dropdown name= "setor" [options]="setores" [(ngModel)]="funcionarioEdit.setor" optionLabel="descricao"></p-dropdown>
       </div>
-
 
       <div class="form-group">
           <label for="cargo">Cargo</label>
-        <p-dropdown [options]="cargos" [(ngModel)]="funcionarioEdit.cargo" optionLabel="nome"></p-dropdown>
+        <p-dropdown name= "cargo" [options]="cargos" [(ngModel)]="funcionarioEdit.cargo" optionLabel="nome"></p-dropdown>
       </div>
 
       
