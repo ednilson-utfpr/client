@@ -5,13 +5,15 @@ import {LoginComponent} from './login/login.component';
 import {HomeComponent} from './home/home.component';
 import {ProdutoComponent} from './produto/produto.component';
 import {PerfilComponent} from './perfil/perfil.component';
+import {CcustoComponent} from './ccusto/ccusto.component';
 
 const routes: Routes = [
   {
     path: '', canActivate: [LoginService], children: [
       {path: '', component: HomeComponent},
       {path: 'produto', component: ProdutoComponent},
-      {path: 'perfil', component: PerfilComponent}
+      {path: 'perfil', component: PerfilComponent},
+      {path: 'ccusto', component: CcustoComponent}
     ]
   },
   {path: 'login', component: LoginComponent}

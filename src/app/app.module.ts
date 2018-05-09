@@ -9,6 +9,7 @@ import {AppRouting} from './app-routing.module';
 import {LoginModule} from './login/login.module';
 import {HomeModule} from './home/home.module';
 import {ProdutoModule} from './produto/produto.module';
+import {CcustoModule} from './ccusto/ccusto.module';
 import {PerfilModule} from './perfil/perfil.module';
 
 @NgModule({
@@ -23,6 +24,7 @@ import {PerfilModule} from './perfil/perfil.module';
     LoginModule,
     HomeModule,
     ProdutoModule,
+    CcustoModule,
     PerfilModule
   ],
   providers: [
@@ -37,3 +39,5 @@ import {PerfilModule} from './perfil/perfil.module';
 })
 export class AppModule {
 }
+
+
