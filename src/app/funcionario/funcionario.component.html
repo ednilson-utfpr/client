@@ -1,0 +1,123 @@
+<button class="btn btn-primary" (click)="novo()">Criar novo</button>
+
+
+<p-table [value]="funcionarios">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Matricula</th>
+      <th>Pessoa</th>
+      <th>Data de Admissão</th>
+      <th>Ativo</th>
+      <th>Setor</th>
+      <th>Cargo</th>
+      <th>Salário</th>
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-funcionario>
+    <tr>
+      <td>{{funcionario.id}}</td>
+      <td>{{funcionario.matricula}}</td>
+      <!--<td>{{funcionario.pessoa.nome}}</td>-->
+      <td>{{funcionario.admissao}}</td>
+      <td>{{funcionario.ativo}}</td>
+      <td>{{funcionario.setor.descricao}}</td>
+      <td>{{funcionario.cargo.nome}}</td>
+      <td>{{funcionario.salario}}</td>
+      <td>
+        <button class="btn btn-primary" (click)="editar(funcionario)">
+          <i class="fa fa-edit"></i>
+        </button>
+        <button class="btn btn-danger" (click)="remover(funcionario)">
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+
+<p-dialog header="Cadastro"
+          [(visible)]="showDialog"
+          modal="modal"
+          [responsive]="true"
+          [width]="500">
+
+  <div class="row">
+
+    <div class="col-sm-12">
+
+      <div class="form-group">
+          <label for="matricula">Matricula</label>
+          <input type="text"
+                  id="matricula"
+                  name="matricula"
+                  class="form-control"
+                  [(ngModel)]="funcionarioEdit.matricula">
+        </div>
+
+      <div class="form-group">
+          <label for="pessoa">Pessoa</label>
+          <input type="text"
+                  id="pessoa"
+                  name="pessoa"
+                  class="form-control"
+                  [(ngModel)]="funcionarioEdit.pessoa.nome">
+      </div>
+
+      <div class="form-group">
+          <label for="admissao">Admissão</label>
+          <input type="date"
+                  id="admissao"
+                  name="admissao"
+                  class="form-control"
+                  [(ngModel)]="funcionarioEdit.admissao">
+      </div>
+
+      <div class="form-group">
+          <label for="ativo">Ativo</label>
+          <input type="checkbox"
+                  id="ativo"
+                  name="ativo"
+                  class="form-control"
+                  [(ngModel)]="funcionarioEdit.ativo">
+      </div>
+
+      <div class="form-group">
+          <label for="setor">Setor</label>
+          <input type="text"
+                  id="setor"
+                  name="setor"
+                  class="form-control"
+                  [(ngModel)]="funcionarioEdit.setor.descricao">
+      </div>
+
+      <div class="form-group">
+          <label for="cargo">Cargo</label>
+          <input type="text"
+                id="cargo"
+                  name="cargo"
+                  class="form-control"
+                  [(ngModel)]="funcionarioEdit.cargo.nome">
+      </div>
+
+      <div class="form-group">
+        <label for="salario">Salário</label>
+        <input type="number"
+               id="salario"
+               name="salario"
+               class="form-control"
+               [(ngModel)]="funcionarioEdit.salario">
+      </div>
+    </div>
+
+  </div>
+
+
+  <p-footer>
+
+    <button type="button" class="btn btn-default" (click)="showDialog = false">Cancelar</button>
+    <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
+  </p-footer>
+</p-dialog>

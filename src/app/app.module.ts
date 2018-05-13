@@ -10,7 +10,12 @@ import {LoginModule} from './login/login.module';
 import {HomeModule} from './home/home.module';
 import {ProdutoModule} from './produto/produto.module';
 import {CcustoModule} from './ccusto/ccusto.module';
+
+import { SetorModule } from './setor/setor.module';
+import { CargoModule } from './cargo/cargo.module';
+
 import {PerfilModule} from './perfil/perfil.module';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +29,8 @@ import {PerfilModule} from './perfil/perfil.module';
     LoginModule,
     HomeModule,
     ProdutoModule,
+    SetorModule,
+    CargoModule,
     CcustoModule,
     PerfilModule
   ],
