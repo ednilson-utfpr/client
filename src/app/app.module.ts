@@ -15,6 +15,8 @@ import { SetorModule } from './setor/setor.module';
 import { CargoModule } from './cargo/cargo.module';
 
 import {PerfilModule} from './perfil/perfil.module';
+import {FuncionarioModule} from './funcionario/funcionario.module';
+import {CpontoModule} from './cponto/cponto.module';
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import {PerfilModule} from './perfil/perfil.module';
     SetorModule,
     CargoModule,
     CcustoModule,
+    CpontoModule,
     PerfilModule
   ],
   providers: [
