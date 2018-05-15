@@ -19,11 +19,11 @@
     <tr>
       <td>{{funcionario.id}}</td>
       <td>{{funcionario.matricula}}</td>
-      <!--<td>{{funcionario.pessoa.nome}}</td>-->
+      <td>{{funcionario.pessoa}}</td>
       <td>{{funcionario.admissao}}</td>
       <td>{{funcionario.ativo}}</td>
-      <td>{{funcionario.setor.descricao}}</td>
-      <td>{{funcionario.cargo.nome}}</td>
+      <td>{{funcionario.setor}}</td>
+      <td>{{funcionario.cargo}}</td>
       <td>{{funcionario.salario}}</td>
       <td>
         <button class="btn btn-primary" (click)="editar(funcionario)">
@@ -57,7 +57,14 @@
                   [(ngModel)]="funcionarioEdit.matricula">
         </div>
 
-     
+        <div class="form-group">
+          <label for="pessoa">Nome</label>
+          <input type="text"
+                  id="pessoa"
+                  name="pessoa"
+                  class="form-control"
+                  [(ngModel)]="funcionarioEdit.pessoa">
+        </div>
 
       <div class="form-group">
           <label for="admissao">Admissão</label>
@@ -84,6 +91,7 @@
                id="salario"
                name="salario"
                class="form-control"
+               value="999.999.999,99"
                [(ngModel)]="funcionarioEdit.salario">
       </div>
     </div>

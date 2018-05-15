@@ -7,16 +7,18 @@ export class Funcionario {
 
   matricula: string;
 
+  pessoa: string;
+
   admissao: string;
 
   ativo: boolean;
 
   salario: number;
 
-  //setor: Setor;
+  setor: Setor;
 
-  //cargo: Cargo;
+  cargo: Cargo;
 
-  //pessoa: Pessoa;
+ 
 
 }
