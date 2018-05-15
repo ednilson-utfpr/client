@@ -1,7 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {ProdutoComponent} from './produto.component';
-import {ProdutoService} from './produto.service';
+import {CpontoComponent} from './cponto.component';
+import {CpontoService} from './cponto.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
@@ -16,12 +16,12 @@ import {CheckboxModule, Dropdown, DropdownModule, RadioButtonModule} from 'prime
     DropdownModule,
   ],
   declarations: [
-    ProdutoComponent
+    CpontoComponent
   ],
   providers: [
-    ProdutoService
+    CpontoService
   ]
 })
-export class ProdutoModule {
+export class CpontoModule {
 
 }

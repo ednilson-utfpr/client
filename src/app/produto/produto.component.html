@@ -4,14 +4,22 @@
   <ng-template pTemplate="header">
     <tr>
       <th>ID</th>
+      <th>Nome</th>
       <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Saldo em Estoque</th>
+      <th>Valor</th>
       <th>Ações</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-produto>
     <tr>
       <td>{{produto.id}}</td>
+      <td>{{produto.nome}}</td>
       <td>{{produto.descricao}}</td>
+      <td>{{produto.tipo}}</td>
+      <td>{{produto.estoque}}</td>
+      <td>{{produto.valor}}</td>
       <td>
         <button class="btn btn-primary" (click)="editar(produto)">
           <i class="fa fa-edit"></i>
@@ -25,7 +33,7 @@
 </p-table>
 
 
-<p-dialog header="Cadastro"
+<p-dialog header="Cadastro de Produto ou Serviço"
           [(visible)]="showDialog"
           modal="modal"
           [responsive]="true"
@@ -35,12 +43,49 @@
 
     <div class="col-sm-12">
       <div class="form-group">
+
+        <label for="nome">Nome</label>
+        <input type="text"
+               required="required"
+               id="nome"
+               name="nome"
+               class="form-control"
+               [(ngModel)]="produtoEdit.nome">
+
         <label for="descricao">Descrição</label>
         <input type="text"
+               required="required"
                id="descricao"
                name="descricao"
                class="form-control"
                [(ngModel)]="produtoEdit.descricao">
+
+        <label for="tipo">Tipo</label>
+        <input type="text"
+               id="tipo"
+               name="tipo"
+               class="form-control"
+               [(ngModel)]="produtoEdit.tipo">
+
+        <label for="estoque">Saldo em Estoque</label>
+        <input type="number"
+               id="estoque"
+               name="estoque"
+               min="0" max="1000000"
+               class="form-control"
+               [(ngModel)]="produtoEdit.estoque">
+
+        <label for="valor">Valor</label>
+        <input currencyMask type="number"
+               id="valor"
+               name="valor"
+               min="1" max="100000"
+               class="form-control"
+               [(ngModel)]="produtoEdit.valor">
+
+
+
+
       </div>
     </div>
 
