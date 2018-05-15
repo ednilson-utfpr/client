@@ -4,4 +4,14 @@ export class Produto {
 
   descricao: string;
 
+  nome: string;
+
+  tipo: string;
+
+  estoque: number;
+
+  valor: number;
+
+
 }
+

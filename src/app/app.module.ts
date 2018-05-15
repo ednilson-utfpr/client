@@ -1,3 +1,4 @@
+import { UsuarioModule } from './usuario/usuario.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
@@ -12,7 +13,12 @@ import {ProdutoModule} from './produto/produto.module';
 import { SetorModule } from './setor/setor.module';
 import { CargoModule } from './cargo/cargo.module';
 import { FuncionarioModule } from './funcionario/funcionario.module';
-
+import {CcustoModule} from './ccusto/ccusto.module';
+import { SetorModule } from './setor/setor.module';
+import { CargoModule } from './cargo/cargo.module';
+import {PerfilModule} from './perfil/perfil.module';
+import {FuncionarioModule} from './funcionario/funcionario.module';
+import {CpontoModule} from './cponto/cponto.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +34,15 @@ import { FuncionarioModule } from './funcionario/funcionario.module';
     ProdutoModule, 
     SetorModule,
     CargoModule, 
-    FuncionarioModule  
+    FuncionarioModule,
+    ProdutoModule,
+    PerfilModule,
+    UsuarioModule,
+    SetorModule,
+    CargoModule,
+    CcustoModule,
+    CpontoModule,
+    PerfilModule
   ],
   providers: [
     {
@@ -42,3 +56,5 @@ import { FuncionarioModule } from './funcionario/funcionario.module';
 })
 export class AppModule {
 }
+
+

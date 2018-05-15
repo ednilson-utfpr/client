@@ -1,11 +1,11 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {PerfilComponent} from './perfil.component';
-import {PerfilService} from './perfil.service';
+import {CpontoComponent} from './cponto.component';
+import {CpontoService} from './cponto.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
-import {CheckboxModule} from 'primeng/checkbox';
+import {CheckboxModule, Dropdown, DropdownModule, RadioButtonModule} from 'primeng/primeng';
 
 @NgModule({
   imports: [
@@ -13,15 +13,15 @@ import {CheckboxModule} from 'primeng/checkbox';
     FormsModule,
     TableModule,
     DialogModule,
-    CheckboxModule
+    DropdownModule,
   ],
   declarations: [
-    PerfilComponent
+    CpontoComponent
   ],
   providers: [
-    PerfilService
+    CpontoService
   ]
 })
-export class PerfilModule {
+export class CpontoModule {
 
 }

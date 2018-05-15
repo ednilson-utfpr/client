@@ -1,27 +1,26 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {PerfilComponent} from './perfil.component';
-import {PerfilService} from './perfil.service';
+import {CcustoComponent} from './ccusto.component';
+import {CcustoService} from './ccusto.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
-import {CheckboxModule} from 'primeng/checkbox';
+import {RadioButtonModule} from 'primeng/primeng';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     TableModule,
-    DialogModule,
-    CheckboxModule
+    DialogModule
   ],
   declarations: [
-    PerfilComponent
+    CcustoComponent
   ],
   providers: [
-    PerfilService
+    CcustoService
   ]
 })
-export class PerfilModule {
+export class CcustoModule {
 
 }
