@@ -10,13 +10,15 @@ import {AppRouting} from './app-routing.module';
 import {LoginModule} from './login/login.module';
 import {HomeModule} from './home/home.module';
 import {ProdutoModule} from './produto/produto.module';
+import { SetorModule } from './setor/setor.module';
+import { CargoModule } from './cargo/cargo.module';
+import { FuncionarioModule } from './funcionario/funcionario.module';
 import {CcustoModule} from './ccusto/ccusto.module';
 import { SetorModule } from './setor/setor.module';
 import { CargoModule } from './cargo/cargo.module';
 import {PerfilModule} from './perfil/perfil.module';
 import {FuncionarioModule} from './funcionario/funcionario.module';
 import {CpontoModule} from './cponto/cponto.module';
-
 
 @NgModule({
   declarations: [
@@ -29,6 +31,10 @@ import {CpontoModule} from './cponto/cponto.module';
     HttpClientModule,
     LoginModule,
     HomeModule,
+    ProdutoModule, 
+    SetorModule,
+    CargoModule, 
+    FuncionarioModule,
     ProdutoModule,
     PerfilModule,
     UsuarioModule,

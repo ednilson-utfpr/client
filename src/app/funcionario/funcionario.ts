@@ -7,6 +7,8 @@ export class Funcionario {
 
   matricula: string;
 
+  pessoa: string;
+
   admissao: string;
 
   ativo: boolean;
@@ -17,6 +19,6 @@ export class Funcionario {
 
   cargo: Cargo;
 
-  //pessoa: Pessoa;
+ 
 
 }
