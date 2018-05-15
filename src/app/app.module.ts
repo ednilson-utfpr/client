@@ -10,7 +10,13 @@ import {AppRouting} from './app-routing.module';
 import {LoginModule} from './login/login.module';
 import {HomeModule} from './home/home.module';
 import {ProdutoModule} from './produto/produto.module';
+import {CcustoModule} from './ccusto/ccusto.module';
+import { SetorModule } from './setor/setor.module';
+import { CargoModule } from './cargo/cargo.module';
 import {PerfilModule} from './perfil/perfil.module';
+import {FuncionarioModule} from './funcionario/funcionario.module';
+import {CpontoModule} from './cponto/cponto.module';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +31,12 @@ import {PerfilModule} from './perfil/perfil.module';
     HomeModule,
     ProdutoModule,
     PerfilModule,
-    UsuarioModule
+    UsuarioModule,
+    SetorModule,
+    CargoModule,
+    CcustoModule,
+    CpontoModule,
+    PerfilModule
   ],
   providers: [
     {
@@ -39,3 +50,5 @@ import {PerfilModule} from './perfil/perfil.module';
 })
 export class AppModule {
 }
+
+
