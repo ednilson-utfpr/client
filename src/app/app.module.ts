@@ -1,3 +1,4 @@
+import { UsuarioModule } from './usuario/usuario.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
@@ -10,10 +11,8 @@ import {LoginModule} from './login/login.module';
 import {HomeModule} from './home/home.module';
 import {ProdutoModule} from './produto/produto.module';
 import {CcustoModule} from './ccusto/ccusto.module';
-
 import { SetorModule } from './setor/setor.module';
 import { CargoModule } from './cargo/cargo.module';
-
 import {PerfilModule} from './perfil/perfil.module';
 import {FuncionarioModule} from './funcionario/funcionario.module';
 import {CpontoModule} from './cponto/cponto.module';
@@ -31,6 +30,8 @@ import {CpontoModule} from './cponto/cponto.module';
     LoginModule,
     HomeModule,
     ProdutoModule,
+    PerfilModule,
+    UsuarioModule,
     SetorModule,
     CargoModule,
     CcustoModule,
