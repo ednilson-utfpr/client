@@ -1,3 +1,4 @@
+import { UsuarioComponent } from './usuario/usuario.component';
 import {RouterModule, Routes} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import {LoginService} from './login/login.service';
@@ -11,7 +12,8 @@ const routes: Routes = [
     path: '', canActivate: [LoginService], children: [
       {path: '', component: HomeComponent},
       {path: 'produto', component: ProdutoComponent},
-      {path: 'perfil', component: PerfilComponent}
+      {path: 'perfil', component: PerfilComponent},
+      {path: 'usuario', component: UsuarioComponent}
     ]
   },
   {path: 'login', component: LoginComponent}

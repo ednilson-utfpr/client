@@ -1,3 +1,4 @@
+import { UsuarioModule } from './usuario/usuario.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
@@ -23,7 +24,8 @@ import {PerfilModule} from './perfil/perfil.module';
     LoginModule,
     HomeModule,
     ProdutoModule,
-    PerfilModule
+    PerfilModule,
+    UsuarioModule
   ],
   providers: [
     {
