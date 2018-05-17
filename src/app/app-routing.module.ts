@@ -11,6 +11,7 @@ import {PerfilComponent} from './perfil/perfil.component';
 import {CcustoComponent} from './ccusto/ccusto.component';
 import {FuncionarioComponent} from './funcionario/funcionario.component';
 import {CpontoComponent} from './cponto/cponto.component';
+import {AtributoComponent} from './atributo/atributo.component';
 
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ const routes: Routes = [
       {path: 'ccusto', component: CcustoComponent},
       {path: 'setor', component: SetorComponent},
       {path: 'cargo', component: CargoComponent},
-      {path: 'cponto', component: CpontoComponent}
+      {path: 'cponto', component: CpontoComponent},
+      {path: 'atributo', component: AtributoComponent}
     ]
   },
   {path: 'login', component: LoginComponent}

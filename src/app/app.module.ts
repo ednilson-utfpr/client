@@ -16,7 +16,7 @@ import { CargoModule } from './cargo/cargo.module';
 import {PerfilModule} from './perfil/perfil.module';
 import {FuncionarioModule} from './funcionario/funcionario.module';
 import {CpontoModule} from './cponto/cponto.module';
-
+import {AtributoModule} from './atributo/atributo.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import {CpontoModule} from './cponto/cponto.module';
     CargoModule,
     CcustoModule,
     CpontoModule,
-    PerfilModule
+    PerfilModule,
+    AtributoModule
   ],
   providers: [
     {
