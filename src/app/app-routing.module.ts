@@ -7,18 +7,21 @@ import {HomeComponent} from './home/home.component';
 import {ProdutoComponent} from './produto/produto.component';
 import { SetorComponent } from './setor/setor.component';
 import { CargoComponent } from './cargo/cargo.component';
+import { FuncionarioComponent } from './funcionario/funcionario.component';
 import {PerfilComponent} from './perfil/perfil.component';
 import {CcustoComponent} from './ccusto/ccusto.component';
 import {FuncionarioComponent} from './funcionario/funcionario.component';
 import {CpontoComponent} from './cponto/cponto.component';
 import {AtributoComponent} from './atributo/atributo.component';
 
-
 const routes: Routes = [
   {
     path: '', canActivate: [LoginService], children: [
       {path: '', component: HomeComponent},
       {path: 'produto', component: ProdutoComponent},
+      {path: 'setor', component: SetorComponent},
+      {path: 'cargo', component: CargoComponent},
+      {path: 'funcionario', component: FuncionarioComponent},
       {path: 'perfil', component: PerfilComponent},
       {path: 'usuario', component: UsuarioComponent},
       {path: 'ccusto', component: CcustoComponent},
