@@ -17,7 +17,7 @@ import {CalendarModule} from 'primeng/calendar';
     DialogModule,
     DropdownModule,
     CheckboxModule,
-    CalendarModule
+    CalendarModule,
   ],
   declarations: [
     FuncionarioComponent

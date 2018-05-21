@@ -4,7 +4,7 @@
   <ng-template pTemplate="header">
     <tr>
       <th>ID</th>
-      <!--<th>Funcionario</th>-->
+      <th>Funcionario</th>
       <th>Data</th>
       <th>Entrada</th>
       <th>Saída</th>
@@ -15,7 +15,7 @@
   <ng-template pTemplate="body" let-cponto>
     <tr>
       <td>{{cponto.id}}</td>
-      <!--<td>{{cponto.funcionario.idPessoa}}</td>-->
+      <td>{{cponto.funcionario.pessoa}}</td>
       <td>{{cponto.data}}</td>
       <td>{{cponto.entrada}}</td>
       <td>{{cponto.saida}}</td>
@@ -44,12 +44,12 @@
     <div class="col-sm-12">
       <div class="form-group">
 
-        <!--<label for="funcionario">Funcionário</label>-->
-        <!--<input type="text"-->
-               <!--id="funcionario"-->
-               <!--name="funcionario"-->
-               <!--class="form-control"-->
-               <!--[(ngModel)]="cpontoEdit.funcionario.idPessoa">-->
+        <label for="funcionario">Funcionário</label>
+        <p-dropdown name= "funcionario" id="funcionario" [options]="funcionarios"
+                    [(ngModel)]="cpontoEdit.funcionario" optionLabel="pessoa">
+
+        </p-dropdown>
+
 
         <label for="data">Data</label>
         <input type="date"
