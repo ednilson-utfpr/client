@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CpontoService} from './cponto.service';
 import {Cponto} from './cponto';
+import {Funcionario} from '../funcionario/funcionario';
+import {FuncionarioService} from '../funcionario/funcionario.service';
 
 @Component({
   templateUrl: './cponto.component.html',
@@ -11,12 +13,15 @@ export class CpontoComponent implements OnInit {
   cpontos: Cponto[];
   showDialog = false;
   cpontoEdit = new Cponto();
+  funcionarios: Funcionario[];
 
-  constructor(private cpontoService: CpontoService) {
+  constructor(private cpontoService: CpontoService, private funcionarioService: FuncionarioService) {
   }
 
   ngOnInit(): void {
     this.findAll();
+    this.funcionarioService.findAll().subscribe(e => this.funcionarios = e);
+
   }
 
   findAll() {
