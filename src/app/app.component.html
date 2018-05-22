@@ -1,6 +1,5 @@
 <div *ngIf="isAuthenticated" class="page-topbar">
   <div class="logo-area">
-
   </div>
   <div class="quick-area">
     <div class="pull-left">
@@ -17,7 +16,7 @@
         <li class="profile">
           <a href="#" data-toggle="dropdown" class="toggle">
             <img src="assets/images/user.png" alt="user-image" class="img-circle img-inline">
-            <span>Admin <i class="fa fa-angle-down"></i></span>
+            <span>{{userInfo?.principal?.nome}} <i class="fa fa-angle-down"></i></span>
           </a>
           <ul class="dropdown-menu profile animated fadeIn">
             <li>
@@ -30,12 +29,6 @@
               <a href="#profile">
                 <i class="fa fa-user"></i>
                 Profile
-              </a>
-            </li>
-            <li>
-              <a href="#help">
-                <i class="fa fa-info"></i>
-                Help
               </a>
             </li>
             <li class="last">
@@ -148,6 +141,13 @@
             <span  class="title">Atributo</span>
           </a>
         </li>
+
+        <li>
+            <a routerLink="/atributof">
+              <i class="fa fa-user-md"></i>
+              <span  class="title">Atributo Funcionario</span>
+            </a>
+          </li>
 
         <li>
           <a routerLink="/atividade">
