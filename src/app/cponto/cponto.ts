@@ -4,7 +4,7 @@ export class Cponto {
 
   id: number;
 
-  // funcionario: Funcionario;
+  funcionario: Funcionario;
 
   data: string;
 

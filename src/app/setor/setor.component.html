@@ -13,10 +13,10 @@
       <td>{{setor.id}}</td>
       <td>{{setor.descricao}}</td>
       <td>
-        <button class="btn btn-primary" (click)="editar(setor)">
+        <button *ngIf="hasRole('SETOR_EDITAR')" class="btn btn-primary" (click)="editar(setor)">
           <i class="fa fa-edit"></i>
         </button>
-        <button class="btn btn-danger" (click)="remover(setor)">
+        <button *ngIf="hasRole('SETOR_REMOVER')" class="btn btn-danger" (click)="remover(setor)">
           <i class="fa fa-trash"></i>
         </button>
       </td>

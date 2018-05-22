@@ -53,11 +53,11 @@
 </div>
 <!-- END TOPBAR -->
 <!-- START CONTAINER -->
-<div *ngIf="isAuthenticated" class="page-container row-fluid container-fluid">
+<div class="page-container row-fluid container-fluid">
 
   <!-- SIDEBAR - START -->
 
-  <div class="page-sidebar pagescroll">
+  <div *ngIf="isAuthenticated" class="page-sidebar pagescroll">
 
     <!-- MAIN MENU - START -->
     <div class="page-sidebar-wrapper" id="main-menu-wrapper">
@@ -70,85 +70,92 @@
 
         <div class="profile-details col-xs-8">
           <h3>
-            <a href="#">{{usuario.nome}}</a>
+            <a href="#">{{userInfo?.principal?.nome}}</a>
             <span class="profile-status online"></span>
           </h3>
-          <p class="profile-title">Administrador</p>
+          <p class="profile-title">{{userInfo?.principal?.email}}</p>
         </div>
       </div>
-     
+
 
       <ul class="wraplist">
         <li class="menusection">Main</li>
         <li>
-          <a href="/">
+          <a routerLink="/">
             <i class="fa fa-home"></i>
             <span  class="title">Home</span>
           </a>
         </li>
         <li>
-          <a href="cponto">
+          <a routerLink="/cponto">
             <i class="fa fa-clock-o"></i>
             <span  class="title">Cartão Ponto</span>
           </a>
         </li>
 
         <li>
-          <a href="produto">
+          <a routerLink="/produto">
             <i class="fa fa-product-hunt"></i>
             <span  class="title">Produto/Serviço</span>
           </a>
         </li>
 
         <li>
-          <a href="ccusto">
+          <a routerLink="/ccusto">
             <i class="fa fa-money"></i>
-            <span  class="title">Centro de Custo</span> 
+            <span  class="title">Centro de Custo</span>
           </a>
         </li>
 
         <li>
-          <a href="usuario">
+          <a routerLink="/usuario">
             <i class="fa fa-user"></i>
             <span  class="title">Usuários</span>
           </a>
         </li>
 
         <li>
-          <a href="perfil">
+          <a routerLink="/perfil">
             <i class="fa fa-lock"></i>
             <span  class="title">Perfil</span>
           </a>
         </li>
 
         <li>
-          <a href="cargo">
+          <a routerLink="/cargo">
             <i class="fa fa-address-card"></i>
             <span  class="title">Cargo</span>
           </a>
         </li>
 
-        <li>
-          <a href="setor">
+        <li *ngIf="hasRole('SETOR_CRIAR')">
+          <a routerLink="/setor">
             <i class="fa fa-puzzle-piece"></i>
             <span  class="title">Setor</span>
           </a>
         </li>
 
-        <li>
-          <a href="funcionario">
+        <li *ngIf="hasRole('FUNCIONARIO_CRIAR')">
+          <a routerLink="/funcionario">
             <i class="fa fa-users"></i>
             <span  class="title">Funcionário</span>
           </a>
         </li>
 
         <li>
-          <a href="atributo">
+          <a routerLink="/atributo">
             <i class="fa fa-user-md"></i>
             <span  class="title">Atributo</span>
           </a>
         </li>
-        
+
+        <li>
+          <a routerLink="/atividade">
+            <i class="fa fa-wrench"></i>
+            <span  class="title">Atividade</span>
+          </a>
+        </li>
+
 
 
       <!--  <li>
@@ -180,5 +187,3 @@
 
 </div>
 <!-- END CONTAINER -->
-
-<router-outlet *ngIf="!isAuthenticated"></router-outlet>

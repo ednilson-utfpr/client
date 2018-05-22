@@ -11,7 +11,7 @@ import {FormsModule} from '@angular/forms';
     CommonModule,
     FormsModule,
     TableModule,
-    DialogModule
+    DialogModule,
   ],
   declarations: [
     SetorComponent

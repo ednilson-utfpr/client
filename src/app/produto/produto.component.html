@@ -61,11 +61,10 @@
                [(ngModel)]="produtoEdit.descricao">
 
         <label for="tipo">Tipo</label>
-        <input type="text"
-               id="tipo"
-               name="tipo"
-               class="form-control"
-               [(ngModel)]="produtoEdit.tipo">
+        <select id="tipo" name="tipo" class="form-control" [(ngModel)]="produtoEdit.tipo">
+          <option value="P">Produto</option>
+          <option value="S">Serviço</option>
+        </select>
 
         <label for="estoque">Saldo em Estoque</label>
         <input type="number"

@@ -4,6 +4,7 @@
   <ng-template pTemplate="header">
     <tr>
       <th>ID</th>
+      <th>Código</th>
       <th>Descrição</th>
       <th>Ações</th>
     </tr>
@@ -11,6 +12,7 @@
   <ng-template pTemplate="body" let-ccusto>
     <tr>
       <td>{{ccusto.id}}</td>
+      <td>{{ccusto.codigo}}</td>
       <td>{{ccusto.descricao}}</td>
       <td>
         <button class="btn btn-primary" (click)="editar(ccusto)">
@@ -35,6 +37,14 @@
 
     <div class="col-sm-12">
       <div class="form-group">
+
+        <label for="codigo">Código</label>
+        <input type="number"
+               required="required"
+               id="codigo"
+               name="codigo"
+               class="form-control"
+               [(ngModel)]="ccustoEdit.codigo">
 
         <label for="descricao">Descrição</label>
         <input type="text"
