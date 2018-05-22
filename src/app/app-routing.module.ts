@@ -10,9 +10,10 @@ import { CargoComponent } from './cargo/cargo.component';
 import { FuncionarioComponent } from './funcionario/funcionario.component';
 import {PerfilComponent} from './perfil/perfil.component';
 import {CcustoComponent} from './ccusto/ccusto.component';
-import {FuncionarioComponent} from './funcionario/funcionario.component';
 import {CpontoComponent} from './cponto/cponto.component';
 import {AtributoComponent} from './atributo/atributo.component';
+import {AtributofComponent} from './atributof/atributof.component';
+
 
 const routes: Routes = [
   {
@@ -28,7 +29,8 @@ const routes: Routes = [
       {path: 'setor', component: SetorComponent},
       {path: 'cargo', component: CargoComponent},
       {path: 'cponto', component: CpontoComponent},
-      {path: 'atributo', component: AtributoComponent}
+      {path: 'atributo', component: AtributoComponent},
+      {path: 'atributof', component: AtributofComponent}
     ]
   },
   {path: 'login', component: LoginComponent}

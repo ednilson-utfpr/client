@@ -14,12 +14,11 @@ import { SetorModule } from './setor/setor.module';
 import { CargoModule } from './cargo/cargo.module';
 import { FuncionarioModule } from './funcionario/funcionario.module';
 import {CcustoModule} from './ccusto/ccusto.module';
-import { SetorModule } from './setor/setor.module';
-import { CargoModule } from './cargo/cargo.module';
 import {PerfilModule} from './perfil/perfil.module';
-import {FuncionarioModule} from './funcionario/funcionario.module';
 import {CpontoModule} from './cponto/cponto.module';
 import {AtributoModule} from './atributo/atributo.module';
+import {AtributofModule} from './atributof/atributof.module';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +43,9 @@ import {AtributoModule} from './atributo/atributo.module';
     CcustoModule,
     CpontoModule,
     PerfilModule,
-    AtributoModule
+    AtributoModule,
+    AtributofModule
+    
   ],
   providers: [
     {

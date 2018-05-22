@@ -1,14 +1,12 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {FuncionarioComponent} from './funcionario.component';
-import {FuncionarioService} from './funcionario.service';
+import {AtributofComponent} from './atributof.component';
+import {AtributofService} from './atributof.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
-import {DropdownModule, Dropdown} from 'primeng/dropdown';
-import {CheckboxModule} from 'primeng/checkbox';
+import {DropdownModule} from 'primeng/dropdown';
 import {CalendarModule} from 'primeng/calendar';
-
 
 @NgModule({
   imports: [
@@ -16,17 +14,16 @@ import {CalendarModule} from 'primeng/calendar';
     FormsModule,
     TableModule,
     DialogModule,
-    DropdownModule,
-    CheckboxModule,
-    CalendarModule
+    CalendarModule,
+    DropdownModule
   ],
   declarations: [
-    FuncionarioComponent
+    AtributofComponent
   ],
   providers: [
-    FuncionarioService
+    AtributofService
   ]
 })
-export class FuncionarioModule {
+export class AtributofModule {
 
 }

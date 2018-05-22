@@ -1,0 +1,71 @@
+<button class="btn btn-primary" (click)="novo()">Criar novo</button>
+
+<p-table [value]="atributofs">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Funcionario</th>
+      <th>Atributo</th>    
+      <th>Vencimento</th>        
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-atributof>
+    <tr>
+      <td>{{atributof.id}}</td>
+      <td>{{atributof.funcionario}}</td>
+      <td>{{atributof.atributo}}</td>
+      <td>{{atributof.dataVenc}}</td>
+      <td>
+        <button class="btn btn-primary" (click)="editar(atributof)">
+          <i class="fa fa-edit"></i>
+        </button>
+        <button class="btn btn-danger" (click)="remover(atributof)">
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+
+<p-dialog header="Cadastro"
+          [(visible)]="showDialog"
+          modal="modal"
+          [responsive]="true"
+          [width]="500">
+
+  <div class="row">
+
+    <div class="form-group">
+      <label for="funcionario">Funcionario</label>
+        <p-dropdown name= "funcionario" 
+        [options]="funcionarios" 
+        [(ngModel)]="atributofEdit.funcionario" 
+        optionLabel="pessoa"></p-dropdown>
+  </div>
+
+
+  <div class="form-group">
+    <label for="atributo">Atributo</label>
+      <p-dropdown name= "atributo" 
+      [options]="atributos" 
+      [(ngModel)]="atributofEdit.atributo" 
+      optionLabel="nome"></p-dropdown>
+  </div>
+-
+
+    <div class="ui-g-12 ui-md-4">
+      <label>Data Vencimento</label>
+      <p-calendar [(ngModel)]="atributofEdit.dataVenc" 
+      dateFormat="dd/mm/yy"
+      [showIcon]="true"></p-calendar>
+    </div>
+
+  </div>
+
+  <p-footer>
+    <button type="button" class="btn btn-default" (click)="showDialog = false">Cancelar</button>
+    <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
+  </p-footer>
+</p-dialog>

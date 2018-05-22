@@ -34,6 +34,10 @@ export class LoginService implements CanActivate {
     return this.userInfo;
   }
 
+  hasRole(role: string) {
+    return this.getUserInfo().authorities.filter(e => e.authority === 'ROLE_' + role).length > 0;
+  }
+
   loggout() {
     Object.keys(new AccessToken()).forEach(key => localStorage.removeItem(key));
     this.isAuthenticated.next(false);
