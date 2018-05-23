@@ -893,7 +893,7 @@ a:hover, a:focus {
   background-color: #ffffff;
   margin-top: 60px;
   overflow: hidden;
-  box-shadow: 0 0 10px 0 rgba(33, 33, 33, .2);
+  box-shadow: 0 0 10px 0 rgba(33, 33, 33, .2);page-sidebar pagescroll ng-star-inserted
   -webkit-box-shadow: 0 0 10px 0 rgba(33, 33, 33, .2);
   -moz-box-shadow: 0 0 10px 0 rgba(33, 33, 33, .2);
   -o-box-shadow: 0 0 10px 0 rgba(33, 33, 33, .2);
@@ -9472,3 +9472,26 @@ table.dataTable.display tbody tr:first-child td {
 .ui-dropdown {
   width: 100% !important;
 }
+
+
+.ids{
+  width:50px;
+}
+
+.acoes{
+   width:130px;
+}
+
+.botao{
+    display:inline-block; 
+    top:20px; 
+    right:20px; 
+    position: absolute; 
+    z-index:5;
+}
+
+.title1{
+  margin-bottom:20px;
+}
+
+
