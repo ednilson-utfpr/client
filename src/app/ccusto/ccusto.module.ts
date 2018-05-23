@@ -1,25 +1,26 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {CargoComponent} from './cargo.component';
-import {CargoService} from './cargo.service';
+import {CcustoComponent} from './ccusto.component';
+import {CcustoService} from './ccusto.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
+import {RadioButtonModule} from 'primeng/primeng';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     TableModule,
-    DialogModule,
+    DialogModule
   ],
   declarations: [
-    CargoComponent
+    CcustoComponent
   ],
   providers: [
-    CargoService
+    CcustoService
   ]
 })
-export class CargoModule {
+export class CcustoModule {
 
 }

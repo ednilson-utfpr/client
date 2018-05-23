@@ -1,3 +1,4 @@
+import {UsuarioModule} from './usuario/usuario.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
@@ -9,10 +10,15 @@ import {AppRouting} from './app-routing.module';
 import {LoginModule} from './login/login.module';
 import {HomeModule} from './home/home.module';
 import {ProdutoModule} from './produto/produto.module';
-import { SetorModule } from './setor/setor.module';
-import { CargoModule } from './cargo/cargo.module';
+import {CcustoModule} from './ccusto/ccusto.module';
 import {PerfilModule} from './perfil/perfil.module';
-
+import {CpontoModule} from './cponto/cponto.module';
+import {AtributoModule} from './atributo/atributo.module';
+import {AtributofModule} from './atributof/atributof.module';
+import {AtividadeModule} from './atividade/atividade.module';
+import {FuncionarioModule} from './funcionario/funcionario.module';
+import {SetorModule} from './setor/setor.module';
+import {CargoModule} from './cargo/cargo.module';
 
 @NgModule({
   declarations: [
@@ -25,11 +31,18 @@ import {PerfilModule} from './perfil/perfil.module';
     HttpClientModule,
     LoginModule,
     HomeModule,
+    FuncionarioModule,
     ProdutoModule,
+    PerfilModule,
+    UsuarioModule,
     SetorModule,
     CargoModule,
-    ProdutoModule,
-    PerfilModule
+    CcustoModule,
+    CpontoModule,
+    PerfilModule,
+    AtributoModule,
+    AtributofModule,
+    AtividadeModule
   ],
   providers: [
     {
@@ -43,3 +56,5 @@ import {PerfilModule} from './perfil/perfil.module';
 })
 export class AppModule {
 }
+
+
