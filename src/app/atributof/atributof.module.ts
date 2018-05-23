@@ -1,10 +1,12 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {CargoComponent} from './cargo.component';
-import {CargoService} from './cargo.service';
+import {AtributofComponent} from './atributof.component';
+import {AtributofService} from './atributof.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
+import {DropdownModule} from 'primeng/dropdown';
+import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
   imports: [
@@ -12,14 +14,16 @@ import {FormsModule} from '@angular/forms';
     FormsModule,
     TableModule,
     DialogModule,
+    CalendarModule,
+    DropdownModule
   ],
   declarations: [
-    CargoComponent
+    AtributofComponent
   ],
   providers: [
-    CargoService
+    AtributofService
   ]
 })
-export class CargoModule {
+export class AtributofModule {
 
 }

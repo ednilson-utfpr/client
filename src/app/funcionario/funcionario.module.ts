@@ -9,6 +9,7 @@ import {DropdownModule, Dropdown} from 'primeng/dropdown';
 import {CheckboxModule} from 'primeng/checkbox';
 import {CalendarModule} from 'primeng/calendar';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -17,7 +18,7 @@ import {CalendarModule} from 'primeng/calendar';
     DialogModule,
     DropdownModule,
     CheckboxModule,
-    CalendarModule
+    CalendarModule,
   ],
   declarations: [
     FuncionarioComponent

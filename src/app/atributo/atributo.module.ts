@@ -1,7 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {CargoComponent} from './cargo.component';
-import {CargoService} from './cargo.service';
+import {AtributoComponent} from './atributo.component';
+import {AtributoService} from './atributo.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
@@ -11,15 +11,15 @@ import {FormsModule} from '@angular/forms';
     CommonModule,
     FormsModule,
     TableModule,
-    DialogModule,
+    DialogModule
   ],
   declarations: [
-    CargoComponent
+    AtributoComponent
   ],
   providers: [
-    CargoService
+    AtributoService
   ]
 })
-export class CargoModule {
+export class AtributoModule {
 
 }
