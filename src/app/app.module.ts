@@ -9,13 +9,10 @@ import {AppRouting} from './app-routing.module';
 import {LoginModule} from './login/login.module';
 import {HomeModule} from './home/home.module';
 import {ProdutoModule} from './produto/produto.module';
-<<<<<<< HEAD
 import { SetorModule } from './setor/setor.module';
 import { CargoModule } from './cargo/cargo.module';
-
-=======
 import {PerfilModule} from './perfil/perfil.module';
->>>>>>> e0aa5fd441e2f653cab97f1afb2ff81a17998f8e
+
 
 @NgModule({
   declarations: [
@@ -28,14 +25,11 @@ import {PerfilModule} from './perfil/perfil.module';
     HttpClientModule,
     LoginModule,
     HomeModule,
-<<<<<<< HEAD
-    ProdutoModule, 
+    ProdutoModule,
     SetorModule,
-    CargoModule   
-=======
+    CargoModule,
     ProdutoModule,
     PerfilModule
->>>>>>> e0aa5fd441e2f653cab97f1afb2ff81a17998f8e
   ],
   providers: [
     {
