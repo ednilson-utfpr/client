@@ -22,8 +22,8 @@
       <td>{{funcionario.pessoa}}</td>
       <td>{{funcionario.admissao}}</td>
       <td>{{funcionario.ativo}}</td>
-      <td>{{funcionario.setor}}</td>
-      <td>{{funcionario.cargo}}</td>
+      <td>{{funcionario.setor?.descricao}}</td>
+      <td>{{funcionario.cargo?.nome}}</td>
       <td>{{funcionario.salario}}</td>
       <td>
         <button class="btn btn-primary" (click)="editar(funcionario)">
