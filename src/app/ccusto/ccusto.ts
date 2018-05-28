@@ -2,7 +2,7 @@ export class Ccusto {
 
   id: number;
 
-  codigo: number;
+  codigo: string;
 
   descricao: string;
 

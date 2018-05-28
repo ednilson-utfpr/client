@@ -15,6 +15,9 @@ import {PerfilModule} from './perfil/perfil.module';
 import {CpontoModule} from './cponto/cponto.module';
 import {AtributoModule} from './atributo/atributo.module';
 import {AtividadeModule} from './atividade/atividade.module';
+import {SetorModule} from './setor/setor.module';
+import {CargoModule} from './cargo/cargo.module';
+import {FuncionarioModule} from './funcionario/funcionario.module';
 
 @NgModule({
   declarations: [
@@ -27,14 +30,14 @@ import {AtividadeModule} from './atividade/atividade.module';
     HttpClientModule,
     LoginModule,
     HomeModule,
-    FuncionarioModule,
     ProdutoModule,
     PerfilModule,
     UsuarioModule,
-    SetorModule,
-    CargoModule,
     CcustoModule,
     CpontoModule,
+    SetorModule,
+    CargoModule,
+    FuncionarioModule,
     PerfilModule,
     AtributoModule,
     AtividadeModule

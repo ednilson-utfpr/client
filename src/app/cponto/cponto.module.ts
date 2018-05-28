@@ -5,7 +5,7 @@ import {CpontoService} from './cponto.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
-import {CheckboxModule, Dropdown, DropdownModule, RadioButtonModule} from 'primeng/primeng';
+import {CalendarModule, CheckboxModule, Dropdown, DropdownModule, InputMaskModule, RadioButtonModule} from 'primeng/primeng';
 
 @NgModule({
   imports: [
@@ -14,6 +14,8 @@ import {CheckboxModule, Dropdown, DropdownModule, RadioButtonModule} from 'prime
     TableModule,
     DialogModule,
     DropdownModule,
+    CalendarModule,
+    InputMaskModule,
   ],
   declarations: [
     CpontoComponent

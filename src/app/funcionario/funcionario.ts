@@ -19,6 +19,6 @@ export class Funcionario {
 
   cargo: Cargo;
 
- 
+
 
 }

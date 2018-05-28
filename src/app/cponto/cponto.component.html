@@ -46,35 +46,36 @@
 
         <label for="funcionario">Funcionário</label>
         <p-dropdown name= "funcionario" id="funcionario" [options]="funcionarios"
-                    [(ngModel)]="cpontoEdit.funcionario" optionLabel="pessoa">
+                    [(ngModel)]="cpontoEdit.funcionario" placeholder="Selecione um funcionário" optionLabel="pessoa"
+                    [showClear]="true">
 
         </p-dropdown>
 
+        <label for="data">Data</label><br>
+        <p-inputMask id="data"
+                     mask="99/99/9999"
+                     [(ngModel)]="cpontoEdit.data"
+                     placeholder="Especificar a data"
+                     slotChar="dd/mm/yyyy">
+        </p-inputMask><br>
 
-        <label for="data">Data</label>
-        <input type="date"
-               required="required"
-               id="data"
-               name="data"
-               class="form-control"
-               [(ngModel)]="cpontoEdit.data">
 
-
-        <label for="entrada">Entrada</label>
-        <input type="time"
-               required="required"
-               id="entrada"
-               name="entrada"
-               class="form-control"
-               [(ngModel)]="cpontoEdit.entrada">
-
-        <label for="saida">Saída</label>
-        <input type="time"
-               required="required"
-               id="saida"
-               name="saida"
-               class="form-control"
-               [(ngModel)]="cpontoEdit.saida">
+        <label for="entrada">Entrada</label><br>
+        <p-calendar id="entrada"
+                    name="entrada"
+                    mask="12:00"
+                    [(ngModel)]="cpontoEdit.entrada"
+                    [timeOnly]="true"
+                    >
+        </p-calendar>
+        <!--timeFormat="HH:mm:ss"-->
+        <br><label for="saida">Saída</label><br>
+        <p-calendar id="saida"
+                    name="saida"
+                    mask="12:00"
+                    [(ngModel)]="cpontoEdit.saida"
+                    [timeOnly]="true">
+        </p-calendar>
 
 
       </div>
