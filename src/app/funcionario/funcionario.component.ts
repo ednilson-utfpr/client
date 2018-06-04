@@ -18,8 +18,9 @@ export class FuncionarioComponent implements OnInit {
   cargos: Cargo[];
   setores: Setor[];
 
-  constructor(private funcionarioService: FuncionarioService, private cargoService: CargoService,
-              private setorService: SetorService) {
+  constructor(private funcionarioService: FuncionarioService
+              , private cargoService: CargoService, private setorService: SetorService
+) {
 
   }
 

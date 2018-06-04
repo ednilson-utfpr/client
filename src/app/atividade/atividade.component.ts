@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AtividadeService} from './atividade.service';
 import {Atividade} from './atividade';
+import {FuncionarioService} from '../funcionario/funcionario.service';
+import {Funcionario} from '../funcionario/funcionario';
 // import {Obra} from '../obra/obra';
 // import {ObraService} from '../obra/obra.service';
 
@@ -11,11 +13,15 @@ import {Atividade} from './atividade';
 export class AtividadeComponent implements OnInit {
 
   atividades: Atividade[];
+  // obras: Obra[];
+  funcionarios: Funcionario[];
   showDialog = false;
   atividadeEdit = new Atividade();
-  // obras: Obra[];
+  funcionarioEdit = new Funcionario();
+
 
   constructor(private atividadeService: AtividadeService
+            , private funcionarioService: FuncionarioService
               // , private obraService: ObraService
           ) {
   }
@@ -23,6 +29,7 @@ export class AtividadeComponent implements OnInit {
   ngOnInit(): void {
     this.findAll();
     // this.obraService.findAll().subscribe(e => this.obras = e);
+    this.funcionarioService.findAll().subscribe(e => this.funcionarios = e);
 
   }
 

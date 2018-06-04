@@ -1,20 +1,24 @@
 // import {Obra} from '../obra/obra';
 
+import {Funcionario} from '../funcionario/funcionario';
+
 export class Atividade {
 
   id: number;
 
   // obra: Obra;
 
+  funcionario: Funcionario;
+
   descricao: string;
 
-  inicio: string;
+  inicio: Date;
 
-  fim: string;
+  fim: Date;
 
-  inicioPrevisto: string;
-
-  fimPrevisto: string;
+  // inicioPrevisto: string;
+  //
+  // fimPrevisto: string;
 
 
 

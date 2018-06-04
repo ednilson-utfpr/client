@@ -11,11 +11,15 @@ import {FuncionarioService} from '../funcionario/funcionario.service';
 export class CpontoComponent implements OnInit {
 
   cpontos: Cponto[];
+  funcionarios: Funcionario[];
   showDialog = false;
   cpontoEdit = new Cponto();
-  funcionarios: Funcionario[];
+  funcionarioEdit = new Funcionario();
 
-  constructor(private cpontoService: CpontoService, private funcionarioService: FuncionarioService) {
+
+  constructor(private cpontoService: CpontoService
+              , private funcionarioService: FuncionarioService
+  ) {
   }
 
   ngOnInit(): void {
