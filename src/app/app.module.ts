@@ -1,4 +1,4 @@
-import { UsuarioModule } from './usuario/usuario.module';
+import {UsuarioModule} from './usuario/usuario.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
@@ -14,10 +14,12 @@ import {CcustoModule} from './ccusto/ccusto.module';
 import {PerfilModule} from './perfil/perfil.module';
 import {CpontoModule} from './cponto/cponto.module';
 import {AtributoModule} from './atributo/atributo.module';
+import {AtributofModule} from './atributof/atributof.module';
 import {AtividadeModule} from './atividade/atividade.module';
 import {SetorModule} from './setor/setor.module';
 import {CargoModule} from './cargo/cargo.module';
 import {FuncionarioModule} from './funcionario/funcionario.module';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import {FuncionarioModule} from './funcionario/funcionario.module';
     FuncionarioModule,
     PerfilModule,
     AtributoModule,
+    AtributofModule,
     AtividadeModule
   ],
   providers: [

@@ -1,40 +1,49 @@
-<button class="btn btn-primary" (click)="novo()">Criar novo</button>
-
-<p-table [value]="atividades">
-  <ng-template pTemplate="header">
-    <tr>
-      <th>ID</th>
-      <!--<th>Obra</th>-->
-      <th>Funcionário</th>
-      <th>Descrição</th>
-      <th>Início</th>
-      <th>Fim</th>
-      <!--<th>Início Previsto</th>-->
-      <!--<th>Fim Previsto</th>-->
-      <th>Ações</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-atividade>
-    <tr>
-      <td>{{atividade.id}}</td>
-      <!--<td>{{atividade.obra.nome}}</td>-->
-      <td>{{atividade.funcionario.pessoa}}</td>
-      <td>{{atividade.descricao}}</td>
-      <td>{{atividade.inicio}}</td>
-      <td>{{atividade.fim}}</td>
-      <!--<td>{{atividade.inicioPrevisto}}</td>-->
-      <!--<td>{{atividade.fimPrevisto}}</td>-->
-      <td>
-        <button class="btn btn-primary" (click)="editar(atividade)">
-          <i class="fa fa-edit"></i>
-        </button>
-        <button class="btn btn-danger" (click)="remover(atividade)">
-          <i class="fa fa-trash"></i>
-        </button>
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
+<link rel="stylesheet" type="text/css" class=".../styles.css">
+<div _ngcontent-c2="" class="col-lg-12">
+  <section _ngcontent-c2="" class="box ">
+    <header _ngcontent-c2="" class="panel_header">
+      <h4 _ngcontent-c2="" class="title pull-left title1">Atividade</h4>
+      <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
+      <p-table [value]="atividades">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>ID</th>
+            <!--<th>Obra</th>-->
+            <th>Funcionário</th>
+            <th>Descrição</th>
+            <th>Início</th>
+            <th>Fim</th>
+            <!--<th>Início Previsto</th>-->
+            <!--<th>Fim Previsto</th>-->
+            <th>Ações</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-atividade>
+          <tr>
+            <td>{{atividade.id}}</td>
+            <!--<td>{{atividade.obra.nome}}</td>-->
+            <td>{{atividade.funcionario.pessoa}}</td>
+            <td>{{atividade.descricao}}</td>
+            <td>{{atividade.inicio}}</td>
+            <td>{{atividade.fim}}</td>
+            <!--<td>{{atividade.inicioPrevisto}}</td>-->
+            <!--<td>{{atividade.fimPrevisto}}</td>-->
+            <td>
+              <button class="btn btn-primary" (click)="editar(atividade)">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button class="btn btn-danger" (click)="remover(atividade)">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+      </header>
+      <div _ngcontent-c2="" class="content-body">
+      </div>  
+    </section>
+  </div>
 
 
 <p-dialog header="Cadastro de Atividades "
