@@ -1,4 +1,6 @@
 import {Funcionario} from '../funcionario/funcionario';
+import {Calendar} from 'primeng/primeng';
+import {Time} from '@angular/common';
 
 export class Cponto {
 
@@ -6,11 +8,11 @@ export class Cponto {
 
   funcionario: Funcionario;
 
-  data: string;
+  data: Date;
 
-  entrada: string;
+  entrada: Calendar;
 
-  saida: string;
+   saida: Calendar;
   //
   // saldo: number;
 

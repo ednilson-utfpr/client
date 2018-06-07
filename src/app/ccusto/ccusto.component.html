@@ -47,18 +47,19 @@
 
     <div class="col-sm-12">
       <div class="form-group">
-
-        <label for="codigo">Código</label>
-        <input type="number"
+        <label for="codigo">Código</label><br>
+        <p-inputMask mask="999.999.999"
                required="required"
                id="codigo"
                name="codigo"
-               class="form-control"
+               placeholder="999.999.999"
                [(ngModel)]="ccustoEdit.codigo">
+        </p-inputMask><br>
 
         <label for="descricao">Descrição</label>
         <input type="text"
                required="required"
+
                id="descricao"
                name="descricao"
                class="form-control"

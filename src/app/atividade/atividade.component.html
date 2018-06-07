@@ -4,46 +4,47 @@
     <header _ngcontent-c2="" class="panel_header">
       <h4 _ngcontent-c2="" class="title pull-left title1">Atividade</h4>
       <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
-
-
-        <p-table [value]="atividades">
-          <ng-template pTemplate="header">
-            <tr>
-              <th class="ids">ID</th>
-              <!--<th>Obra</th>-->
-              <th>Descrição</th>
-              <th>Início</th>
-              <th>Fim</th>
-              <th>Início Previsto</th>
-              <th>Fim Previsto</th>
-              <th class="acoes">Ações</th>
-            </tr>
-          </ng-template>
-          <ng-template pTemplate="body" let-atividade>
-            <tr>
-              <td>{{atividade.id}}</td>
-              <!--<td>{{atividade.obra.nome}}</td>-->
-              <td>{{atividade.descricao}}</td>
-              <td>{{atividade.inicio}}</td>
-              <td>{{atividade.fim}}</td>
-              <td>{{atividade.inicioPrevisto}}</td>
-              <td>{{atividade.fimPrevisto}}</td>
-              <td>
-                <button class="btn btn-primary" (click)="editar(atividade)">
-                  <i class="fa fa-edit"></i>
-                </button>
-                <button class="btn btn-danger" (click)="remover(atividade)">
-                  <i class="fa fa-trash"></i>
-                </button>
-              </td>
-            </tr>
-          </ng-template>
-        </p-table>
+      <p-table [value]="atividades">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>ID</th>
+            <!--<th>Obra</th>-->
+            <th>Funcionário</th>
+            <th>Descrição</th>
+            <th>Início</th>
+            <th>Fim</th>
+            <!--<th>Início Previsto</th>-->
+            <!--<th>Fim Previsto</th>-->
+            <th>Ações</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-atividade>
+          <tr>
+            <td>{{atividade.id}}</td>
+            <!--<td>{{atividade.obra.nome}}</td>-->
+            <td>{{atividade.funcionario.pessoa}}</td>
+            <td>{{atividade.descricao}}</td>
+            <td>{{atividade.inicio}}</td>
+            <td>{{atividade.fim}}</td>
+            <!--<td>{{atividade.inicioPrevisto}}</td>-->
+            <!--<td>{{atividade.fimPrevisto}}</td>-->
+            <td>
+              <button class="btn btn-primary" (click)="editar(atividade)">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button class="btn btn-danger" (click)="remover(atividade)">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
       </header>
       <div _ngcontent-c2="" class="content-body">
       </div>  
     </section>
   </div>
+
 
 <p-dialog header="Cadastro de Atividades "
           [(visible)]="showDialog"
@@ -61,6 +62,15 @@
                     <!--[(ngModel)]="atividadeEdit.obra" optionLabel="nome">-->
         <!--</p-dropdown>-->
 
+        <!--<label for="atributo">Atributo</label>-->
+
+        <label for="funcionario">Funcionário</label>
+        <p-dropdown name= "funcionario" id="funcionario" [options]="funcionarios"
+                    [(ngModel)]="atividadeEdit.funcionario" placeholder="Selecione um funcionário" optionLabel="pessoa"
+                    [showClear]="true">
+
+        </p-dropdown>
+
         <label for="descricao">Descrição</label>
         <input type="text"
                required="required"
@@ -69,33 +79,35 @@
                class="form-control"
                [(ngModel)]="atividadeEdit.descricao">
 
-        <label for="inicio">Início</label>
-        <input type="datetime-local"
-               id="inicio"
-               name="inicio"
-               class="form-control"
-               [(ngModel)]="atividadeEdit.inicio">
+        <label for="inicio">Início</label><br>
+        <p-inputMask id="inicio"
+                     mask="99/99/9999"
+                     [(ngModel)]="atividadeEdit.inicio"
+                     placeholder="Especificar a data"
+                     slotChar="dd/mm/yyyy">
+        </p-inputMask><br>
 
-        <label for="fim">Fim</label>
-        <input type="datetime-local"
-               id="fim"
-               name="fim"
-               class="form-control"
-               [(ngModel)]="atividadeEdit.fim">
+        <label for="fim">Fim</label><br>
+        <p-inputMask id="fim"
+                     mask="99/99/9999"
+                     [(ngModel)]="atividadeEdit.fim"
+                     placeholder="Especificar a data"
+                     slotChar="dd/mm/yyyy">
+        </p-inputMask><br>
 
-        <label for="inicioPrevisto">Início Previsto</label>
-        <input type="datetime-local"
-               id="inicioPrevisto"
-               name="inicioPrevisto"
-               class="form-control"
-               [(ngModel)]="atividadeEdit.inicioPrevisto">
+        <!--<label for="inicioPrevisto">Início Previsto</label>-->
+        <!--<input type="datetime-local"-->
+               <!--id="inicioPrevisto"-->
+               <!--name="inicioPrevisto"-->
+               <!--class="form-control"-->
+               <!--[(ngModel)]="atividadeEdit.inicioPrevisto">-->
 
-        <label for="fimPrevisto">Fim Previsto</label>
-        <input type="datetime-local"
-               id="fimPrevisto"
-               name="fimPrevisto"
-               class="form-control"
-               [(ngModel)]="atividadeEdit.fimPrevisto">
+        <!--<label for="fimPrevisto">Fim Previsto</label>-->
+        <!--<input type="datetime-local"-->
+               <!--id="fimPrevisto"-->
+               <!--name="fimPrevisto"-->
+               <!--class="form-control"-->
+               <!--[(ngModel)]="atividadeEdit.fimPrevisto">-->
 
       </div>
     </div>
