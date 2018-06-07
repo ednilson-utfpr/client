@@ -1,46 +1,38 @@
-<link rel="stylesheet" type="text/css" class=".../styles.css">
-<div _ngcontent-c2="" class="col-lg-12">
-  <section _ngcontent-c2="" class="box ">
-    <header _ngcontent-c2="" class="panel_header">
-      <h4 _ngcontent-c2="" class="title pull-left title1">Ponto</h4>
-      <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
-        <p-table [value]="cpontos">
-            <ng-template pTemplate="header">
-              <tr>
-                <th class="ids">ID</th>
-                <th>Funcionario</th>
-                <th>Data</th>
-                <th>Entrada</th>
-                <th>Saída</th>
-                <!--<th>Saldo em Horas</th>-->
-                <th class="acoes">Ações</th>
-              </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-cponto>
-              <tr>
-                <td>{{cponto.id}}</td>
-                <td>{{cponto.funcionario.pessoa}}</td>
-                <td>{{cponto.data}}</td>
-                <td>{{cponto.entrada}}</td>
-                <td>{{cponto.saida}}</td>
-                <!--<td>{{cponto.saldo}}</td>-->
-                <td>
-                  <button class="btn btn-primary" (click)="editar(cponto)">
-                    <i class="fa fa-edit"></i>
-                  </button>
-                  <button class="btn btn-danger" (click)="remover(cponto)">
-                    <i class="fa fa-trash"></i>
-                  </button>
-                </td>
-              </tr>
-            </ng-template>
-        </p-table>
-      </header>
-      <div _ngcontent-c2="" class="content-body">
-      </div>  
-    </section>
-  </div>
-        
+<button class="btn btn-primary" (click)="novo()">Criar novo</button>
+
+<p-table [value]="cpontos">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Funcionario</th>
+      <th>Data</th>
+      <th>Entrada</th>
+      <th>Saída</th>
+      <!--<th>Saldo em Horas</th>-->
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-cponto>
+    <tr>
+      <td>{{cponto.id}}</td>
+      <td>{{cponto.funcionario?.pessoa}}</td>
+      <td>{{cponto.data}}</td>
+      <td>{{cponto.entrada}}</td>
+      <td>{{cponto.saida}}</td>
+      <!--<td>{{cponto.saldo}}</td>-->
+      <td>
+        <button class="btn btn-primary" (click)="editar(cponto)">
+          <i class="fa fa-edit"></i>
+        </button>
+        <button class="btn btn-danger" (click)="remover(cponto)">
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+
 <p-dialog header="Cadastro do Cartão Ponto "
           [(visible)]="showDialog"
           modal="modal"
@@ -56,35 +48,30 @@
         <p-dropdown name= "funcionario" id="funcionario" [options]="funcionarios"
                     [(ngModel)]="cpontoEdit.funcionario" placeholder="Selecione um funcionário" optionLabel="pessoa"
                     [showClear]="true">
-
         </p-dropdown>
 
         <label for="data">Data</label><br>
-        <p-inputMask id="data"
-                     mask="99/99/9999"
-                     [(ngModel)]="cpontoEdit.data"
-                     placeholder="Especificar a data"
-                     slotChar="dd/mm/yyyy">
-        </p-inputMask><br>
-
+        <p-calendar id="data"
+            dataType="string"
+            dateFormat="dd/mm/yy"
+            [(ngModel)]="cpontoEdit.data"
+            placeholder="Especificar a data">
+        </p-calendar><br>
 
         <label for="entrada">Entrada</label><br>
         <p-calendar id="entrada"
-                    name="entrada"
-                    mask="12:00"
-                    [(ngModel)]="cpontoEdit.entrada"
-                    [timeOnly]="true"
-                    >
-        </p-calendar>
-        <!--timeFormat="HH:mm:ss"-->
-        <br><label for="saida">Saída</label><br>
-        <p-calendar id="saida"
-                    name="saida"
-                    mask="12:00"
-                    [(ngModel)]="cpontoEdit.saida"
-                    [timeOnly]="true">
+                    dataType="string"
+                     [timeOnly]="true"
+                     [(ngModel)]="cpontoEdit.entrada">
         </p-calendar>
 
+
+        <br><label for="saida">Saída</label><br>
+        <p-calendar id="saida"
+                    dataType="string"
+                    [timeOnly]="true"
+                    [(ngModel)]="cpontoEdit.saida">
+        </p-calendar>
 
       </div>
     </div>
