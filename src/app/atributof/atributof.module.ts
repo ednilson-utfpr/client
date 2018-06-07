@@ -15,7 +15,7 @@ import {CalendarModule} from 'primeng/calendar';
     TableModule,
     DialogModule,
     CalendarModule,
-    DropdownModule
+    DropdownModule,
   ],
   declarations: [
     AtributofComponent
