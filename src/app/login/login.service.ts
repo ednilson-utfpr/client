@@ -39,6 +39,7 @@ export class LoginService implements CanActivate {
       return this.getUserInfo().authorities.filter(e => e.authority === 'ROLE_' + role).length > 0;
     }
     return false;
+
   }
 
   loggout() {
