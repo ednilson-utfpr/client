@@ -13,10 +13,7 @@ import {CpontoComponent} from './cponto/cponto.component';
 import {AtributoComponent} from './atributo/atributo.component';
 import {AtributofComponent} from './atributof/atributof.component';
 import {AtividadeComponent} from './atividade/atividade.component';
-<<<<<<< HEAD
 import {FuncionarioComponent} from './funcionario/funcionario.component';
-=======
->>>>>>> 432a033488ff684318872a9e6b5bc1230bc244e9
 
 const routes: Routes = [
   {
