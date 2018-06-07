@@ -1,6 +1,7 @@
 import {Funcionario} from '../funcionario/funcionario';
 import {Calendar} from 'primeng/primeng';
 import {Time} from '@angular/common';
+import DateTimeFormat = Intl.DateTimeFormat;
 
 export class Cponto {
 
@@ -10,9 +11,9 @@ export class Cponto {
 
   data: Date;
 
-  entrada: Calendar;
+  entrada: String;
 
-   saida: Calendar;
+   saida: String;
   //
   // saldo: number;
 
