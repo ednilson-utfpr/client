@@ -86,12 +86,7 @@
             <span  class="title">Atividade</span>
           </a>
         </li>
-        <li>
-          <a routerLink="/bancohoras">
-            <i class="fa fa-clock-o"></i>
-            <span  class="title">Banco de Horas</span>
-          </a>
-        </li>
+
 
         <li *ngIf="hasRole('ATRIBUTO_CRIAR') || hasRole('ATRIBUTO_EDITAR') || hasRole('ATRIBUTO_REMOVER') || hasRole('ADMIN')">
           <a routerLink="/atributo">
@@ -118,6 +113,12 @@
           <a routerLink="/cponto">
             <i class="fa fa-clock-o"></i>
             <span  class="title">Cartão Ponto</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/bancohoras" *ngIf="hasRole('PONTO_CRIAR') || hasRole('PONTO_EDITAR') || hasRole('PONTO_REMOVER') || hasRole('ADMIN')">
+            <i class="fa fa-clock-o"></i>
+            <span  class="title">Banco de Horas</span>
           </a>
         </li>
 
