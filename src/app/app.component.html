@@ -128,12 +128,14 @@
           </a>
         </li>
 
-        <li *ngIf="hasRole('FUNCIONARIO_CRIAR')">
+        <li *ngIf="hasRole('ROLE_FUNCIONARIO_CRIAR') || hasRole('ROLE_FUNCIONARIO_EDITAR') || hasRole('ROLE_FUNCIONARIO_REMOVER')">
           <a routerLink="/funcionario">
             <i class="fa fa-users"></i>
-            <span  class="title">Funcionário</span>
+            <span class="title">Funcionário</span>
           </a>
         </li>
+      
+        
 
         <li>
           <a routerLink="/atributo">
