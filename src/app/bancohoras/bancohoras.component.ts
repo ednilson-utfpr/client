@@ -106,7 +106,7 @@ export class BancohorasComponent implements OnInit {
       hora += bh.horas;
       min += bh.minutos;
     });
-    while( min > 60 ){
+    while (min > 60) {
       hora += 1;
       min -= 60;
     }
