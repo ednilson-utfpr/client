@@ -17,8 +17,8 @@
           <ng-template pTemplate="body" let-atributof>
             <tr>
               <td>{{atributof.id}}</td>
-              <td>{{atributof.funcionario}}</td>
-              <td>{{atributof.atributo}}</td>
+              <td>{{atributof.funcionario?.pessoa}}</td>
+              <td>{{atributof.atributo?.nome}}</td>
               <td>{{atributof.dataVenc}}</td>
               <td>
                 <button class="btn btn-primary" (click)="editar(atributof)">
@@ -62,12 +62,11 @@
       optionLabel="nome"></p-dropdown>
   </div>
 
-    <div class="ui-g-12 ui-md-10">
-      <label>Data Vencimento</label>
-      <p-calendar [(ngModel)]="atributofEdit.dataVenc" 
-      dateFormat="dd/mm/yy"
-      [showIcon]="true"></p-calendar>
-    </div>
+    <label for="idDataVenc">Data Vencimento</label>
+      <p-calendar id="idDataVenc" 
+        dataType="string"
+        [(ngModel)]="atributofEdit.dataVenc" 
+        dateFormat="dd/mm/yy"></p-calendar>
 
   </div>
 
