@@ -58,7 +58,7 @@
                id="username"
                name="username"
                class="form-control"
-               [(ngModel)]="usuarioEdit.username">
+               [(ngModel)]="usuarioEdit.username">       
 
         <label for="password">Senha</label>
         <input type="password"
@@ -90,7 +90,7 @@
 
   <p-footer>
 
-    <button type="button" class="btn btn-default" (click)="showDialog = false">Cancelar</button>
+    <button type="button" class="btn btn-default" (click)="showDialog = false; erro()">Cancelar</button>
     <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
   </p-footer>
 </p-dialog>

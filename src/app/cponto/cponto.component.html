@@ -52,6 +52,8 @@
 
         <label for="data">Data</label><br>
         <p-calendar id="data"
+            [locale]="pt"
+            showIcon="true"
             dataType="string"
             dateFormat="dd/mm/yy"
             [(ngModel)]="cpontoEdit.data"
@@ -60,6 +62,7 @@
 
         <label for="entrada">Entrada</label><br>
         <p-calendar id="entrada"
+                    placeholder="Hora de entrada"
                     dataType="string"
                      [timeOnly]="true"
                      [(ngModel)]="cpontoEdit.entrada"
@@ -68,6 +71,7 @@
         </p-calendar>
         <br><label for="saida">Saída</label><br>
         <p-calendar id="saida"
+                    placeholder="Hora de saída"
                     dataType="string"
                     [timeOnly]="true"
                     [(ngModel)]="cpontoEdit.saida"

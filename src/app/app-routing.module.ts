@@ -16,6 +16,7 @@ import {AtividadeComponent} from './atividade/atividade.component';
 import {FuncionarioComponent} from './funcionario/funcionario.component';
 import {BancohorasComponent} from './bancohoras/bancohoras.component';
 
+
 const routes: Routes = [
   {
     path: '', canActivate: [LoginService], children: [
