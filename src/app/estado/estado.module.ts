@@ -1,27 +1,25 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {CcustoComponent} from './ccusto.component';
-import {CcustoService} from './ccusto.service';
+import {EstadoComponent} from './estado.component';
+import {EstadoService} from './estado.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
-import {InputMaskModule, RadioButtonModule} from 'primeng/primeng';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     TableModule,
-    DialogModule,
-    InputMaskModule
+    DialogModule
   ],
   declarations: [
-    CcustoComponent
+    EstadoComponent
   ],
   providers: [
-    CcustoService
+    EstadoService
   ]
 })
-export class CcustoModule {
+export class EstadoModule {
 
 }

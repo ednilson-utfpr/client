@@ -103,7 +103,7 @@
         <li>
           <a routerLink="/usuario">
             <i class="fa fa-user"></i>
-            <span  class="title">Usu√°rios</span>
+            <span  class="title">Usu·rios</span>
           </a>
         </li>
 
@@ -131,7 +131,21 @@
         <li *ngIf="hasRole('FUNCIONARIO_CRIAR')">
           <a routerLink="/funcionario">
             <i class="fa fa-users"></i>
-            <span  class="title">Funcion√°rio</span>
+            <span  class="title">Funcion·rio</span>
+          </a>
+        </li>
+        
+        <li *ngIf="hasRole('FORNECEDOR_CRIAR')">
+          <a routerLink="/fornecedor">
+            <i class="fa fa-users"></i>
+            <span  class="title">Fornecedor</span>
+          </a>
+        </li>
+        
+        <li *ngIf="hasRole('CLIENTE_CRIAR')">
+          <a routerLink="/cliente">
+            <i class="fa fa-users"></i>
+            <span  class="title">Cliente</span>
           </a>
         </li>
 

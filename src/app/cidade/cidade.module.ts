@@ -1,13 +1,12 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {AtividadeComponent} from './atividade.component';
-import {AtividadeService} from './atividade.service';
+import {CidadeComponent} from './cidade.component';
+import {CidadeService} from './cidade.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
-
-import {CheckboxModule, Dropdown, DropdownModule, InputMaskModule, RadioButtonModule} from 'primeng/primeng';
-
+import {DropdownModule} from 'primeng/primeng';
+import {EstadoService} from '../estado/estado.service';
 
 @NgModule({
   imports: [
@@ -15,16 +14,16 @@ import {CheckboxModule, Dropdown, DropdownModule, InputMaskModule, RadioButtonMo
     FormsModule,
     TableModule,
     DialogModule,
-    DropdownModule,
-    InputMaskModule,
+    DropdownModule
   ],
   declarations: [
-    AtividadeComponent
+    CidadeComponent
   ],
   providers: [
-    AtividadeService
+    CidadeService,
+    EstadoService
   ]
 })
-export class AtividadeModule {
+export class CidadeModule {
 
 }

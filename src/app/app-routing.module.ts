@@ -13,10 +13,12 @@ import {CpontoComponent} from './cponto/cponto.component';
 import {AtributoComponent} from './atributo/atributo.component';
 import {AtributofComponent} from './atributof/atributof.component';
 import {AtividadeComponent} from './atividade/atividade.component';
-<<<<<<< HEAD
 import {FuncionarioComponent} from './funcionario/funcionario.component';
-=======
->>>>>>> 432a033488ff684318872a9e6b5bc1230bc244e9
+import {FornecedorComponent} from './fornecedor/fornecedor.component';
+import {ClienteComponent} from './cliente/cliente.component';
+import {EstadoComponent} from './estado/estado.component';
+import {CidadeComponent} from './cidade/cidade.component';
+
 
 const routes: Routes = [
   {
@@ -29,12 +31,15 @@ const routes: Routes = [
       {path: 'perfil', component: PerfilComponent},
       {path: 'usuario', component: UsuarioComponent},
       {path: 'ccusto', component: CcustoComponent},
-      {path: 'setor', component: SetorComponent},
-      {path: 'cargo', component: CargoComponent},
       {path: 'cponto', component: CpontoComponent},
       {path: 'atributo', component: AtributoComponent},
+      {path: 'fornecedor', component: FornecedorComponent},
+      {path: 'cliente', component: ClienteComponent},
       {path: 'atributof', component: AtributofComponent},
-      {path: 'atividade', component: AtividadeComponent}
+      {path: 'atividade', component: AtividadeComponent},
+      {path: 'cliente', component: ClienteComponent},
+      {path: 'estado', component: EstadoComponent},
+      {path: 'cidade', component: CidadeComponent}
     ]
   },
   {path: 'login', component: LoginComponent}

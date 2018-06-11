@@ -1,16 +1,13 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {FuncionarioComponent} from './funcionario.component';
-import {FuncionarioService} from './funcionario.service';
+import {ClienteComponent} from './cliente.component';
+import {ClienteService} from './cliente.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
-import {DropdownModule, Dropdown} from 'primeng/dropdown';
-import {CheckboxModule} from 'primeng/checkbox';
-import {CalendarModule} from 'primeng/calendar';
 import {EstadoService} from '../estado/estado.service';
 import {CidadeService} from '../cidade/cidade.service';
-
+import {DropdownModule, CheckboxModule} from 'primeng/primeng';
 
 @NgModule({
   imports: [
@@ -19,18 +16,17 @@ import {CidadeService} from '../cidade/cidade.service';
     TableModule,
     DialogModule,
     DropdownModule,
-    CheckboxModule,
-    CalendarModule,
+    CheckboxModule
   ],
   declarations: [
-    FuncionarioComponent
+    ClienteComponent
   ],
   providers: [
-    FuncionarioService,
+    ClienteService,
     CidadeService,
     EstadoService
   ]
 })
-export class FuncionarioModule {
+export class ClienteModule {
 
 }

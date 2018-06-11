@@ -1,0 +1,159 @@
+<button class="btn btn-primary" (click)="novo()">Criar novo</button>
+
+<p-table [value]="fornecedores">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Apelido</th>
+      <th>CGC</th>
+      <th>Telefone</th>
+      <th>Endereço</th>
+      <th>E-mail</th>
+      <th>Estado</th>
+      <th>Cidade</th>
+	  <th>Ativo</th>
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-fornecedor>
+    <tr>
+      <td>{{fornecedor.id}}</td>
+      <td>{{fornecedor.nome}}</td>
+      <td>{{fornecedor.apelido}}</td>
+      <td>{{fornecedor.cgc}}</td>
+      <td>{{fornecedor.telefone}}</td>
+      <td>{{fornecedor.endereco}}</td>
+      <td>{{fornecedor.email}}</td>
+      <td>{{fornecedor.estado}}</td>
+	  <td>{{fornecedor.cidade}}</td>
+	  <td>{{cliente.ativo}}</td>
+	  
+      <td>
+        <button class="btn btn-primary" (click)="editar(fornecedor)">
+          <i class="fa fa-edit"></i>
+        </button>
+        <button class="btn btn-danger" (click)="remover(fornecedor)">
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+
+<p-dialog header="Cadastro"
+          [(visible)]="showDialog"
+          modal="modal"
+          [responsive]="true"
+          [width]="500">
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text"
+               id="nome"
+               name="nome"
+               class="form-control"
+               [(ngModel)]="fornecedorEdit.nome">
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="apelido">Apelido</label>
+        <input type="text"
+               id="apelido"
+               name="apelido"
+               class="form-control"
+               [(ngModel)]="fornecedorEdit.apelido">
+      </div>
+    </div>
+  </div>
+  
+   <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="cgc">CNPJ</label>
+        <input type="text"
+               id="cgc"
+               name="cgc"
+               class="form-control"
+               [(ngModel)]="fornecedorEdit.cgc">
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="telefone">Telefone</label>
+        <input type="text"
+               id="telefone"
+               name="telefone"
+               class="form-control"
+               [(ngModel)]="fornecedorEdit.telefone">
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="endereco">Endereco</label>
+        <input type="text"
+               id="endereco"
+               name="endereco"
+               class="form-control"
+               [(ngModel)]="fornecedorEdit.endereco">
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+     <div class="col-sm-12">
+       <div class="form-group">
+         <label for="email">E-mail</label>
+         <input type="text"
+                id="email"
+                name="email"
+                class="form-control"
+                [(ngModel)]="fornecedorEdit.email">
+       </div>
+     </div>
+  </div>
+
+	<div class="row">
+     <div class="col-sm-12">
+       <div class="form-group">
+		    <label for="estado">Estado</label>
+		    <p-dropdown name= "estado" id="estado" [options]="estados" (onChange)="buscaCidades(fornecedorEdit.estado)"
+		                [(ngModel)]="fornecedorEdit.estado" optionLabel="nome" [autoDisplayFirst]="false">
+		    </p-dropdown>
+       </div>
+     </div>
+  </div>
+        
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+	    <label for="cidade">Cidade</label>
+	    <p-dropdown name= "cidade" id="cidade" [options]="cidades"
+	               [(ngModel)]="fornecedorEdit.cidade" optionLabel="nome" [autoDisplayFirst]="false">
+	    </p-dropdown>
+       </div>
+     </div>
+  </div>
+    
+
+  <p-checkbox name="ativo" [(ngModel)]="fornecedorEdit.ativo" label="Ativo" binary="true"></p-checkbox>
+  
+  <p-footer>
+
+    <button type="button" class="btn btn-default" (click)="showDialog = false">Cancelar</button>
+    <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
+  </p-footer>
+</p-dialog>

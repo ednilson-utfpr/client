@@ -16,10 +16,14 @@ import {CpontoModule} from './cponto/cponto.module';
 import {AtributoModule} from './atributo/atributo.module';
 import {AtributofModule} from './atributof/atributof.module';
 import {AtividadeModule} from './atividade/atividade.module';
-import {FuncionarioModule} from './funcionario/funcionario.module';
 import {SetorModule} from './setor/setor.module';
 import {CargoModule} from './cargo/cargo.module';
-
+import {FuncionarioModule} from './funcionario/funcionario.module';
+import {PessoaModule} from './pessoa/pessoa.module';
+import {FornecedorModule} from './fornecedor/fornecedor.module';
+import {ClienteModule} from './cliente/cliente.module';
+import {EstadoModule} from './estado/estado.module';
+import {CidadeModule} from './cidade/cidade.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -31,18 +35,27 @@ import {CargoModule} from './cargo/cargo.module';
     HttpClientModule,
     LoginModule,
     HomeModule,
+
     FuncionarioModule,
+
     ProdutoModule,
     PerfilModule,
     UsuarioModule,
-    SetorModule,
-    CargoModule,
     CcustoModule,
     CpontoModule,
+    SetorModule,
+    CargoModule,
+    FuncionarioModule,
     PerfilModule,
     AtributoModule,
+    SetorModule,
+    PessoaModule,
+    FornecedorModule,
+	ClienteModule,
     AtributofModule,
-    AtividadeModule
+    AtividadeModule,
+    EstadoModule,
+    CidadeModule
   ],
   providers: [
     {

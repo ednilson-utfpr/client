@@ -41,7 +41,7 @@
     </section>
   </div>
         
-<p-dialog header="Cadastro do Cart√£o Ponto "
+<p-dialog header="Cadastro do Cart„o Ponto "
           [(visible)]="showDialog"
           modal="modal"
           [responsive]="true"
@@ -52,10 +52,9 @@
     <div class="col-sm-12">
       <div class="form-group">
 
-        <label for="funcionario">Funcion√°rio</label>
+        <label for="funcionario">Funcion·rio</label>
         <p-dropdown name= "funcionario" id="funcionario" [options]="funcionarios"
                     [(ngModel)]="cpontoEdit.funcionario" optionLabel="pessoa">
-
         </p-dropdown>
 
 
@@ -83,6 +82,34 @@
                name="saida"
                class="form-control"
                [(ngModel)]="cpontoEdit.saida">
+
+
+        <label for="data">Data</label><br>
+        <p-inputMask id="data"
+                     mask="99/99/9999"
+                     [(ngModel)]="cpontoEdit.data"
+                     placeholder="Especificar a data"
+                     slotChar="dd/mm/yyyy">
+        </p-inputMask><br>
+
+
+        <label for="entrada">Entrada</label><br>
+        <p-calendar id="entrada"
+                    name="entrada"
+                    mask="12:00"
+                    [(ngModel)]="cpontoEdit.entrada"
+                    [timeOnly]="true"
+                    >
+        </p-calendar>
+        <!--timeFormat="HH:mm:ss"-->
+        <br><label for="saida">Sa√≠da</label><br>
+        <p-calendar id="saida"
+                    name="saida"
+                    mask="12:00"
+                    [(ngModel)]="cpontoEdit.saida"
+                    [timeOnly]="true">
+        </p-calendar>
+
 
 
       </div>
