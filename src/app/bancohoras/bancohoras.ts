@@ -1,13 +1,8 @@
 import {Funcionario} from '../funcionario/funcionario';
 
-export class Cponto {
-
-  id: number;
+export class Bancohoras {
   funcionario: Funcionario;
   data: Date;
-  entrada: String;
-  saida: String;
-
-
+  horas: number;
+  minutos: number;
 }
-

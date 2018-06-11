@@ -1,4 +1,4 @@
-import { UsuarioComponent } from './usuario/usuario.component';
+import {UsuarioComponent} from './usuario/usuario.component';
 import {RouterModule, Routes} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import {LoginService} from './login/login.service';
@@ -14,6 +14,7 @@ import {AtributoComponent} from './atributo/atributo.component';
 import {AtributofComponent} from './atributof/atributof.component';
 import {AtividadeComponent} from './atividade/atividade.component';
 import {FuncionarioComponent} from './funcionario/funcionario.component';
+import {BancohorasComponent} from './bancohoras/bancohoras.component';
 
 const routes: Routes = [
   {
@@ -31,7 +32,8 @@ const routes: Routes = [
       {path: 'cponto', component: CpontoComponent},
       {path: 'atributo', component: AtributoComponent},
       {path: 'atributof', component: AtributofComponent},
-      {path: 'atividade', component: AtividadeComponent}
+      {path: 'atividade', component: AtividadeComponent},
+      {path: 'bancohoras', component: BancohorasComponent}
     ]
   },
   {path: 'login', component: LoginComponent}

@@ -62,25 +62,22 @@
         <p-calendar id="entrada"
                     dataType="string"
                      [timeOnly]="true"
-                     [(ngModel)]="cpontoEdit.entrada">
+                     [(ngModel)]="cpontoEdit.entrada"
+                    hourFormat="24"
+        >
         </p-calendar>
-
-
         <br><label for="saida">Saída</label><br>
         <p-calendar id="saida"
                     dataType="string"
                     [timeOnly]="true"
-                    [(ngModel)]="cpontoEdit.saida">
+                    [(ngModel)]="cpontoEdit.saida"
+                    hourFormat="24"
+        >
         </p-calendar>
-
       </div>
     </div>
-
   </div>
-
-
   <p-footer>
-
     <button type="button" class="btn btn-default" (click)="showDialog = false">Cancelar</button>
     <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
   </p-footer>
