@@ -15,6 +15,7 @@ export class CpontoComponent implements OnInit {
   showDialog = false;
   cpontoEdit = new Cponto();
   funcionarioEdit = new Funcionario();
+  pt: any;
 
 
   constructor(private cpontoService: CpontoService
@@ -26,6 +27,14 @@ export class CpontoComponent implements OnInit {
     this.findAll();
     this.funcionarioService.findAll().subscribe(e => this.funcionarios = e);
 
+    this.pt = {
+      monthNames : [ 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho',
+        'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro' ],
+      monthNamesShort : [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ],
+      dayNames : [ 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado' ],
+      dayNamesShort : [ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb' ],
+      dayNamesMin : [ 'D', 'S', 'T', 'Q', 'Q', 'S', 'S' ],
+    };
   }
 
   findAll() {

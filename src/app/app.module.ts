@@ -19,6 +19,7 @@ import {AtividadeModule} from './atividade/atividade.module';
 import {SetorModule} from './setor/setor.module';
 import {CargoModule} from './cargo/cargo.module';
 import {FuncionarioModule} from './funcionario/funcionario.module';
+import {BancohorasModule} from './bancohoras/bancohoras.module';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import {FuncionarioModule} from './funcionario/funcionario.module';
     PerfilModule,
     AtributoModule,
     AtributofModule,
-    AtividadeModule
+    AtividadeModule,
+    BancohorasModule
   ],
   providers: [
     {

@@ -1,6 +1,7 @@
 // import {Obra} from '../obra/obra';
 
 import {Funcionario} from '../funcionario/funcionario';
+import {Atributo} from '../atributo/atributo';
 
 export class Atividade {
 
@@ -8,19 +9,27 @@ export class Atividade {
 
   // obra: Obra;
 
-  funcionario: Funcionario;
+  atributo: Atributo[];
+
+  funcionario: Funcionario[];
 
   descricao: string;
 
   inicio: Date;
 
+  horaInicial: String;
+
   fim: Date;
 
-  // inicioPrevisto: string;
-  //
-  // fimPrevisto: string;
+  horaFinal: String;
 
+  inicioPrevisto: Date;
 
+  horaInicialPrevisto: String;
+
+  fimPrevisto: Date;
+
+  horaFinalPrevisto: String;
 
 }
 
