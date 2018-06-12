@@ -14,6 +14,7 @@ import {
   MultiSelectModule,
   RadioButtonModule
 } from 'primeng/primeng';
+import {AtributofService} from '../atributof/atributof.service';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import {
     AtividadeComponent
   ],
   providers: [
-    AtividadeService
+    AtividadeService,
+    AtributofService
   ]
 })
 export class AtividadeModule {
