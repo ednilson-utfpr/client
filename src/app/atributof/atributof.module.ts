@@ -5,8 +5,7 @@ import {AtributofService} from './atributof.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
-import {DropdownModule} from 'primeng/dropdown';
-import {CalendarModule} from 'primeng/calendar';
+import {CalendarModule, DropdownModule} from 'primeng/primeng';
 
 @NgModule({
   imports: [
@@ -14,8 +13,8 @@ import {CalendarModule} from 'primeng/calendar';
     FormsModule,
     TableModule,
     DialogModule,
-    CalendarModule,
     DropdownModule,
+    CalendarModule,
   ],
   declarations: [
     AtributofComponent

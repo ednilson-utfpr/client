@@ -64,10 +64,4 @@ export class CpontoComponent implements OnInit {
       this.findAll();
     });
   }
-
-
-
-
-
-
 }
