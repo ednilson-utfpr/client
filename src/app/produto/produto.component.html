@@ -4,14 +4,23 @@
   <ng-template pTemplate="header">
     <tr>
       <th>ID</th>
+      <th>Nome</th>
       <th>Descrição</th>
+      <th>Tipo</th>
+      <th>Estoque</th>
+      <th>Valor</th>
+      
       <th>Ações</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-produto>
     <tr>
       <td>{{produto.id}}</td>
+      <td>{{produto.nome}}</td>
       <td>{{produto.descricao}}</td>
+      <td>{{produto.tipo}}</td>
+      <td>{{produto.estoque}}</td>
+      <td>{{produto.valor}}</td>
       <td>
         <button class="btn btn-primary" (click)="editar(produto)">
           <i class="fa fa-edit"></i>
@@ -25,7 +34,7 @@
 </p-table>
 
 
-<p-dialog header="Cadastro"
+<p-dialog header="Cadastro de Produtos e Serviços"
           [(visible)]="showDialog"
           modal="modal"
           [responsive]="true"
@@ -33,6 +42,17 @@
 
   <div class="row">
 
+      <div class="col-sm-12">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text"
+                   id="nome"
+                   name="nome"
+                   class="form-control"
+                   [(ngModel)]="produtoEdit.nome">
+      </div>
+          
+    
     <div class="col-sm-12">
       <div class="form-group">
         <label for="descricao">Descrição</label>
@@ -42,14 +62,48 @@
                class="form-control"
                [(ngModel)]="produtoEdit.descricao">
       </div>
+
+      <div class="form-group">
+        <label for="tipo">Tipo</label>
+           <br>
+                <select id="tipo" name="tipo" [(ngModel)]="produtoEdit.tipo">
+                 <option value="Serviço">Serviço </option>
+                 <option value="Produto">Produto </option>
+                </select>
+           <br>
+      </div>
+
+      <div class="form-group">
+        <label for="estoque">Estoque</label>
+        <br>
+        <p-spinner size="30" 
+        [(ngModel)]="produtoEdit.estoque" [min]="0" [max]="100000"></p-spinner>
+    
+      </div>
+
+      
+      <div class="form-group">
+          <div class="col-sm-6">
+        <label for="valor">Valor</label>
+        <input type="text"
+               id="valor"
+               name="valor"
+               class="form-control"
+               [(ngModel)]="produtoEdit.valor">
+      </div>
+      </div>
+
+
     </div>
 
   </div>
-
+  </div>
 
   <p-footer>
-
     <button type="button" class="btn btn-default" (click)="showDialog = false">Cancelar</button>
     <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
   </p-footer>
 </p-dialog>
+
+
+
