@@ -7,4 +7,14 @@ export class Produto {
   estoque: number;
   valor: number;
 
+  nome: string;
+
+  tipo: string;
+
+  estoque: number;
+
+  valor: number;
+
+
 }
+

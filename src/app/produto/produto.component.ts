@@ -48,6 +48,14 @@ export class ProdutoComponent implements OnInit {
   }
 
 
+<<<<<<< HEAD
    
   
+=======
+
+
+
+
+
+>>>>>>> 976cccce9c8c9d79575e442bb58cd53e1469ccd2
 }

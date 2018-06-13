@@ -1,0 +1,184 @@
+<link rel="stylesheet" type="text/css" class=".../styles.css">
+<div _ngcontent-c2="" class="col-lg-12">
+  <section _ngcontent-c2="" class="box ">
+    <header _ngcontent-c2="" class="panel_header">
+      <h4 _ngcontent-c2="" class="title pull-left title1">Atividade</h4>
+      <button class="btn btn-primary botao" (click)="novo()">Criar novo</button>
+      <p-table [value]="atividades">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>ID</th>
+            <!--<th>Obra</th>-->
+            <th>Descrição da Atividade</th>
+            <th>Início</th>
+            <th>Fim</th>
+            <th>Início Previsto</th>
+            <th>Fim Previsto</th>
+            <th>Ações</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-atividade>
+          <tr>
+            <td>{{atividade.id}}</td>
+            <!--<td>{{atividade.obra?.nome}}</td>-->
+            <td>{{atividade.descricao}}</td>
+            <td>{{atividade.inicio}}</td>
+            <td>{{atividade.fim}}</td>
+            <td>{{atividade.inicioPrevisto}}</td>
+            <td>{{atividade.fimPrevisto}}</td>
+            <td>
+              <button class="btn btn-primary" (click)="editar(atividade)">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button class="btn btn-danger" (click)="remover(atividade)">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </header>
+    <div _ngcontent-c2="" class="content-body">
+    </div>
+  </section>
+</div>
+
+
+<p-dialog header="Cadastro de Atividades "
+          [(visible)]="showDialog"
+          modal="modal"
+          [responsive]="true"
+          [width]="500">
+
+  <div class="row">
+
+    <div class="col-sm-12">
+      <div class="form-group">
+
+        <!--<label for="obra">Obra</label>-->
+        <!--<p-dropdown name= "obra" id="obra" [options]="obras"-->
+        <!--[(ngModel)]="atividadeEdit.obra" optionLabel="nome">-->
+        <!--</p-dropdown>-->
+
+        <label for="atributo">Atributo(s)</label><br>
+        <p-multiSelect name="atributo" id="atributo"
+                       defaultLabel="Escolha os atributos &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                       optionLabel="descricao"
+                       filterPlaceHolder="  Digite aqui o nome do atributo"
+                       selectedItemsLabel="{0} atributos selecionados"
+                       [options]="atributos"
+                       [(ngModel)]="atividadeEdit.atributo"
+                       [panelStyle]="{minWidth:'30em'}"
+                       (onChange)="atributoChange()"
+        >
+        </p-multiSelect>
+        <br>
+
+        <label for="funcionario">Funcionário(s)</label><br>
+        <p-multiSelect name="funcionario" id="funcionario"
+                       defaultLabel="Escolha os funcionários "
+                       optionLabel="pessoa"
+                       filterPlaceHolder="  Digite aqui o nome do funcionário"
+                       selectedItemsLabel="{0} funcionários selecionados"
+                       [options]="funcionarios"
+                       [(ngModel)]="atividadeEdit.funcionario"
+                       [panelStyle]="{minWidth:'30em'}">
+        </p-multiSelect>
+        <br>
+
+        <label for="descricao">Descrição</label>
+        <input type="text"
+               required="required"
+               id="descricao"
+               name="descricao"
+               class="form-control"
+               [(ngModel)]="atividadeEdit.descricao">
+
+        <label for="inicio">Início</label><br>
+        <p-calendar id="inicio"
+                    [locale]="pt"
+                    showIcon="true"
+                    dataType="string"
+                    dateFormat="dd/mm/yy"
+                    [(ngModel)]="atividadeEdit.inicio"
+                    placeholder="Especificar a data inicial">
+        </p-calendar>
+        <br>
+        <p-calendar id="horaInicial"
+                    placeholder="Especificar a hora inicial"
+                    dataType="string"
+                    [timeOnly]="true"
+                    [(ngModel)]="atividadeEdit.horaInicial">
+        </p-calendar>
+        <br>
+
+
+        <label for="fim">Fim</label><br>
+        <p-calendar id="fim"
+                    [locale]="pt"
+                    showIcon="true"
+                    dataType="string"
+                    dateFormat="dd/mm/yy"
+                    [(ngModel)]="atividadeEdit.fim"
+                    placeholder="Especificar a data final">
+        </p-calendar>
+        <br>
+        <p-calendar id="horaFinal"
+                    placeholder="Especificar a hora final"
+                    dataType="string"
+                    [timeOnly]="true"
+                    [(ngModel)]="atividadeEdit.horaFinal">
+        </p-calendar>
+        <br>
+
+
+        <label for="inicioPrevisto">Início Previsto</label><br>
+        <p-calendar id="inicioPrevisto"
+                    [locale]="pt"
+                    showIcon="true"
+                    dataType="string"
+                    dateFormat="dd/mm/yy"
+                    [(ngModel)]="atividadeEdit.inicioPrevisto"
+                    placeholder="Data inicial prevista">
+        </p-calendar>
+        <br>
+        <p-calendar id="horaInicialPrevisto"
+                    placeholder="Hora inicial prevista"
+                    dataType="string"
+                    [timeOnly]="true"
+                    [(ngModel)]="atividadeEdit.horaInicialPrevisto">
+        </p-calendar>
+        <br>
+
+
+        <label for="fimPrevisto">Fim Previsto</label><br>
+        <p-calendar id="fimPrevisto"
+                    [locale]="pt"
+                    showIcon="true"
+                    dataType="string"
+                    dateFormat="dd/mm/yy"
+                    [(ngModel)]="atividadeEdit.fimPrevisto"
+                    placeholder="Data final prevista">
+        </p-calendar>
+        <br>
+        <p-calendar id="horaFinalPrevisto"
+                    placeholder="Hora final prevista"
+                    dataType="string"
+                    [timeOnly]="true"
+                    [(ngModel)]="atividadeEdit.horaFinalPrevisto">
+        </p-calendar>
+        <br>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <p-footer>
+
+    <button type="button" class="btn btn-default" (click)="showDialog = false">Cancelar</button>
+    <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
+  </p-footer>
+</p-dialog>
+

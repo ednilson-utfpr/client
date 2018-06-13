@@ -15,6 +15,14 @@ export class AppComponent implements OnInit {
     this.loginService.isAuthenticated.asObservable().subscribe(e => this.isAuthenticated = e);
   }
 
+  hasRole(role: string): boolean {
+    return this.loginService.hasRole(role);
+  }
+
+  get userInfo(): any {
+    return this.loginService.getUserInfo();
+  }
+
   ngOnInit(): void {
     setTimeout(() => this.mainMenu(), 1000);
   }
