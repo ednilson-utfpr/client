@@ -11,3 +11,5 @@ export class AtividadeService extends CrudService<Atividade, number> {
     super(environment.api + '/atividade', http);
   }
 }
+
+

@@ -1,4 +1,4 @@
-import { UsuarioComponent } from './usuario/usuario.component';
+import {UsuarioComponent} from './usuario/usuario.component';
 import {RouterModule, Routes} from '@angular/router';
 import {ModuleWithProviders} from '@angular/core';
 import {LoginService} from './login/login.service';
@@ -14,11 +14,11 @@ import {AtributoComponent} from './atributo/atributo.component';
 import {AtributofComponent} from './atributof/atributof.component';
 import {AtividadeComponent} from './atividade/atividade.component';
 import {FuncionarioComponent} from './funcionario/funcionario.component';
+import {BancohorasComponent} from './bancohoras/bancohoras.component';
 import {FornecedorComponent} from './fornecedor/fornecedor.component';
 import {ClienteComponent} from './cliente/cliente.component';
 import {EstadoComponent} from './estado/estado.component';
 import {CidadeComponent} from './cidade/cidade.component';
-
 
 const routes: Routes = [
   {
@@ -31,13 +31,15 @@ const routes: Routes = [
       {path: 'perfil', component: PerfilComponent},
       {path: 'usuario', component: UsuarioComponent},
       {path: 'ccusto', component: CcustoComponent},
+      {path: 'setor', component: SetorComponent},
+      {path: 'cargo', component: CargoComponent},
       {path: 'cponto', component: CpontoComponent},
       {path: 'atributo', component: AtributoComponent},
-      {path: 'fornecedor', component: FornecedorComponent},
-      {path: 'cliente', component: ClienteComponent},
       {path: 'atributof', component: AtributofComponent},
       {path: 'atividade', component: AtividadeComponent},
-      {path: 'cliente', component: ClienteComponent},
+      {path: 'bancohoras', component: BancohorasComponent},
+	  {path: 'fornecedor', component: FornecedorComponent},
+	  {path: 'cliente', component: ClienteComponent},
       {path: 'estado', component: EstadoComponent},
       {path: 'cidade', component: CidadeComponent}
     ]

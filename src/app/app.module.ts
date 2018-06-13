@@ -19,11 +19,14 @@ import {AtividadeModule} from './atividade/atividade.module';
 import {SetorModule} from './setor/setor.module';
 import {CargoModule} from './cargo/cargo.module';
 import {FuncionarioModule} from './funcionario/funcionario.module';
+import {BancohorasModule} from './bancohoras/bancohoras.module';
 import {PessoaModule} from './pessoa/pessoa.module';
 import {FornecedorModule} from './fornecedor/fornecedor.module';
 import {ClienteModule} from './cliente/cliente.module';
 import {EstadoModule} from './estado/estado.module';
 import {CidadeModule} from './cidade/cidade.module';
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -35,9 +38,6 @@ import {CidadeModule} from './cidade/cidade.module';
     HttpClientModule,
     LoginModule,
     HomeModule,
-
-    FuncionarioModule,
-
     ProdutoModule,
     PerfilModule,
     UsuarioModule,
@@ -48,13 +48,13 @@ import {CidadeModule} from './cidade/cidade.module';
     FuncionarioModule,
     PerfilModule,
     AtributoModule,
-    SetorModule,
-    PessoaModule,
-    FornecedorModule,
-	ClienteModule,
     AtributofModule,
     AtividadeModule,
-    EstadoModule,
+    BancohorasModule,
+	PessoaModule,
+    FornecedorModule,
+	ClienteModule,
+	EstadoModule,
     CidadeModule
   ],
   providers: [
