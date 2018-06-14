@@ -5,13 +5,9 @@ import {ProdutoService} from './produto.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
-<<<<<<< HEAD
 import {SpinnerModule} from 'primeng/spinner';
-import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
-=======
-import {CheckboxModule, Dropdown, DropdownModule, RadioButtonModule} from 'primeng/primeng';
->>>>>>> 976cccce9c8c9d79575e442bb58cd53e1469ccd2
+import {DropdownModule} from 'primeng/primeng';
 
 @NgModule({
   imports: [
@@ -19,13 +15,9 @@ import {CheckboxModule, Dropdown, DropdownModule, RadioButtonModule} from 'prime
     FormsModule,
     TableModule,
     DialogModule,
-<<<<<<< HEAD
     SpinnerModule,
     MessageModule,
-    MessagesModule
-=======
-    DropdownModule,
->>>>>>> 976cccce9c8c9d79575e442bb58cd53e1469ccd2
+    DropdownModule
   ],
   declarations: [
     ProdutoComponent
