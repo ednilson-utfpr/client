@@ -18,7 +18,7 @@ export class UsuarioComponent implements OnInit {
 
   constructor(private usuarioService: UsuarioService, private perfilService: PerfilService) {
   }
-
+  
   ngOnInit(): void {
     this.findAll();
   }
@@ -31,13 +31,11 @@ export class UsuarioComponent implements OnInit {
   novo() {
     this.showDialog = true;
     this.usuarioEdit = new Usuario();
-    //this.perfilEdit = new Perfil();
   }
 
   salvar() {
     this.usuarioService.save(this.usuarioEdit).subscribe(e => {
       this.usuarioEdit = new Usuario();
-      //this.perfilEdit = new Perfil();
       this.findAll();
       this.showDialog = false;
     });
@@ -45,7 +43,6 @@ export class UsuarioComponent implements OnInit {
 
   editar(usuario: Usuario) {
     this.usuarioEdit = usuario;
-    //this.perfilEdit = new Perfil();
     this.showDialog = true;
   }
 
