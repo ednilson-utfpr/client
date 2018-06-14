@@ -18,8 +18,10 @@ export class AtributofComponent implements OnInit {
   atributos: Atributo[];
   funcionarios: Funcionario[];
 
-  constructor(private atributofService: AtributofService,  private atributoService: AtributoService, 
-    private funcionarioService: FuncionarioService) {
+  constructor(private atributofService: AtributofService
+              , private atributoService: AtributoService
+              , private funcionarioService: FuncionarioService
+  ) {
   }
 
   ngOnInit(): void {

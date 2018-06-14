@@ -9,8 +9,8 @@
             <tr>
               <th class="ids">ID</th>
               <th>Funcionario</th>
-              <th>Atributo</th>    
-              <th>Vencimento</th>        
+              <th>Atributo</th>
+              <th>Vencimento</th>
               <th class="acoes">Ações</th>
             </tr>
           </ng-template>
@@ -33,7 +33,7 @@
         </p-table>
     </header>
     <div _ngcontent-c2="" class="content-body">
-    </div>  
+    </div>
   </section>
 </div>
 
@@ -43,32 +43,39 @@
           [responsive]="true"
           [width]="500">
 
-  <div class="row">
+  <!--<div class="row">-->
 
     <div class="form-group">
       <label for="funcionario">Funcionario</label>
-        <p-dropdown name= "funcionario" 
-        [options]="funcionarios" 
-        [(ngModel)]="atributofEdit.funcionario" 
-        optionLabel="pessoa"></p-dropdown>
+        <p-dropdown name= "funcionario"
+        [options]="funcionarios"
+        [(ngModel)]="atributofEdit.funcionario"
+        optionLabel="pessoa" [showClear]="true"
+        placeholder="Selecione um funcionário"></p-dropdown>
   </div>
 
 
   <div class="form-group">
     <label for="atributo">Atributo</label>
-      <p-dropdown name= "atributo" 
-      [options]="atributos" 
-      [(ngModel)]="atributofEdit.atributo" 
-      optionLabel="nome"></p-dropdown>
+      <p-dropdown name= "atributo"
+      [options]="atributos"
+      [(ngModel)]="atributofEdit.atributo"
+      optionLabel="nome" [showClear]="true"
+      placeholder="Selecione um atributo">
+
+      </p-dropdown>
   </div>
 
-    <label for="idDataVenc">Data Vencimento</label>
-      <p-calendar id="idDataVenc" 
+
+  <label for="idDataVenc">Data Vencimento</label>
+      <p-calendar id="idDataVenc"
         dataType="string"
-        [(ngModel)]="atributofEdit.dataVenc" 
-        dateFormat="dd/mm/yy"></p-calendar>
+                  dateFormat="dd/mm/yy"
+        [(ngModel)]="atributofEdit.dataVenc"
+        ></p-calendar>
 
-  </div>
+
+  <!--</div>-->
 
   <p-footer>
     <button type="button" class="btn btn-default" (click)="showDialog = false">Cancelar</button>
