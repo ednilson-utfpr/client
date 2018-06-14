@@ -11,7 +11,7 @@ export class Funcionario {
 
   admissao: string;
 
-  ativo: boolean;
+  ativo: boolean = false;
 
   salario: number;
 
