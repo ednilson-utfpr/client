@@ -5,23 +5,26 @@ import {LoginService} from './login/login.service';
 import {LoginComponent} from './login/login.component';
 import {HomeComponent} from './home/home.component';
 import {ProdutoComponent} from './produto/produto.component';
-import {SetorComponent} from './setor/setor.component';
-import {CargoComponent} from './cargo/cargo.component';
-import {PerfilComponent} from './perfil/perfil.component';
-import {CcustoComponent} from './ccusto/ccusto.component';
-import {CpontoComponent} from './cponto/cponto.component';
-import {AtributoComponent} from './atributo/atributo.component';
-import {AtributofComponent} from './atributof/atributof.component';
-import {AtividadeComponent} from './atividade/atividade.component';
-import {FuncionarioComponent} from './funcionario/funcionario.component';
-import {BancohorasComponent} from './bancohoras/bancohoras.component';
-
+import {ItemNotaComponent} from "./itemNota/itemNota.component";
+import {NotaComponent} from "./nota/nota.component";
+import {SetorComponent} from "./setor/setor.component";
+import {CargoComponent} from "./cargo/cargo.component";
+import {FuncionarioComponent} from "./funcionario/funcionario.component";
+import {PerfilComponent} from "./perfil/perfil.component";
+import {CcustoComponent} from "./ccusto/ccusto.component";
+import {CpontoComponent} from "./cponto/cponto.component";
+import {AtributoComponent} from "./atributo/atributo.component";
+import {AtributofComponent} from "./atributof/atributof.component";
+import {AtividadeComponent} from "./atividade/atividade.component";
+import {BancohorasComponent} from "./bancohoras/bancohoras.component";
 
 const routes: Routes = [
   {
     path: '', canActivate: [LoginService], children: [
       {path: '', component: HomeComponent},
       {path: 'produto', component: ProdutoComponent},
+      {path: 'nota', component: NotaComponent},
+      {path: 'itemNota', component: ItemNotaComponent},
       {path: 'setor', component: SetorComponent},
       {path: 'cargo', component: CargoComponent},
       {path: 'funcionario', component: FuncionarioComponent},

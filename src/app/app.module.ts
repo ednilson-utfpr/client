@@ -10,16 +10,18 @@ import {AppRouting} from './app-routing.module';
 import {LoginModule} from './login/login.module';
 import {HomeModule} from './home/home.module';
 import {ProdutoModule} from './produto/produto.module';
-import {CcustoModule} from './ccusto/ccusto.module';
-import {PerfilModule} from './perfil/perfil.module';
-import {CpontoModule} from './cponto/cponto.module';
-import {AtributoModule} from './atributo/atributo.module';
-import {AtributofModule} from './atributof/atributof.module';
-import {AtividadeModule} from './atividade/atividade.module';
-import {SetorModule} from './setor/setor.module';
-import {CargoModule} from './cargo/cargo.module';
-import {FuncionarioModule} from './funcionario/funcionario.module';
-import {BancohorasModule} from './bancohoras/bancohoras.module';
+import {NotaModule} from "./nota/nota.module";
+import {ItemNotaModule} from "./itemNota/itemNota.module";
+import {BancohorasModule} from "./bancohoras/bancohoras.module";
+import {AtividadeModule} from "./atividade/atividade.module";
+import {AtributofModule} from "./atributof/atributof.module";
+import {AtributoModule} from "./atributo/atributo.module";
+import {PerfilModule} from "./perfil/perfil.module";
+import {FuncionarioModule} from "./funcionario/funcionario.module";
+import {CargoModule} from "./cargo/cargo.module";
+import {SetorModule} from "./setor/setor.module";
+import {CpontoModule} from "./cponto/cponto.module";
+import {CcustoModule} from "./ccusto/ccusto.module";
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import {BancohorasModule} from './bancohoras/bancohoras.module';
     LoginModule,
     HomeModule,
     ProdutoModule,
+    NotaModule,
+    ItemNotaModule,
     PerfilModule,
     UsuarioModule,
     CcustoModule,
