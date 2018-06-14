@@ -6,15 +6,5 @@ export class Produto {
   tipo: string;
   estoque: number;
   valor: number;
-
-  nome: string;
-
-  tipo: string;
-
-  estoque: number;
-
-  valor: number;
-
-
 }
 
