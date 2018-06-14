@@ -3609,5 +3609,4 @@ jQuery(function ($) {
         CMPLTADMIN_SETTINGS.isotopeGallery();
         CMPLTADMIN_SETTINGS.loginPage();
     });
-
 });

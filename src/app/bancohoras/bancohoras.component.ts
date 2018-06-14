@@ -83,8 +83,12 @@ export class BancohorasComponent implements OnInit {
 
   horasSaldo(entrada: String, saida: String) {
     const ent: any = Date.parse('2000-01-01 ' + entrada);
-    const sai: any = Date.parse('2000-01-01 ' + saida);
+    let sai: any = Date.parse('2000-01-01 ' + saida);
+    if (ent > sai) {
+      sai = Date.parse('2000-01-02 ' + saida);
+    }
     let dif = (sai - ent);
+
     dif = dif / 1000;
     dif = dif / 60;
     return Math.trunc(dif / 60);
@@ -92,7 +96,10 @@ export class BancohorasComponent implements OnInit {
 
   minutosSaldo(entrada: String, saida: String) {
     const ent: any = Date.parse('2000-01-01 ' + entrada);
-    const sai: any = Date.parse('2000-01-01 ' + saida);
+    let sai: any = Date.parse('2000-01-01 ' + saida);
+    if( ent > sai ){
+      sai = Date.parse('2000-01-02 ' + saida);
+    }
     let dif = (sai - ent);
     dif = dif / 1000;
     dif = dif / 60;
@@ -106,7 +113,7 @@ export class BancohorasComponent implements OnInit {
       hora += bh.horas;
       min += bh.minutos;
     });
-    while( min > 60 ){
+    while (min > 60) {
       hora += 1;
       min -= 60;
     }
