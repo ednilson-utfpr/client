@@ -1,8 +1,10 @@
+import { HttpRequest } from '@angular/common/http';
 import { PerfilService } from './../perfil/perfil.service';
 import {Component, OnInit} from '@angular/core';
 import {UsuarioService} from './usuario.service';
 import {Usuario} from './usuario';
 import { Perfil } from '../perfil/perfil';
+import {ConfirmationService, Message} from 'primeng/api';
 
 @Component({
   templateUrl: './usuario.component.html',
@@ -15,8 +17,10 @@ export class UsuarioComponent implements OnInit {
   showDialog = false;
   usuarioEdit = new Usuario();
   perfilEdit = new Perfil();
+  msgs: Message[] = [];
 
-  constructor(private usuarioService: UsuarioService, private perfilService: PerfilService) {
+  constructor(private usuarioService: UsuarioService, private perfilService: PerfilService
+    , private confirmationService: ConfirmationService) {
   }
   
   ngOnInit(): void {
@@ -38,17 +42,33 @@ export class UsuarioComponent implements OnInit {
       this.usuarioEdit = new Usuario();
       this.findAll();
       this.showDialog = false;
+      this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro salvo com sucesso'}];
+    },
+    error => {
+      this.msgs = [{severity:'error', summary:'Erro', detail: error.error.message}];
     });
   }
 
   editar(usuario: Usuario) {
     this.usuarioEdit = usuario;
     this.showDialog = true;
+    this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro alterado com sucesso'}];
   }
 
   remover(usuario: Usuario) {
     this.usuarioService.delete(usuario.id).subscribe(() => {
       this.findAll();
+    });
+  }
+
+  confirm(usuario: Usuario) {
+    this.confirmationService.confirm({
+      header: 'Confirmacao',  
+      message: 'Deseja remover o registro?',
+      accept: () => {
+        this.remover(usuario);
+        this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro removido com sucesso'}];
+      }
     });
   }
 }

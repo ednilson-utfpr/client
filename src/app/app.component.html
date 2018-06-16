@@ -86,7 +86,7 @@
             <span  class="title">Atividade</span>
           </a>
         </li>
-        <li>
+        <li *ngIf="hasRole('RELATORIOBANCOHORAS') || hasRole('ADMIN')">
           <a routerLink="/bancohoras">
             <i class="fa fa-clock-o"></i>
             <span  class="title">Banco de Horas</span>
