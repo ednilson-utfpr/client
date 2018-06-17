@@ -5,19 +5,25 @@ import {AtributoService} from './atributo.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
+import {GrowlModule} from 'primeng/growl'
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     TableModule,
-    DialogModule
+    DialogModule,
+    ConfirmDialogModule,
+    GrowlModule
   ],
   declarations: [
     AtributoComponent
   ],
   providers: [
-    AtributoService
+    AtributoService,
+    ConfirmationService
   ]
 })
 export class AtributoModule {

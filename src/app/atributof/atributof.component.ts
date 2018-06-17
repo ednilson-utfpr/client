@@ -5,6 +5,7 @@ import {AtributoService} from '../atributo/atributo.service';
 import {Atributo} from '../atributo/atributo';
 import {FuncionarioService} from '../funcionario/funcionario.service';
 import {Funcionario} from '../funcionario/funcionario';
+import {ConfirmationService, Message} from 'primeng/api';
 
 @Component({
   templateUrl: './atributof.component.html',
@@ -17,15 +18,25 @@ export class AtributofComponent implements OnInit {
   atributofEdit = new Atributof();
   atributos: Atributo[];
   funcionarios: Funcionario[];
+  pt: any;
 
   constructor(private atributofService: AtributofService, private atributoService: AtributoService
-      , private funcionarioService: FuncionarioService) {
+      , private funcionarioService: FuncionarioService, private confirmationService: ConfirmationService) {
   }
 
   ngOnInit(): void {
     this.findAll();
     this.atributoService.findAll().subscribe(e => this.atributos = e);
     this.funcionarioService.findAll().subscribe(e => this.funcionarios = e);
+
+    this.pt = {
+      monthNames : [ 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho',
+        'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro' ],
+      monthNamesShort : [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ],
+      dayNames : [ 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado' ],
+      dayNamesShort : [ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb' ],
+      dayNamesMin : [ 'D', 'S', 'T', 'Q', 'Q', 'S', 'S' ],
+    };
   }
 
   findAll() {
@@ -54,6 +65,16 @@ export class AtributofComponent implements OnInit {
   remover(atributof: Atributof) {
     this.atributofService.delete(atributof.id).subscribe(() => {
       this.findAll();
+    });
+  }
+
+  confirm(atributof: Atributof) {
+    this.confirmationService.confirm({
+      header: 'Confirmacao',  
+      message: 'Deseja remover o registro?',
+      accept: () => {
+        this.remover(atributof);
+      }
     });
   }
 }
