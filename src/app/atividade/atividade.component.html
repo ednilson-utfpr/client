@@ -3,7 +3,7 @@
   <section _ngcontent-c2="" class="box ">
     <header _ngcontent-c2="" class="panel_header">
       <h4 _ngcontent-c2="" class="title pull-left title1">Atividade</h4>
-      <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
+      <button class="btn btn-primary botao" (click)="novo()">Criar novo</button>
       <p-table [value]="atividades">
         <ng-template pTemplate="header">
           <tr>
@@ -37,11 +37,11 @@
           </tr>
         </ng-template>
       </p-table>
-      </header>
-      <div _ngcontent-c2="" class="content-body">
-      </div>
-    </section>
-  </div>
+    </header>
+    <div _ngcontent-c2="" class="content-body">
+    </div>
+  </section>
+</div>
 
 
 <p-dialog header="Cadastro de Atividades "
@@ -57,22 +57,25 @@
 
         <!--<label for="obra">Obra</label>-->
         <!--<p-dropdown name= "obra" id="obra" [options]="obras"-->
-                    <!--[(ngModel)]="atividadeEdit.obra" optionLabel="nome">-->
+        <!--[(ngModel)]="atividadeEdit.obra" optionLabel="nome">-->
         <!--</p-dropdown>-->
 
         <label for="atributo">Atributo(s)</label><br>
-        <p-multiSelect name= "atributo" id="atributo"
+        <p-multiSelect name="atributo" id="atributo"
                        defaultLabel="Escolha os atributos &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
                        optionLabel="descricao"
                        filterPlaceHolder="  Digite aqui o nome do atributo"
                        selectedItemsLabel="{0} atributos selecionados"
                        [options]="atributos"
                        [(ngModel)]="atividadeEdit.atributo"
-                       [panelStyle]="{minWidth:'30em'}">
-        </p-multiSelect><br>
+                       [panelStyle]="{minWidth:'30em'}"
+                       (onChange)="atributoChange()"
+        >
+        </p-multiSelect>
+        <br>
 
         <label for="funcionario">Funcionário(s)</label><br>
-        <p-multiSelect name= "funcionario" id="funcionario"
+        <p-multiSelect name="funcionario" id="funcionario"
                        defaultLabel="Escolha os funcionários "
                        optionLabel="pessoa"
                        filterPlaceHolder="  Digite aqui o nome do funcionário"
@@ -80,7 +83,8 @@
                        [options]="funcionarios"
                        [(ngModel)]="atividadeEdit.funcionario"
                        [panelStyle]="{minWidth:'30em'}">
-        </p-multiSelect><br>
+        </p-multiSelect>
+        <br>
 
         <label for="descricao">Descrição</label>
         <input type="text"
@@ -98,7 +102,8 @@
                     dateFormat="dd/mm/yy"
                     [(ngModel)]="atividadeEdit.inicio"
                     placeholder="Especificar a data inicial">
-        </p-calendar><br>
+        </p-calendar>
+        <br>
         <p-calendar id="horaInicial"
                     placeholder="Especificar a hora inicial"
                     dataType="string"
@@ -116,13 +121,15 @@
                     dateFormat="dd/mm/yy"
                     [(ngModel)]="atividadeEdit.fim"
                     placeholder="Especificar a data final">
-        </p-calendar><br>
+        </p-calendar>
+        <br>
         <p-calendar id="horaFinal"
                     placeholder="Especificar a hora final"
                     dataType="string"
                     [timeOnly]="true"
                     [(ngModel)]="atividadeEdit.horaFinal">
-        </p-calendar><br>
+        </p-calendar>
+        <br>
 
 
         <label for="inicioPrevisto">Início Previsto</label><br>
@@ -133,13 +140,15 @@
                     dateFormat="dd/mm/yy"
                     [(ngModel)]="atividadeEdit.inicioPrevisto"
                     placeholder="Data inicial prevista">
-        </p-calendar><br>
+        </p-calendar>
+        <br>
         <p-calendar id="horaInicialPrevisto"
                     placeholder="Hora inicial prevista"
                     dataType="string"
                     [timeOnly]="true"
                     [(ngModel)]="atividadeEdit.horaInicialPrevisto">
-        </p-calendar><br>
+        </p-calendar>
+        <br>
 
 
         <label for="fimPrevisto">Fim Previsto</label><br>
@@ -150,13 +159,15 @@
                     dateFormat="dd/mm/yy"
                     [(ngModel)]="atividadeEdit.fimPrevisto"
                     placeholder="Data final prevista">
-        </p-calendar><br>
+        </p-calendar>
+        <br>
         <p-calendar id="horaFinalPrevisto"
                     placeholder="Hora final prevista"
                     dataType="string"
                     [timeOnly]="true"
                     [(ngModel)]="atividadeEdit.horaFinalPrevisto">
-        </p-calendar><br>
+        </p-calendar>
+        <br>
 
       </div>
     </div>
