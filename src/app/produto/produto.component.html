@@ -8,14 +8,14 @@
     <p-table [value]="produtos">
       <ng-template pTemplate="header">
         <tr>
-          <th>ID</th>
+          <th class="ids">ID</th>
           <th>Nome</th>
           <th>Descrição</th>
           <th>Tipo</th>
           <th>Estoque</th>
           <th>Valor</th>
 
-          <th>Ações</th>
+          <th class="acoes">Ações</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-produto>
@@ -49,6 +49,7 @@
 </p-table>
 
 
+<p-growl [(value)]="msgs"></p-growl>
 
 <p-dialog header="Cadastro de Produtos e Serviços"
           [(visible)]="showDialog"

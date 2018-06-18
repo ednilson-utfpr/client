@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ProdutoService} from './produto.service';
 import {Produto} from './produto';
-import {LoginService} from '../login/login.service'; 
+import {LoginService} from '../login/login.service';
+import {Message} from 'primeng/api';
 
 
 @Component({
@@ -13,8 +14,9 @@ export class ProdutoComponent implements OnInit {
   showDialog = false;
   produtoEdit = new Produto();
   showConfirm = false;
+  msgs: Message[] = [];
 
-  constructor(private produtoService: ProdutoService, 
+  constructor(private produtoService: ProdutoService,
               private loginService: LoginService) {
   }
 
@@ -39,13 +41,18 @@ export class ProdutoComponent implements OnInit {
     this.produtoService.save(this.produtoEdit).subscribe(e => {
       this.produtoEdit = new Produto();
       this.findAll();
-      this.showDialog = false;
-    });
+        this.showDialog = false;
+        this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro salvo com sucesso'}];
+      },
+      error => {
+        this.msgs = [{severity:'error', summary:'Erro', detail:'Certifique-se de preencher todos os campos.'}];
+      });
   }
 
   editar(produto: Produto) {
     this.produtoEdit = produto;
     this.showDialog = true;
+    this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro alterado com sucesso'}];
   }
 
   remover(produto: Produto) {

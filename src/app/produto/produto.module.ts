@@ -10,6 +10,7 @@ import {MessageModule} from 'primeng/message';
 import {DropdownModule} from 'primeng/primeng';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
+import {GrowlModule} from 'primeng/growl';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import {ConfirmationService} from 'primeng/api';
     SpinnerModule,
     MessageModule,
     DropdownModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    GrowlModule
   ],
   declarations: [
     ProdutoComponent
