@@ -2,7 +2,7 @@
 <div _ngcontent-c2="" class="col-lg-12">
   <section _ngcontent-c2="" class="box ">
     <header _ngcontent-c2="" class="panel_header">
-      <h4 _ngcontent-c2="" class="title pull-left" style=" margin-bottom:20px;">Atributo</h4>
+      <h4 _ngcontent-c2="" class="title pull-left" style=" margin-bottom:20px;">Usuario</h4>
       <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
       <p-table [value]="usuarios">
         <ng-template pTemplate="header">
@@ -22,9 +22,18 @@
               <button class="btn btn-primary" (click)="editar(usuario)">
                 <i class="fa fa-edit"></i>
               </button>
-              <button class="btn btn-danger" (click)="remover(usuario)">
-                <i class="fa fa-trash"></i>
+              <button class="btn btn-danger" (click)="mostrarConfirm(true)">
+                  <i class="fa fa-trash"></i>
               </button>
+  
+              <p-confirmDialog header="Confirmacao" 
+                message="Deseja remover o registro?" 
+                icon="pi pi-exclamation-triangle" width="425" [(visible)]="showConfirm">
+                    <p-footer>
+                        <button type="button" pButton icon="pi pi-check" label="Sim" (click)="remover(usuario)"></button>
+                        <button type="button" pButton icon="pi pi-times" label="Nao" (click)="mostrarConfirm(false)"></button>
+                    </p-footer>
+                </p-confirmDialog>
             </td>
           </tr>
         </ng-template>
@@ -35,6 +44,7 @@
   </section>
 </div>
 
+<p-growl [(value)]="msgs"></p-growl>
 
 <p-dialog header="Cadastro"
           [(visible)]="showDialog"
@@ -51,21 +61,24 @@
                id="nome"
                name="nome"
                class="form-control"
-               [(ngModel)]="usuarioEdit.nome">
+               [(ngModel)]="usuarioEdit.nome"
+               required>
 
         <label for="username">Login</label>
         <input type="text"
                id="username"
                name="username"
                class="form-control"
-               [(ngModel)]="usuarioEdit.username">       
+               [(ngModel)]="usuarioEdit.username"
+               required>     
 
         <label for="password">Senha</label>
         <input type="password"
                id="password"
                name="password"
                class="form-control"
-               [(ngModel)]="usuarioEdit.password">
+               [(ngModel)]="usuarioEdit.password"
+               required pPassword>
 
         <label for="email">E-mail</label>
         <input type="text"

@@ -3,7 +3,7 @@
   <section _ngcontent-c2="" class="box ">
     <header _ngcontent-c2="" class="panel_header">
       <h4 _ngcontent-c2="" class="title pull-left title1">Atributo Funcionario</h4>
-      <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
+      <button *ngIf="hasRole('ATRIBUTOF_CRIAR') || hasRole('ADMIN')" class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
       <p-table [value]="atributofs">
         <ng-template pTemplate="header">
           <tr>
@@ -21,12 +21,21 @@
             <td>{{atributof.funcionario?.pessoa}}</td>
             <td>{{atributof.dataVenc}}</td>
             <td>
-              <button class="btn btn-primary" (click)="editar(atributof)">
+              <button *ngIf="hasRole('ATRIBUTOF_EDITAR') || hasRole('ADMIN')" class="btn btn-primary" (click)="editar(atributof)">
                 <i class="fa fa-edit"></i>
               </button>
-              <button class="btn btn-danger" (click)="remover(atributof)">
-                <i class="fa fa-trash"></i>
-              </button>
+              <button *ngIf="hasRole('ATRIBUTOF_REMOVER') || hasRole('ADMIN')" class="btn btn-danger" (click)="mostrarConfirm(true)">
+                  <i class="fa fa-trash"></i>
+                </button>
+
+                <p-confirmDialog header="Confirmacao"
+                message="Deseja remover o registro?"
+                icon="pi pi-exclamation-triangle" width="425" [(visible)]="showConfirm">
+                    <p-footer>
+                        <button type="button" pButton icon="pi pi-check" label="Sim" (click)="remover(atributof)"></button>
+                        <button type="button" pButton icon="pi pi-times" label="Nao" (click)="mostrarConfirm(false)"></button>
+                    </p-footer>
+                </p-confirmDialog>
             </td>
           </tr>
         </ng-template>
@@ -36,6 +45,13 @@
     </div>
   </section>
 </div>
+
+
+      </header>
+      <div _ngcontent-c2="" class="content-body">
+      </div>
+    </section>
+  </div>
 
 
 <p-dialog header="Cadastro de Atributos Funcionario "
@@ -66,6 +82,7 @@
                     showIcon="true"
                     dataType="string"
                     dateFormat="dd/mm/yy"
+                    [locale]="pt"
                     [(ngModel)]="atributofEdit.dataVenc"
                     placeholder="Data de vencimento">
         </p-calendar>

@@ -15,6 +15,7 @@ import {
   RadioButtonModule
 } from 'primeng/primeng';
 import {AtributofService} from '../atributof/atributof.service';
+import {GrowlModule} from 'primeng/growl';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import {AtributofService} from '../atributof/atributof.service';
     InputMaskModule,
     CalendarModule,
     MultiSelectModule,
+    GrowlModule,
     ConfirmDialogModule
   ],
   declarations: [

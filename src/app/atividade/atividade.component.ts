@@ -9,6 +9,7 @@ import {AtributofService} from '../atributof/atributof.service';
 import {ConfirmationService, Message} from 'primeng/api';
 // import {Obra} from '../obra/obra';
 // import {ObraService} from '../obra/obra.service';
+import {LoginService} from '../login/login.service';
 
 @Component({
   templateUrl: './atividade.component.html',
@@ -25,12 +26,14 @@ export class AtividadeComponent implements OnInit {
   funcionarioEdit = new Funcionario();
   pt: any;
   showConfirm = false;
+  msgs: Message[] = [];
 
   constructor(private atividadeService: AtividadeService
     , private funcionarioService: FuncionarioService
     , private atributoService: AtributoService
     , private atributoFuncService: AtributofService
-              // , private obraService: ObraService
+    , private loginService: LoginService
+    // , private obraService: ObraService
   ) {
   }
 
@@ -48,6 +51,10 @@ export class AtividadeComponent implements OnInit {
       dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
       dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
     };
+  }
+
+  hasRole(role: string): boolean {
+    return this.loginService.hasRole(role);
   }
 
   atributoChange() {
@@ -75,17 +82,22 @@ export class AtividadeComponent implements OnInit {
     this.atividadeEdit = new Atividade();
   }
 
-  salvar() {
+  salvar(){
     this.atividadeService.save(this.atividadeEdit).subscribe(e => {
       this.atividadeEdit = new Atividade();
       this.findAll();
       this.showDialog = false;
+        this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro salvo com sucesso'}];
+      },
+      error => {
+        this.msgs = [{severity:'error', summary:'Erro', detail:'Certifique-se de preencher todos os campos.'}];
     });
   }
 
   editar(atividade: Atividade) {
     this.atividadeEdit = atividade;
     this.showDialog = true;
+  this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro alterado com sucesso'}];
   }
 
   remover(atividade: Atividade) {
