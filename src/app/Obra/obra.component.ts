@@ -21,6 +21,10 @@ export class ObraComponent implements OnInit {
   obras: Obra[];
   latitude: number;
   longitude: number;
+  currentLat: any;
+  currentLong: any;
+  marker: google.maps.Marker;
+  isTracking = false;
   public options: any;
   private chart2: AmChart;
   private chart3: AmChart;
@@ -165,5 +169,65 @@ export class ObraComponent implements OnInit {
     this.obraService.delete(obra.id).subscribe(() => {
       this.findAll();
     });
+  }
+
+  findMe() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.showPosition(position);
+      });
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  }
+
+  showPosition(position) {
+    this.currentLat = position.coords.latitude;
+    this.currentLong = position.coords.longitude;
+
+    let location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    this.map.panTo(location);
+
+    if (!this.marker) {
+      this.marker = new google.maps.Marker({
+        position: location,
+        map: this.map,
+        title: 'Got you!'
+      });
+    }
+    else {
+      this.marker.setPosition(location);
+    }
+  }
+
+  trackMe() {
+    if (navigator.geolocation) {
+      this.isTracking = true;
+      navigator.geolocation.watchPosition((position) => {
+        this.showTrackingPosition(position);
+      });
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  }
+
+  showTrackingPosition(position) {
+    console.log(`tracking postion:  ${position.coords.latitude} - ${position.coords.longitude}`);
+    this.currentLat = position.coords.latitude;
+    this.currentLong = position.coords.longitude;
+
+    let location = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    this.map.panTo(location);
+
+    if (!this.marker) {
+      this.marker = new google.maps.Marker({
+        position: location,
+        map: this.map,
+        title: 'Got you!'
+      });
+    }
+    else {
+      this.marker.setPosition(location);
+    }
   }
 }

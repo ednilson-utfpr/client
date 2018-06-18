@@ -175,5 +175,6 @@
       <button style="margin: 5px" (click)="setMapType('terrain')" class="btn btn-primary">Mapa terreste</button>
       <button (click)="setMapType('satellite')" class="btn btn-danger">Mapa Satélite</button>
       <button (click)="setMapType('roadmap')" class="btn btn-warning">Mapa de Rota</button>
+    <button [disabled]="isTracking" class="btn btn-primary" (click)="findMe()">Localização Atual</button>
   </section>
 </div>
