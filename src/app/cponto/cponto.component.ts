@@ -4,7 +4,8 @@ import {CpontoService} from './cponto.service';
 import {Cponto} from './cponto';
 import {Funcionario} from '../funcionario/funcionario';
 import {FuncionarioService} from '../funcionario/funcionario.service';
-import {Message} from 'primeng/api';
+import {ConfirmationService, Message} from 'primeng/api';
+import {Atividade} from '../atividade/atividade';
 
 @Component({
   templateUrl: './cponto.component.html',
@@ -26,6 +27,7 @@ export class CpontoComponent implements OnInit {
   constructor(private cpontoService: CpontoService
     , private funcionarioService: FuncionarioService
     , private loginService: LoginService
+    , private confirmationService: ConfirmationService
   ) {
   }
 
@@ -83,7 +85,16 @@ export class CpontoComponent implements OnInit {
     });
   }
 
-  mostrarConfirm(condicao: boolean) {
-    this.showConfirm = condicao;
+  confirm(cponto: Cponto) {
+    this.confirmationService.confirm({
+      message: 'Essa ação não poderá ser desfeita',
+      header: 'Deseja remover esse registro?',
+      accept: () => {
+        this.cpontoService.delete(cponto.id).subscribe(() => {
+          this.findAll();
+          this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro removido com sucesso'}];
+        });
+      }
+    });
   }
 }
