@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ProdutoService} from './produto.service';
 import {Produto} from './produto';
 import {LoginService} from '../login/login.service';
-import {Message} from 'primeng/api';
+import {ConfirmationService, Message} from 'primeng/api';
+import {Ccusto} from '../ccusto/ccusto';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class ProdutoComponent implements OnInit {
   msgs: Message[] = [];
 
   constructor(private produtoService: ProdutoService,
-              private loginService: LoginService) {
+              private loginService: LoginService, private confirmationService: ConfirmationService) {
   }
 
   hasRole(role: string): boolean {
@@ -62,8 +63,17 @@ export class ProdutoComponent implements OnInit {
     });
   }
 
-  mostrarConfirm(condicao: boolean) {
-    this.showConfirm = condicao;
+  confirm(produto: Produto) {
+    this.confirmationService.confirm({
+      message: 'Essa ação não poderá ser desfeita',
+      header: 'Deseja remover esse registro?',
+      accept: () => {
+        this.produtoService.delete(produto.id).subscribe(() => {
+          this.findAll();
+          this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro removido com sucesso'}];
+        });
+      }
+    });
   }
 
 }

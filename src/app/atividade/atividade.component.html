@@ -31,18 +31,10 @@
                 <i class="fa fa-edit"></i>
               </button>
 
-              <button *ngIf="hasRole('ATIVIDADE_REMOVER') || hasRole('ADMIN')" class="btn btn-danger" (click)="mostrarConfirm(true)">
+              <button *ngIf="hasRole('ATIVIDADE_REMOVER') || hasRole('ADMIN')" class="btn btn-danger" (click)="confirm(atividade)">
                 <i class="fa fa-trash"></i>
               </button>
 
-              <p-confirmDialog header="Confirmação"
-                               message="Deseja remover o registro?"
-                               icon="pi pi-exclamation-triangle" width="425" [(visible)]="showConfirm">
-                <p-footer>
-                  <button type="button" pButton icon="pi pi-check" label="Sim" (click)="remover(atividade)"></button>
-                  <button type="button" pButton icon="pi pi-times" label="Não" (click)="mostrarConfirm(false)"></button>
-                </p-footer>
-              </p-confirmDialog>
             </td>
 
 
@@ -55,6 +47,7 @@
   </section>
 </div>
 
+<p-confirmDialog></p-confirmDialog>
 <p-growl [(value)]="msgs"></p-growl>
 
 <p-dialog header="Cadastro de Atividades "
@@ -82,7 +75,8 @@
                        [options]="atributos"
                        [(ngModel)]="atividadeEdit.atributo"
                        [panelStyle]="{minWidth:'30em'}"
-                       (onPanelShow)="atributoChange()">
+                       (onChange)="atributoChange()"
+          >
         </p-multiSelect>
         <br>
 
