@@ -1,5 +1,5 @@
-import {Funcionario} from '../funcionario/funcionario';
-import {Atributo} from '../atributo/atributo';
+import { Atributo } from '../atributo/atributo';
+import { Funcionario } from '../funcionario/funcionario';
 
 export class Atributof {
 

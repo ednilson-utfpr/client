@@ -6,6 +6,7 @@ import {Funcionario} from '../funcionario/funcionario';
 import {AtributoService} from '../atributo/atributo.service';
 import {Atributo} from '../atributo/atributo';
 import {AtributofService} from '../atributof/atributof.service';
+import {ConfirmationService, Message} from 'primeng/api';
 // import {Obra} from '../obra/obra';
 // import {ObraService} from '../obra/obra.service';
 
@@ -23,12 +24,12 @@ export class AtividadeComponent implements OnInit {
   atividadeEdit = new Atividade();
   funcionarioEdit = new Funcionario();
   pt: any;
-
+  showConfirm = false;
 
   constructor(private atividadeService: AtividadeService
     , private funcionarioService: FuncionarioService
-    , private atributoService: AtributoService,
-              private atributoFuncService: AtributofService
+    , private atributoService: AtributoService
+    , private atributoFuncService: AtributofService
               // , private obraService: ObraService
   ) {
   }
@@ -90,7 +91,12 @@ export class AtividadeComponent implements OnInit {
   remover(atividade: Atividade) {
     this.atividadeService.delete(atividade.id).subscribe(() => {
       this.findAll();
+      this.showConfirm = false;
     });
+  }
+
+  mostrarConfirm(condicao: boolean) {
+    this.showConfirm = condicao;
   }
 
 

@@ -5,7 +5,11 @@ import {ProdutoService} from './produto.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
-import {CheckboxModule, Dropdown, DropdownModule, RadioButtonModule} from 'primeng/primeng';
+import {SpinnerModule} from 'primeng/spinner';
+import {MessageModule} from 'primeng/message';
+import {DropdownModule} from 'primeng/primeng';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
 
 @NgModule({
   imports: [
@@ -13,13 +17,17 @@ import {CheckboxModule, Dropdown, DropdownModule, RadioButtonModule} from 'prime
     FormsModule,
     TableModule,
     DialogModule,
+    SpinnerModule,
+    MessageModule,
     DropdownModule,
+    ConfirmDialogModule
   ],
   declarations: [
     ProdutoComponent
   ],
   providers: [
-    ProdutoService
+    ProdutoService,
+    ConfirmationService
   ]
 })
 export class ProdutoModule {

@@ -16,6 +16,7 @@ export class CpontoComponent implements OnInit {
   cpontoEdit = new Cponto();
   funcionarioEdit = new Funcionario();
   pt: any;
+  showConfirm = false;
 
 
   constructor(private cpontoService: CpontoService
@@ -64,8 +65,11 @@ export class CpontoComponent implements OnInit {
   remover(cponto: Cponto) {
     this.cpontoService.delete(cponto.id).subscribe(() => {
       this.findAll();
+      this.showConfirm = false;
     });
   }
 
-
+  mostrarConfirm(condicao: boolean) {
+    this.showConfirm = condicao;
+  }
 }

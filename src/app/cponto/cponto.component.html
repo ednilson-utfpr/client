@@ -8,7 +8,6 @@
       <th>Data</th>
       <th>Entrada</th>
       <th>Saída</th>
-      <!--<th>Saldo em Horas</th>-->
       <th>Ações</th>
     </tr>
   </ng-template>
@@ -19,14 +18,23 @@
       <td>{{cponto.data}}</td>
       <td>{{cponto.entrada}}</td>
       <td>{{cponto.saida}}</td>
-      <!--<td>{{cponto.saldo}}</td>-->
       <td>
         <button class="btn btn-primary" (click)="editar(cponto)">
           <i class="fa fa-edit"></i>
         </button>
-        <button class="btn btn-danger" (click)="remover(cponto)">
+        <button class="btn btn-danger" (click)="mostrarConfirm(true)">
           <i class="fa fa-trash"></i>
         </button>
+
+        <p-confirmDialog header="Confirmação"
+                         message="Deseja remover o registro?"
+                         icon="pi pi-exclamation-triangle" width="425" [(visible)]="showConfirm">
+          <p-footer>
+            <button type="button" pButton icon="pi pi-check" label="Sim" (click)="remover(cponto)"></button>
+            <button type="button" pButton icon="pi pi-times" label="Não" (click)="mostrarConfirm(false)"></button>
+          </p-footer>
+        </p-confirmDialog>
+
       </td>
     </tr>
   </ng-template>

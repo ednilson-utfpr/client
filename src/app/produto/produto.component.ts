@@ -2,15 +2,16 @@ import {Component, OnInit} from '@angular/core';
 import {ProdutoService} from './produto.service';
 import {Produto} from './produto';
 
+
 @Component({
   templateUrl: './produto.component.html',
   styleUrls: ['./produto.component.css']
 })
 export class ProdutoComponent implements OnInit {
-
   produtos: Produto[];
   showDialog = false;
   produtoEdit = new Produto();
+  showConfirm = false;
 
   constructor(private produtoService: ProdutoService) {
   }
@@ -44,13 +45,12 @@ export class ProdutoComponent implements OnInit {
   remover(produto: Produto) {
     this.produtoService.delete(produto.id).subscribe(() => {
       this.findAll();
+      this.showConfirm = false;
     });
   }
 
-
-
-
-
-
+  mostrarConfirm(condicao: boolean) {
+    this.showConfirm = condicao;
+  }
 
 }

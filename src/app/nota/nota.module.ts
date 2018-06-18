@@ -1,11 +1,12 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {CcustoComponent} from './ccusto.component';
-import {CcustoService} from './ccusto.service';
+import {NotaComponent} from './nota.component';
+import {NotaService} from './nota.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
-import {ConfirmationService, ConfirmDialogModule, InputMaskModule} from 'primeng/primeng';
+import {DropdownModule, Dropdown} from 'primeng/dropdown';
+import {TabViewModule} from 'primeng/tabview';
 
 @NgModule({
   imports: [
@@ -13,17 +14,16 @@ import {ConfirmationService, ConfirmDialogModule, InputMaskModule} from 'primeng
     FormsModule,
     TableModule,
     DialogModule,
-    InputMaskModule,
-    ConfirmDialogModule
+    DropdownModule,
+    TabViewModule
   ],
   declarations: [
-    CcustoComponent
+    NotaComponent
   ],
   providers: [
-    CcustoService,
-    ConfirmationService,
+    NotaService
   ]
 })
-export class CcustoModule {
+export class NotaModule {
 
 }

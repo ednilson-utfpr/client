@@ -11,6 +11,7 @@ export class CcustoComponent implements OnInit {
   ccustos: Ccusto[];
   showDialog = false;
   ccustoEdit = new Ccusto();
+  showConfirm = false;
 
   constructor(private ccustoService: CcustoService) {
   }
@@ -22,8 +23,6 @@ export class CcustoComponent implements OnInit {
   findAll() {
     this.ccustoService.findAll().subscribe(e => this.ccustos = e);
   }
-
-
 
   novo() {
     this.showDialog = true;
@@ -46,6 +45,11 @@ export class CcustoComponent implements OnInit {
   remover(ccusto: Ccusto) {
     this.ccustoService.delete(ccusto.id).subscribe(() => {
       this.findAll();
+      this.showConfirm = false;
     });
+  }
+
+  mostrarConfirm(condicao: boolean) {
+    this.showConfirm = condicao;
   }
 }
