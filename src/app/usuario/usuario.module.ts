@@ -1,3 +1,4 @@
+import { ConfirmationService } from 'primeng/api';
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {UsuarioComponent} from './usuario.component';
@@ -9,6 +10,8 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import {PasswordModule} from 'primeng/password';
 import {DropdownModule} from 'primeng/dropdown';
 import {CheckboxModule} from 'primeng/checkbox';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {GrowlModule} from 'primeng/growl'
 
 @NgModule({
   imports: [
@@ -19,13 +22,16 @@ import {CheckboxModule} from 'primeng/checkbox';
     RadioButtonModule,
     PasswordModule,
     DropdownModule, 
-    CheckboxModule
+    CheckboxModule, 
+    ConfirmDialogModule,
+    GrowlModule
   ],
   declarations: [
     UsuarioComponent
   ],
   providers: [
-    UsuarioService
+    UsuarioService,
+    ConfirmationService
   ]
 })
 export class UsuarioModule {

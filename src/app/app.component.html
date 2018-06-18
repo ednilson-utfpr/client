@@ -86,7 +86,12 @@
             <span  class="title">Atividade</span>
           </a>
         </li>
-
+        <li *ngIf="hasRole('RELATORIOBANCOHORAS') || hasRole('ADMIN')">
+          <a routerLink="/bancohoras">
+            <i class="fa fa-clock-o"></i>
+            <span  class="title">Banco de Horas</span>
+          </a>
+        </li>
 
         <li *ngIf="hasRole('ATRIBUTO_CRIAR') || hasRole('ATRIBUTO_EDITAR') || hasRole('ATRIBUTO_REMOVER') || hasRole('ADMIN')">
           <a routerLink="/atributo">
@@ -115,13 +120,6 @@
             <span  class="title">Cartão Ponto</span>
           </a>
         </li>
-        <li>
-          <a routerLink="/bancohoras" *ngIf="hasRole('PONTO_CRIAR') || hasRole('PONTO_EDITAR') || hasRole('PONTO_REMOVER') || hasRole('ADMIN')">
-            <i class="fa fa-clock-o"></i>
-            <span  class="title">Banco de Horas</span>
-          </a>
-        </li>
-
         <li *ngIf="hasRole('CENTROCUSTO_CRIAR') || hasRole('CENTROCUSTO_EDITAR') || hasRole('CENTROCUSTO_REMOVER') || hasRole('ADMIN')">
           <a routerLink="/ccusto">
             <i class="fa fa-money"></i>
@@ -143,7 +141,7 @@
           </a>
         </li>
 
-        <li *ngIf="hasRole('FUNCIONARIO_CRIAR') || hasRole('FUNCIONARIO_EDITAR') || hasRole('FORNECEDOR_REMOVER') || hasRole('ADMIN')">
+        <li *ngIf="hasRole('FUNCIONARIO_CRIAR') || hasRole('FUNCIONARIO_EDITAR') || hasRole('FUNCIONARIO_REMOVER') || hasRole('ADMIN')">
           <a routerLink="/funcionario">
             <i class="fa fa-users"></i>
             <span  class="title">Funcionário</span>
@@ -178,12 +176,12 @@
           </a>
         </li>
 
-        <li *ngIf="hasRole('REQUISITOS_CRIAR') || hasRole('REQUISITOS_EDITAR') || hasRole('REQUISITOS_REMOVER') || hasRole('ADMIN')">
+      <!--  <li *ngIf="hasRole('REQUISITOS_CRIAR') || hasRole('REQUISITOS_EDITAR') || hasRole('REQUISITOS_REMOVER') || hasRole('ADMIN')">
           <a routerLink="/requisitos">
             <i class="fa fa-users"></i>
             <span  class="title">Requisitos</span>
           </a>
-        </li>
+        </li>-->
 
         <li *ngIf="hasRole('SETOR_CRIAR') || hasRole('SETOR_EDITAR') || hasRole('SETOR_REMOVER') || hasRole('ADMIN')">
           <a routerLink="/setor">
