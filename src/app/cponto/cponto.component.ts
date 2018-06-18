@@ -1,3 +1,4 @@
+import { LoginService } from './../login/login.service';
 import {Component, OnInit} from '@angular/core';
 import {CpontoService} from './cponto.service';
 import {Cponto} from './cponto';
@@ -20,8 +21,14 @@ export class CpontoComponent implements OnInit {
 
   constructor(private cpontoService: CpontoService
     , private funcionarioService: FuncionarioService
+    , private loginService: LoginService
   ) {
   }
+  
+  hasRole(role: string): boolean {
+    return this.loginService.hasRole(role);
+  }
+
 
   ngOnInit(): void {
     this.findAll();

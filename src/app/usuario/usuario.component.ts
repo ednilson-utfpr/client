@@ -4,9 +4,13 @@ import {Component, OnInit} from '@angular/core';
 import {UsuarioService} from './usuario.service';
 import {Usuario} from './usuario';
 import { Perfil } from '../perfil/perfil';
+<<<<<<< HEAD
 import {ConfirmationService, Message} from 'primeng/api';
 import {LoginService} from '../login/login.service'; 
 
+=======
+import {Message} from 'primeng/api';
+>>>>>>> 23278e4c3915e1893063d71e2c4fd71f5afcac7d
 
 @Component({
   templateUrl: './usuario.component.html',
@@ -17,10 +21,12 @@ export class UsuarioComponent implements OnInit {
   usuarios: Usuario[];
   perfils: Perfil[];
   showDialog = false;
+  showConfirm = false;
   usuarioEdit = new Usuario();
   perfilEdit = new Perfil();
   msgs: Message[] = [];
 
+<<<<<<< HEAD
   constructor(private usuarioService: UsuarioService, private perfilService: PerfilService,
       private confirmationService: ConfirmationService, 
       private loginService: LoginService) {
@@ -28,6 +34,9 @@ export class UsuarioComponent implements OnInit {
 
   hasRole(role: string): boolean {
     return this.loginService.hasRole(role);
+=======
+  constructor(private usuarioService: UsuarioService, private perfilService: PerfilService) {
+>>>>>>> 23278e4c3915e1893063d71e2c4fd71f5afcac7d
   }
   
   ngOnInit(): void {
@@ -65,17 +74,11 @@ export class UsuarioComponent implements OnInit {
   remover(usuario: Usuario) {
     this.usuarioService.delete(usuario.id).subscribe(() => {
       this.findAll();
+      this.showConfirm = false;
     });
   }
 
-  confirm(usuario: Usuario) {
-    this.confirmationService.confirm({
-      header: 'Confirmacao',  
-      message: 'Deseja remover o registro?',
-      accept: () => {
-        this.remover(usuario);
-        this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro removido com sucesso'}];
-      }
-    });
+  mostrarConfirm(condicao: boolean) {
+    this.showConfirm = condicao;
   }
 }

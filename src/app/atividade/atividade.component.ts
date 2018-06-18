@@ -8,6 +8,7 @@ import {Atributo} from '../atributo/atributo';
 import {AtributofService} from '../atributof/atributof.service';
 // import {Obra} from '../obra/obra';
 // import {ObraService} from '../obra/obra.service';
+import {LoginService} from '../login/login.service';
 
 @Component({
   templateUrl: './atividade.component.html',
@@ -28,7 +29,7 @@ export class AtividadeComponent implements OnInit {
   constructor(private atividadeService: AtividadeService
     , private funcionarioService: FuncionarioService
     , private atributoService: AtributoService,
-              private atributoFuncService: AtributofService
+              private atributoFuncService: AtributofService, private loginService: LoginService
               // , private obraService: ObraService
   ) {
   }
@@ -47,6 +48,10 @@ export class AtividadeComponent implements OnInit {
       dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
       dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
     };
+  }
+
+  hasRole(role: string): boolean {
+    return this.loginService.hasRole(role);
   }
 
   atributoChange() {

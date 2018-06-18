@@ -1,3 +1,4 @@
+import { ConfirmationService } from 'primeng/api';
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {UsuarioComponent} from './usuario.component';
@@ -10,7 +11,6 @@ import {PasswordModule} from 'primeng/password';
 import {DropdownModule} from 'primeng/dropdown';
 import {CheckboxModule} from 'primeng/checkbox';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import {ConfirmationService} from 'primeng/api';
 import {GrowlModule} from 'primeng/growl'
 
 @NgModule({

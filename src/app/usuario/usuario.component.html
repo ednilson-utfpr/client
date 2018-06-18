@@ -24,12 +24,24 @@
                 class="btn btn-primary" (click)="editar(usuario)">
                 <i class="fa fa-edit"></i>
               </button>
+<<<<<<< HEAD
               <button  *ngIf="hasRole('USUARIO_REMOVER') || hasRole('ADMIN')"
                 class="btn btn-danger" (click)="confirm(usuario)">
                 <i class="fa fa-trash"></i>
+=======
+              <button class="btn btn-danger" (click)="mostrarConfirm(true)">
+                  <i class="fa fa-trash"></i>
+>>>>>>> 23278e4c3915e1893063d71e2c4fd71f5afcac7d
               </button>
-          
-              <p-confirmDialog></p-confirmDialog>
+  
+              <p-confirmDialog header="Confirmacao" 
+                message="Deseja remover o registro?" 
+                icon="pi pi-exclamation-triangle" width="425" [(visible)]="showConfirm">
+                    <p-footer>
+                        <button type="button" pButton icon="pi pi-check" label="Sim" (click)="remover(usuario)"></button>
+                        <button type="button" pButton icon="pi pi-times" label="Nao" (click)="mostrarConfirm(false)"></button>
+                    </p-footer>
+                </p-confirmDialog>
             </td>
           </tr>
         </ng-template>

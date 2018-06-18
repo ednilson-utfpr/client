@@ -1,3 +1,4 @@
+import { LoginService } from './../login/login.service';
 import {Component, OnInit} from '@angular/core';
 import {CcustoService} from './ccusto.service';
 import {Ccusto} from './ccusto';
@@ -12,7 +13,11 @@ export class CcustoComponent implements OnInit {
   showDialog = false;
   ccustoEdit = new Ccusto();
 
-  constructor(private ccustoService: CcustoService) {
+  constructor(private ccustoService: CcustoService, private loginService: LoginService) {
+  }
+
+  hasRole(role: string): boolean {
+    return this.loginService.hasRole(role);
   }
 
   ngOnInit(): void {
@@ -22,8 +27,6 @@ export class CcustoComponent implements OnInit {
   findAll() {
     this.ccustoService.findAll().subscribe(e => this.ccustos = e);
   }
-
-
 
   novo() {
     this.showDialog = true;
