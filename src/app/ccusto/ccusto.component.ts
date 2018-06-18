@@ -2,6 +2,7 @@ import { LoginService } from './../login/login.service';
 import {Component, OnInit} from '@angular/core';
 import {CcustoService} from './ccusto.service';
 import {Ccusto} from './ccusto';
+import {Message} from 'primeng/api';
 
 @Component({
   templateUrl: './ccusto.component.html',
@@ -13,6 +14,7 @@ export class CcustoComponent implements OnInit {
   showDialog = false;
   ccustoEdit = new Ccusto();
   showConfirm = false;
+  msgs: Message[] = [];
 
   constructor(private ccustoService: CcustoService, private loginService: LoginService) {
   }
@@ -39,12 +41,17 @@ export class CcustoComponent implements OnInit {
       this.ccustoEdit = new Ccusto();
       this.findAll();
       this.showDialog = false;
+        this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro salvo com sucesso'}];
+      },
+      error => {
+        this.msgs = [{severity:'error', summary:'Erro', detail:'Certifique-se de preencher todos os campos.'}];
     });
   }
 
   editar(ccusto: Ccusto) {
     this.ccustoEdit = ccusto;
     this.showDialog = true;
+    this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro alterado com sucesso'}];
   }
 
   remover(ccusto: Ccusto) {

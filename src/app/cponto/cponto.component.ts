@@ -4,6 +4,7 @@ import {CpontoService} from './cponto.service';
 import {Cponto} from './cponto';
 import {Funcionario} from '../funcionario/funcionario';
 import {FuncionarioService} from '../funcionario/funcionario.service';
+import {Message} from 'primeng/api';
 
 @Component({
   templateUrl: './cponto.component.html',
@@ -18,6 +19,8 @@ export class CpontoComponent implements OnInit {
   funcionarioEdit = new Funcionario();
   pt: any;
   showConfirm = false;
+  msgs: Message[] = [];
+
 
 
   constructor(private cpontoService: CpontoService
@@ -25,7 +28,7 @@ export class CpontoComponent implements OnInit {
     , private loginService: LoginService
   ) {
   }
-  
+
   hasRole(role: string): boolean {
     return this.loginService.hasRole(role);
   }
@@ -61,7 +64,11 @@ export class CpontoComponent implements OnInit {
       this.cpontoEdit = new Cponto();
       this.findAll();
       this.showDialog = false;
-    });
+        this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro salvo com sucesso'}];
+      },
+      error => {
+        this.msgs = [{severity:'error', summary:'Erro', detail:'Certifique-se de preencher todos os campos.'}];
+      });
   }
 
   editar(cponto: Cponto) {

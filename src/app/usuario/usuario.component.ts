@@ -4,13 +4,8 @@ import {Component, OnInit} from '@angular/core';
 import {UsuarioService} from './usuario.service';
 import {Usuario} from './usuario';
 import { Perfil } from '../perfil/perfil';
-<<<<<<< HEAD
 import {ConfirmationService, Message} from 'primeng/api';
-import {LoginService} from '../login/login.service'; 
-
-=======
-import {Message} from 'primeng/api';
->>>>>>> 23278e4c3915e1893063d71e2c4fd71f5afcac7d
+import {LoginService} from '../login/login.service';
 
 @Component({
   templateUrl: './usuario.component.html',
@@ -26,19 +21,15 @@ export class UsuarioComponent implements OnInit {
   perfilEdit = new Perfil();
   msgs: Message[] = [];
 
-<<<<<<< HEAD
   constructor(private usuarioService: UsuarioService, private perfilService: PerfilService,
-      private confirmationService: ConfirmationService, 
+      private confirmationService: ConfirmationService,
       private loginService: LoginService) {
   }
 
   hasRole(role: string): boolean {
     return this.loginService.hasRole(role);
-=======
-  constructor(private usuarioService: UsuarioService, private perfilService: PerfilService) {
->>>>>>> 23278e4c3915e1893063d71e2c4fd71f5afcac7d
   }
-  
+
   ngOnInit(): void {
     this.findAll();
   }

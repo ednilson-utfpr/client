@@ -6,6 +6,7 @@ import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
 import {ConfirmationService, ConfirmDialogModule, InputMaskModule} from 'primeng/primeng';
+import {GrowlModule} from 'primeng/growl';
 
 @NgModule({
   imports: [
@@ -14,14 +15,15 @@ import {ConfirmationService, ConfirmDialogModule, InputMaskModule} from 'primeng
     TableModule,
     DialogModule,
     InputMaskModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    GrowlModule
   ],
   declarations: [
     CcustoComponent
   ],
   providers: [
     CcustoService,
-    ConfirmationService,
+    ConfirmationService
   ]
 })
 export class CcustoModule {

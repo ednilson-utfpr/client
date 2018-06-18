@@ -3,19 +3,18 @@
   <section _ngcontent-c2="" class="box ">
     <header _ngcontent-c2="" class="panel_header">
       <h4 _ngcontent-c2="" class="title pull-left title1">Atividade</h4>
-      <button *ngIf="hasRole('ATIVIDADE_CRIAR') || hasRole('ADMIN')" class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
-
+      <button *ngIf="hasRole('ATIVIDADE_CRIAR') || hasRole('ADMIN')" class="btn btn-primary botao" (click)="novo()">Criar novo</button>
       <p-table [value]="atividades">
         <ng-template pTemplate="header">
           <tr>
-            <th>ID</th>
+            <th class="ids">ID</th>
             <!--<th>Obra</th>-->
             <th>Descrição da Atividade</th>
             <th>Início</th>
             <th>Fim</th>
             <th>Início Previsto</th>
             <th>Fim Previsto</th>
-            <th>Ações</th>
+            <th class="acoes">Ações</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-atividade>
@@ -31,15 +30,8 @@
               <button *ngIf="hasRole('ATIVIDADE_EDITAR') || hasRole('ADMIN')" class="btn btn-primary" (click)="editar(atividade)">
                 <i class="fa fa-edit"></i>
               </button>
-<<<<<<< HEAD
-              <button class="btn btn-danger" (click)="mostrarConfirm(true)">
-              <button *ngIf="hasRole('ATIVIDADE_REMOVER') || hasRole('ADMIN')" class="btn btn-danger" (click)="remover(atividade)">
-=======
 
-              <button class="btn btn-danger" (click)="mostrarConfirm(true)">
-              <!--<button *ngIf="hasRole('ATIVIDADE_REMOVER') || hasRole('ADMIN')" class="btn btn-danger" (click)="remover(atividade)">-->
-
->>>>>>> upstream/master
+              <button *ngIf="hasRole('ATIVIDADE_REMOVER') || hasRole('ADMIN')" class="btn btn-danger" (click)="mostrarConfirm(true)">
                 <i class="fa fa-trash"></i>
               </button>
 
@@ -52,10 +44,11 @@
                 </p-footer>
               </p-confirmDialog>
             </td>
+
+
           </tr>
         </ng-template>
       </p-table>
-
     </header>
     <div _ngcontent-c2="" class="content-body">
     </div>
@@ -200,4 +193,3 @@
     <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
   </p-footer>
 </p-dialog>
-
