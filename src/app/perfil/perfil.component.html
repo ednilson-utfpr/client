@@ -21,11 +21,18 @@
                 <button class="btn btn-primary" (click)="editar(perfil)">
                   <i class="fa fa-edit"></i>
                 </button>
-                <button class="btn btn-danger" (click)="confirm(perfil)">
-                  <i class="fa fa-trash"></i>
-                </button>
-            
-                <p-confirmDialog></p-confirmDialog>
+                <button class="btn btn-danger" (click)="mostrarConfirm(true)">
+                    <i class="fa fa-trash"></i>
+                  </button>
+    
+                <p-confirmDialog header="Confirmacao" 
+                  message="Deseja remover o registro?" 
+                  icon="pi pi-exclamation-triangle" width="425" [(visible)]="showConfirm">
+                      <p-footer>
+                          <button type="button" pButton icon="pi pi-check" label="Sim" (click)="remover(perfil)"></button>
+                          <button type="button" pButton icon="pi pi-times" label="Nao" (click)="mostrarConfirm(false)"></button>
+                      </p-footer>
+                  </p-confirmDialog>
               </td>
             </tr>
           </ng-template>

@@ -4,7 +4,7 @@ import {Component, OnInit} from '@angular/core';
 import {UsuarioService} from './usuario.service';
 import {Usuario} from './usuario';
 import { Perfil } from '../perfil/perfil';
-import {ConfirmationService, Message} from 'primeng/api';
+import {Message} from 'primeng/api';
 
 @Component({
   templateUrl: './usuario.component.html',
@@ -15,12 +15,12 @@ export class UsuarioComponent implements OnInit {
   usuarios: Usuario[];
   perfils: Perfil[];
   showDialog = false;
+  showConfirm = false;
   usuarioEdit = new Usuario();
   perfilEdit = new Perfil();
   msgs: Message[] = [];
 
-  constructor(private usuarioService: UsuarioService, private perfilService: PerfilService
-    , private confirmationService: ConfirmationService) {
+  constructor(private usuarioService: UsuarioService, private perfilService: PerfilService) {
   }
   
   ngOnInit(): void {
@@ -58,17 +58,11 @@ export class UsuarioComponent implements OnInit {
   remover(usuario: Usuario) {
     this.usuarioService.delete(usuario.id).subscribe(() => {
       this.findAll();
+      this.showConfirm = false;
     });
   }
 
-  confirm(usuario: Usuario) {
-    this.confirmationService.confirm({
-      header: 'Confirmacao',  
-      message: 'Deseja remover o registro?',
-      accept: () => {
-        this.remover(usuario);
-        this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro removido com sucesso'}];
-      }
-    });
+  mostrarConfirm(condicao: boolean) {
+    this.showConfirm = condicao;
   }
 }

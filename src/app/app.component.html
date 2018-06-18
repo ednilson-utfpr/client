@@ -72,7 +72,7 @@
 
 
       <ul class="wraplist">
-        <li class="menusection">Main</li>
+        <li class="menusection">Menus</li>
         <li>
           <a routerLink="/">
             <i class="fa fa-home"></i>
@@ -86,16 +86,13 @@
             <span  class="title">Atividade</span>
           </a>
         </li>
-<<<<<<< HEAD
+
         <li *ngIf="hasRole('RELATORIOBANCOHORAS') || hasRole('ADMIN')">
           <a routerLink="/bancohoras">
             <i class="fa fa-clock-o"></i>
             <span  class="title">Banco de Horas</span>
           </a>
         </li>
-=======
-
->>>>>>> c65e4703bd22d277de635a55238d3c6c1f33ea65
 
         <li *ngIf="hasRole('ATRIBUTO_CRIAR') || hasRole('ATRIBUTO_EDITAR') || hasRole('ATRIBUTO_REMOVER') || hasRole('ADMIN')">
           <a routerLink="/atributo">
@@ -122,12 +119,6 @@
           <a routerLink="/cponto">
             <i class="fa fa-clock-o"></i>
             <span  class="title">Cartão Ponto</span>
-          </a>
-        </li>
-        <li>
-          <a routerLink="/bancohoras" *ngIf="hasRole('PONTO_CRIAR') || hasRole('PONTO_EDITAR') || hasRole('PONTO_REMOVER') || hasRole('ADMIN')">
-            <i class="fa fa-clock-o"></i>
-            <span  class="title">Banco de Horas</span>
           </a>
         </li>
 

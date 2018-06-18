@@ -3,7 +3,7 @@
   <section _ngcontent-c2="" class="box ">
     <header _ngcontent-c2="" class="panel_header">
       <h4 _ngcontent-c2="" class="title pull-left title1">Atributo</h4>
-      <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
+      <button *ngIf="hasRole('ATRIBUTO_CRIAR') || hasRole('ADMIN')" class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
 
       <p-table [value]="atributos">
         <ng-template pTemplate="header">
@@ -18,14 +18,21 @@
             <td>{{atributo.id}}</td>
             <td>{{atributo.nome}}</td>
             <td>
-              <button class="btn btn-primary" (click)="editar(atributo)">
+              <button *ngIf="hasRole('ATRIBUTO_EDITAR') || hasRole('ADMIN')" class="btn btn-primary" (click)="editar(atributo)">
                 <i class="fa fa-edit"></i>
               </button>
-              <button class="btn btn-danger" (click)="confirm(atributo)">
+              <button *ngIf="hasRole('ATRIBUTO_REMOVER') || hasRole('ADMIN')" class="btn btn-danger" (click)="mostrarConfirm(true)">
                 <i class="fa fa-trash"></i>
               </button>
-          
-              <p-confirmDialog></p-confirmDialog>
+
+              <p-confirmDialog header="Confirmacao" 
+              message="Deseja remover o registro?" 
+              icon="pi pi-exclamation-triangle" width="425" [(visible)]="showConfirm">
+                  <p-footer>
+                      <button type="button" pButton icon="pi pi-check" label="Sim" (click)="remover(atributo)"></button>
+                      <button type="button" pButton icon="pi pi-times" label="Nao" (click)="mostrarConfirm(false)"></button>
+                  </p-footer>
+              </p-confirmDialog>
             </td>
           </tr>
         </ng-template>

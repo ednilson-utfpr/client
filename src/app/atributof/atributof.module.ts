@@ -1,3 +1,4 @@
+import { ConfirmationService } from 'primeng/api';
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {AtributofComponent} from './atributof.component';
@@ -7,7 +8,6 @@ import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
 import {CalendarModule, DropdownModule} from 'primeng/primeng';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import {ConfirmationService} from 'primeng/api';
 
 @NgModule({
   imports: [

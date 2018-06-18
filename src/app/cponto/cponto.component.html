@@ -3,7 +3,7 @@
   <section _ngcontent-c2="" class="box ">
     <header _ngcontent-c2="" class="panel_header">
       <h4 _ngcontent-c2="" class="title pull-left" style=" margin-bottom:20px;">Cartao Ponto</h4>
-      <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
+      <button *ngIf="hasRole('PONTO_CRIAR') || hasRole('ADMIN')" class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
           <p-table [value]="cpontos">
             <ng-template pTemplate="header">
               <tr>
@@ -25,10 +25,10 @@
                 <td>{{cponto.saida}}</td>
                 <!--<td>{{cponto.saldo}}</td>-->
                 <td>
-                  <button class="btn btn-primary" (click)="editar(cponto)">
+                  <button *ngIf="hasRole('PONTO_EDITAR') || hasRole('ADMIN')" class="btn btn-primary" (click)="editar(cponto)">
                     <i class="fa fa-edit"></i>
                   </button>
-                  <button class="btn btn-danger" (click)="remover(cponto)">
+                  <button *ngIf="hasRole('PONTO_REMOVER') || hasRole('ADMIN')" class="btn btn-danger" (click)="remover(cponto)">
                     <i class="fa fa-trash"></i>
                   </button>
                 </td>

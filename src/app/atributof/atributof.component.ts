@@ -5,7 +5,8 @@ import {AtributoService} from '../atributo/atributo.service';
 import {Atributo} from '../atributo/atributo';
 import {FuncionarioService} from '../funcionario/funcionario.service';
 import {Funcionario} from '../funcionario/funcionario';
-import {ConfirmationService, Message} from 'primeng/api';
+import {Message} from 'primeng/api';
+import {LoginService} from '../login/login.service';
 
 @Component({
   templateUrl: './atributof.component.html',
@@ -15,13 +16,18 @@ export class AtributofComponent implements OnInit {
 
   atributofs: Atributof[];
   showDialog = false;
+  showConfirm = false;
   atributofEdit = new Atributof();
   atributos: Atributo[];
   funcionarios: Funcionario[];
   pt: any;
 
   constructor(private atributofService: AtributofService, private atributoService: AtributoService
-      , private funcionarioService: FuncionarioService, private confirmationService: ConfirmationService) {
+      , private funcionarioService: FuncionarioService, private loginService: LoginService) {
+  }
+
+  hasRole(role: string): boolean {
+    return this.loginService.hasRole(role);
   }
 
   ngOnInit(): void {
@@ -65,16 +71,11 @@ export class AtributofComponent implements OnInit {
   remover(atributof: Atributof) {
     this.atributofService.delete(atributof.id).subscribe(() => {
       this.findAll();
+      this.showConfirm = false;
     });
   }
 
-  confirm(atributof: Atributof) {
-    this.confirmationService.confirm({
-      header: 'Confirmacao',  
-      message: 'Deseja remover o registro?',
-      accept: () => {
-        this.remover(atributof);
-      }
-    });
+  mostrarConfirm(condicao: boolean) {
+    this.showConfirm = condicao;
   }
 }
