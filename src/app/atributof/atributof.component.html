@@ -7,11 +7,11 @@
       <p-table [value]="atributofs">
         <ng-template pTemplate="header">
           <tr>
-            <th>ID</th>
+            <th class="ids">ID</th>
             <th>Atributo</th>
             <th>Funcionario</th>
             <th>Data Vencimento</th>
-            <th>Ações</th>
+            <th class="acoes">Ações</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-atributof>
@@ -24,18 +24,9 @@
               <button *ngIf="hasRole('ATRIBUTOF_EDITAR') || hasRole('ADMIN')" class="btn btn-primary" (click)="editar(atributof)">
                 <i class="fa fa-edit"></i>
               </button>
-              <button *ngIf="hasRole('ATRIBUTOF_REMOVER') || hasRole('ADMIN')" class="btn btn-danger" (click)="mostrarConfirm(true)">
+              <button *ngIf="hasRole('ATRIBUTOF_REMOVER') || hasRole('ADMIN')" class="btn btn-danger" (click)="confirmDelete(atributof)">
                   <i class="fa fa-trash"></i>
-                </button>
-
-                <p-confirmDialog header="Confirmacao"
-                message="Deseja remover o registro?"
-                icon="pi pi-exclamation-triangle" width="425" [(visible)]="showConfirm">
-                    <p-footer>
-                        <button type="button" pButton icon="pi pi-check" label="Sim" (click)="remover(atributof)"></button>
-                        <button type="button" pButton icon="pi pi-times" label="Nao" (click)="mostrarConfirm(false)"></button>
-                    </p-footer>
-                </p-confirmDialog>
+              </button>
             </td>
           </tr>
         </ng-template>
@@ -45,7 +36,9 @@
     </div>
   </section>
 </div>
+<p-confirmDialog></p-confirmDialog>
 
+<p-growl [(value)]="msgs"></p-growl>
 
 
 <p-dialog header="Cadastro de Atributos Funcionario "

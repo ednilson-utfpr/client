@@ -45,6 +45,7 @@ export class UsuarioComponent implements OnInit {
   }
 
   salvar() {
+    console.log(this.usuarioEdit);
     this.usuarioService.save(this.usuarioEdit).subscribe(e => {
       this.usuarioEdit = new Usuario();
       this.findAll();
@@ -57,19 +58,22 @@ export class UsuarioComponent implements OnInit {
   }
 
   editar(usuario: Usuario) {
+    usuario.authorities = null;
     this.usuarioEdit = usuario;
     this.showDialog = true;
     this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro alterado com sucesso'}];
   }
 
-  remover(usuario: Usuario) {
-    this.usuarioService.delete(usuario.id).subscribe(() => {
-      this.findAll();
-      this.showConfirm = false;
-    });
-  }
-
-  mostrarConfirm(condicao: boolean) {
-    this.showConfirm = condicao;
-  }
+  confirmDelete(usuario: Usuario) {
+        this.confirmationService.confirm({
+            message: 'Essa ação não poderá ser desfeita',
+            header: 'Deseja remover esse registro?',
+            accept: () => {
+                this.usuarioService.delete(usuario.id).subscribe(() => {
+                this.findAll();
+                this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro removido com sucesso'}];
+              });
+            }
+        });
+    }
 }

@@ -3,6 +3,7 @@ import {AtributoService} from './atributo.service';
 import {Atributo} from './atributo';
 import {Message} from 'primeng/api';
 import {LoginService} from '../login/login.service';
+import {ConfirmationService} from 'primeng/api';
 
 @Component({
   templateUrl: './atributo.component.html',
@@ -16,8 +17,9 @@ export class AtributoComponent implements OnInit {
   atributoEdit = new Atributo();
   msgs: Message[] = [];
 
-  constructor(private atributoService: AtributoService, private loginService: LoginService) {
-  }
+  constructor(private atributoService: AtributoService, private loginService: LoginService, 
+  private confirmationService: ConfirmationService) {}
+
 
   hasRole(role: string): boolean {
     return this.loginService.hasRole(role);
@@ -54,14 +56,16 @@ export class AtributoComponent implements OnInit {
     this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro alterado com sucesso'}];
   }
 
-  remover(atributo: Atributo) {
-    this.atributoService.delete(atributo.id).subscribe(() => {
-      this.findAll();
-      this.showConfirm = false;
-    });
-  }
-
-  mostrarConfirm(condicao: boolean) {
-    this.showConfirm = condicao;
-  }
+  confirmDelete(atributo: Atributo) {
+        this.confirmationService.confirm({
+            message: 'Essa ação não poderá ser desfeita',
+            header: 'Deseja remover esse registro?',
+            accept: () => {
+                this.atributoService.delete(atributo.id).subscribe(() => {
+                this.findAll();
+                this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro removido com sucesso'}];
+              });
+            }
+        });
+    }
 }

@@ -23,24 +23,12 @@
                   class="btn btn-primary" (click)="editar(perfil)">
                   <i class="fa fa-edit"></i>
                 </button>
-                <button *ngIf="hasRole('ADMIN')"
-                  class="btn btn-danger" (click)="confirm(perfil)">
-                  <i class="fa fa-trash"></i>
+               
+                <button *ngIf="hasRole('ADMIN')" 
+                    class="btn btn-danger" (click)="confirmDelete(perfil)">
+                    <i class="fa fa-trash"></i>
                 </button>
 
-                <p-confirmDialog></p-confirmDialog>
-                <button class="btn btn-danger" (click)="mostrarConfirm(true)">
-                    <i class="fa fa-trash"></i>
-                  </button>
-
-                <p-confirmDialog header="Confirmacao"
-                  message="Deseja remover o registro?"
-                  icon="pi pi-exclamation-triangle" width="425" [(visible)]="showConfirm">
-                      <p-footer>
-                          <button type="button" pButton icon="pi pi-check" label="Sim" (click)="remover(perfil)"></button>
-                          <button type="button" pButton icon="pi pi-times" label="Nao" (click)="mostrarConfirm(false)"></button>
-                      </p-footer>
-                  </p-confirmDialog>
               </td>
             </tr>
           </ng-template>
@@ -50,6 +38,10 @@
     </div>
   </section>
 </div>
+
+<p-confirmDialog></p-confirmDialog>
+
+<p-growl [(value)]="msgs"></p-growl>
 
 
 <p-dialog header="Cadastro"
@@ -76,9 +68,9 @@
 
         <label>Atividade:</label>
         <div class="ui-g" style="width:300px;margin-bottom:10px">
-          <div class="ui-g-4"><p-checkbox name="funcionario" value="ROLE_FUNCIONARIO_CRIAR" label="Criar" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
-          <div class="ui-g-4"><p-checkbox name="funcionario" value="ROLE_FUNCIONARIO_EDITAR" label="Editar" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
-          <div class="ui-g-4"><p-checkbox name="funcionario" value="ROLE_FUNCIONARIO_REMOVER" label="Remover" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
+          <div class="ui-g-4"><p-checkbox name="funcionario" value="ATIVIDADE_CRIAR" label="Criar" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
+          <div class="ui-g-4"><p-checkbox name="funcionario" value="ATIVIDADE_EDITAR" label="Editar" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
+          <div class="ui-g-4"><p-checkbox name="funcionario" value="ATIVIDADE_REMOVER" label="Remover" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
         </div>
 
         <label>Atributo:</label>

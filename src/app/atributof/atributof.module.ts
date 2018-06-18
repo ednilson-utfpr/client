@@ -8,6 +8,7 @@ import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
 import {CalendarModule, DropdownModule} from 'primeng/primeng';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {GrowlModule} from 'primeng/growl';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
     DialogModule,
     DropdownModule,
     CalendarModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    GrowlModule
   ],
   declarations: [
     AtributofComponent
