@@ -30,10 +30,17 @@ export class AtividadeComponent implements OnInit {
 
   constructor(private atividadeService: AtividadeService
     , private funcionarioService: FuncionarioService
+<<<<<<< HEAD
     , private atributoService: AtributoService
     , private atributoFuncService: AtributofService
     , private loginService: LoginService
     // , private obraService: ObraService
+=======
+    , private atributoService: AtributoService,
+      private atributoFuncService: AtributofService, 
+      private loginService: LoginService
+              // , private obraService: ObraService
+>>>>>>> upstream/master
   ) {
   }
 

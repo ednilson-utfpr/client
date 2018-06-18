@@ -4,6 +4,7 @@
     <header _ngcontent-c2="" class="panel_header">
       <h4 _ngcontent-c2="" class="title pull-left" style=" margin-bottom:20px;">Cartao Ponto</h4>
       <button *ngIf="hasRole('PONTO_CRIAR') || hasRole('ADMIN')" class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
+<<<<<<< HEAD
           <p-table [value]="cpontos">
             <ng-template pTemplate="header">
               <tr>
@@ -39,6 +40,50 @@
       </section>
     </div>
 
+=======
+
+      <p-table [value]="cpontos">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>ID</th>
+            <th>Funcionario</th>
+            <th>Data</th>
+            <th>Entrada</th>
+            <th>Saída</th>
+            <th>Ações</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-cponto>
+          <tr>
+            <td>{{cponto.id}}</td>
+            <td>{{cponto.funcionario?.pessoa}}</td>
+            <td>{{cponto.data}}</td>
+            <td>{{cponto.entrada}}</td>
+            <td>{{cponto.saida}}</td>
+            <td>
+              <button class="btn btn-primary" (click)="editar(cponto)">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button class="btn btn-danger" (click)="mostrarConfirm(true)">
+                <i class="fa fa-trash"></i>
+              </button>
+
+        <p-confirmDialog header="Confirmação"
+                         message="Deseja remover o registro?"
+                         icon="pi pi-exclamation-triangle" width="425" [(visible)]="showConfirm">
+          <p-footer>
+            <button type="button" pButton icon="pi pi-check" label="Sim" (click)="remover(cponto)"></button>
+            <button type="button" pButton icon="pi pi-times" label="Não" (click)="mostrarConfirm(false)"></button>
+          </p-footer>
+        </p-confirmDialog>
+
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+
+>>>>>>> upstream/master
 
 <p-dialog header="Cadastro do Cartão Ponto "
           [(visible)]="showDialog"

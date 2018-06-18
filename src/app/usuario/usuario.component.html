@@ -3,7 +3,8 @@
   <section _ngcontent-c2="" class="box ">
     <header _ngcontent-c2="" class="panel_header">
       <h4 _ngcontent-c2="" class="title pull-left" style=" margin-bottom:20px;">Usuario</h4>
-      <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
+      <button  *ngIf="hasRole('USUARIO_CRIAR') || hasRole('ADMIN')" 
+      class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
       <p-table [value]="usuarios">
         <ng-template pTemplate="header">
           <tr>
@@ -19,11 +20,18 @@
             <td>{{usuario.nome}}</td>
             <td>{{usuario.username}}</td>      
             <td>
-              <button class="btn btn-primary" (click)="editar(usuario)">
+              <button  *ngIf="hasRole('USUARIO_EDITAR') || hasRole('ADMIN')" 
+                class="btn btn-primary" (click)="editar(usuario)">
                 <i class="fa fa-edit"></i>
               </button>
+<<<<<<< HEAD
+              <button  *ngIf="hasRole('USUARIO_REMOVER') || hasRole('ADMIN')"
+                class="btn btn-danger" (click)="confirm(usuario)">
+                <i class="fa fa-trash"></i>
+=======
               <button class="btn btn-danger" (click)="mostrarConfirm(true)">
                   <i class="fa fa-trash"></i>
+>>>>>>> 23278e4c3915e1893063d71e2c4fd71f5afcac7d
               </button>
   
               <p-confirmDialog header="Confirmacao" 

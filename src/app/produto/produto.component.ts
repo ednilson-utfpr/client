@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProdutoService} from './produto.service';
 import {Produto} from './produto';
+import {LoginService} from '../login/login.service'; 
 
 
 @Component({
@@ -13,7 +14,12 @@ export class ProdutoComponent implements OnInit {
   produtoEdit = new Produto();
   showConfirm = false;
 
-  constructor(private produtoService: ProdutoService) {
+  constructor(private produtoService: ProdutoService, 
+              private loginService: LoginService) {
+  }
+
+  hasRole(role: string): boolean {
+    return this.loginService.hasRole(role);
   }
 
   ngOnInit(): void {
