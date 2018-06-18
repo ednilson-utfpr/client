@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PerfilService} from './perfil.service';
 import {Perfil} from './perfil';
+import {Message} from 'primeng/api';
 
 @Component({
   templateUrl: './perfil.component.html',
@@ -10,6 +11,7 @@ export class PerfilComponent implements OnInit {
 
   perfils: Perfil[];
   showDialog = false;
+  showConfirm = false;
   perfilEdit = new Perfil();
 
   constructor(private perfilService: PerfilService) {
@@ -44,6 +46,11 @@ export class PerfilComponent implements OnInit {
   remover(perfil: Perfil) {
     this.perfilService.delete(perfil.id).subscribe(() => {
       this.findAll();
+      this.showConfirm = false;
     });
+  }
+
+  mostrarConfirm(condicao: boolean) {
+    this.showConfirm = condicao;
   }
 }

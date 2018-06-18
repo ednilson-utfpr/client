@@ -1,13 +1,11 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {ProdutoComponent} from './produto.component';
-import {ProdutoService} from './produto.service';
+import {ItemNotaComponent} from './itemNota.component';
+import {ItemNotaService} from './itemNota.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
-import {SpinnerModule} from 'primeng/spinner';
-import {MessageModule} from 'primeng/message';
-import {DropdownModule} from 'primeng/primeng';
+import {DropdownModule, Dropdown} from 'primeng/dropdown';
 
 @NgModule({
   imports: [
@@ -15,17 +13,15 @@ import {DropdownModule} from 'primeng/primeng';
     FormsModule,
     TableModule,
     DialogModule,
-    SpinnerModule,
-    MessageModule,
     DropdownModule
   ],
   declarations: [
-    ProdutoComponent
+    ItemNotaComponent
   ],
   providers: [
-    ProdutoService
+    ItemNotaService
   ]
 })
-export class ProdutoModule {
+export class ItemNotaModule {
 
 }

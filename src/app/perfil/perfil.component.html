@@ -21,9 +21,18 @@
                 <button class="btn btn-primary" (click)="editar(perfil)">
                   <i class="fa fa-edit"></i>
                 </button>
-                <button class="btn btn-danger" (click)="remover(perfil)">
-                  <i class="fa fa-trash"></i>
-                </button>
+                <button class="btn btn-danger" (click)="mostrarConfirm(true)">
+                    <i class="fa fa-trash"></i>
+                  </button>
+    
+                <p-confirmDialog header="Confirmacao" 
+                  message="Deseja remover o registro?" 
+                  icon="pi pi-exclamation-triangle" width="425" [(visible)]="showConfirm">
+                      <p-footer>
+                          <button type="button" pButton icon="pi pi-check" label="Sim" (click)="remover(perfil)"></button>
+                          <button type="button" pButton icon="pi pi-times" label="Nao" (click)="mostrarConfirm(false)"></button>
+                      </p-footer>
+                  </p-confirmDialog>
               </td>
             </tr>
           </ng-template>
@@ -50,7 +59,7 @@
                id="nome"
                name="nome"
                class="form-control"
-               [(ngModel)]="perfilEdit.nome">
+               [(ngModel)]="perfilEdit.nome" required>
 
         <h5>Permissões</h5> 
         <div class="ui-g" style="width:300px;margin-bottom:10px">
@@ -146,6 +155,11 @@
           <div class="ui-g-4"><p-checkbox name="requisitos" value="REQUISITOS_CRIAR" label="Criar" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
           <div class="ui-g-4"><p-checkbox name="requisitos" value="REQUISITOS_EDITAR" label="Editar" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
           <div class="ui-g-4"><p-checkbox name="requisitos" value="REQUISITOS_REMOVER" label="Remover" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
+        </div>
+
+        <label>Relatorios:</label>
+        <div class="ui-g" style="width:300px;margin-bottom:10px">
+          <div class="ui-g-6"><p-checkbox name="bancohoras" value="RELATORIOBANCOHORAS" label="Banco de Horas" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
         </div>
 
         <label>Setor:</label>

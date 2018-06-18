@@ -5,8 +5,10 @@ import {FuncionarioService} from '../funcionario/funcionario.service';
 import {Funcionario} from '../funcionario/funcionario';
 import {AtributoService} from '../atributo/atributo.service';
 import {Atributo} from '../atributo/atributo';
+import {AtributofService} from '../atributof/atributof.service';
 // import {Obra} from '../obra/obra';
 // import {ObraService} from '../obra/obra.service';
+import {LoginService} from '../login/login.service';
 
 @Component({
   templateUrl: './atividade.component.html',
@@ -25,10 +27,11 @@ export class AtividadeComponent implements OnInit {
 
 
   constructor(private atividadeService: AtividadeService
-            , private funcionarioService: FuncionarioService
-            , private atributoService: AtributoService
+    , private funcionarioService: FuncionarioService
+    , private atributoService: AtributoService,
+              private atributoFuncService: AtributofService, private loginService: LoginService
               // , private obraService: ObraService
-          ) {
+  ) {
   }
 
   ngOnInit(): void {
@@ -38,13 +41,33 @@ export class AtividadeComponent implements OnInit {
     this.atributoService.findAll().subscribe(e => this.atributos = e);
 
     this.pt = {
-      monthNames : [ 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho',
-        'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro' ],
-      monthNamesShort : [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ],
-      dayNames : [ 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado' ],
-      dayNamesShort : [ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb' ],
-      dayNamesMin : [ 'D', 'S', 'T', 'Q', 'Q', 'S', 'S' ],
+      monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho',
+        'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+      monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+      dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+      dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'],
+      dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
     };
+  }
+
+  hasRole(role: string): boolean {
+    return this.loginService.hasRole(role);
+  }
+
+  atributoChange() {
+    if (this.atividadeEdit.atributo.length > 0) {
+      this.funcionarios = [];
+      this.atributoFuncService.findAll().subscribe(e => {
+        this.atividadeEdit.atributo.forEach(attrib => {
+          e.filter(af => af.atributo.id === attrib.id);
+        });
+        e.forEach(af => {
+          this.funcionarios.push(af.funcionario);
+        });
+      });
+    } else {
+      this.funcionarioService.findAll().subscribe(e => this.funcionarios = e);
+    }
   }
 
   findAll() {
@@ -74,10 +97,6 @@ export class AtividadeComponent implements OnInit {
       this.findAll();
     });
   }
-
-
-
-
 
 
 }
