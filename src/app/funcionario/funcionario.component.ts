@@ -5,6 +5,7 @@ import { CargoService } from '../cargo/cargo.service';
 import { Cargo } from '../cargo/cargo';
 import { SetorService } from '../setor/setor.service';
 import { Setor } from '../setor/setor';
+import {LoginService} from '../login/login.service';
 
 @Component({
   templateUrl: './funcionario.component.html',
@@ -19,9 +20,12 @@ export class FuncionarioComponent implements OnInit {
   setores: Setor[];
 
   constructor(private funcionarioService: FuncionarioService
-              , private cargoService: CargoService, private setorService: SetorService
-) {
+              , private cargoService: CargoService, private setorService: SetorService,
+              private loginService: LoginService
+) {}
 
+  hasRole(role: string): boolean {
+    return this.loginService.hasRole(role);
   }
 
   ngOnInit(): void {

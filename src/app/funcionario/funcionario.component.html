@@ -3,7 +3,8 @@
   <section _ngcontent-c2="" class="box ">
     <header _ngcontent-c2="" class="panel_header">
       <h4 _ngcontent-c2="" class="title pull-left title1">Funcionário</h4>
-      <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
+      <button *ngIf="hasRole('FUNCIONARIO_CRIAR') || hasRole('ADMIN')" class="btn btn-primary botao"  
+      (click)="novo()">Criar novo</button>
 
         <p-table [value]="funcionarios">
           <ng-template pTemplate="header">
@@ -30,10 +31,12 @@
               <td>{{funcionario.cargo}}</td>
               <td>{{funcionario.salario}}</td>
               <td>
-                <button class="btn btn-primary" (click)="editar(funcionario)">
+                <button *ngIf="hasRole('FUNCIONARIO_EDITAR') || hasRole('ADMIN')" 
+                class="btn btn-primary" (click)="editar(funcionario)">
                   <i class="fa fa-edit"></i>
                 </button>
-                <button class="btn btn-danger" (click)="remover(funcionario)">
+                <button *ngIf="hasRole('FUNCIONARIO_REMOVER') || hasRole('ADMIN')"
+                class="btn btn-danger" (click)="remover(funcionario)">
                   <i class="fa fa-trash"></i>
                 </button>
               </td>

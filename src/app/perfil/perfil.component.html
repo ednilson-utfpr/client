@@ -3,7 +3,8 @@
   <section _ngcontent-c2="" class="box ">
     <header _ngcontent-c2="" class="panel_header">
       <h4 _ngcontent-c2="" class="title pull-left title1">Perfil</h4>
-      <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
+      <button *ngIf="hasRole('ADMIN')"
+      class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
       
         <p-table [value]="perfils">
           <ng-template pTemplate="header">
@@ -18,9 +19,18 @@
               <td>{{perfil.id}}</td>
               <td>{{perfil.nome}}</td>
               <td>
-                <button class="btn btn-primary" (click)="editar(perfil)">
+                <button *ngIf="hasRole('ADMIN')"
+                  class="btn btn-primary" (click)="editar(perfil)">
                   <i class="fa fa-edit"></i>
                 </button>
+<<<<<<< HEAD
+                <button *ngIf="hasRole('ADMIN')"
+                  class="btn btn-danger" (click)="confirm(perfil)">
+                  <i class="fa fa-trash"></i>
+                </button>
+            
+                <p-confirmDialog></p-confirmDialog>
+=======
                 <button class="btn btn-danger" (click)="mostrarConfirm(true)">
                     <i class="fa fa-trash"></i>
                   </button>
@@ -33,6 +43,7 @@
                           <button type="button" pButton icon="pi pi-times" label="Nao" (click)="mostrarConfirm(false)"></button>
                       </p-footer>
                   </p-confirmDialog>
+>>>>>>> 23278e4c3915e1893063d71e2c4fd71f5afcac7d
               </td>
             </tr>
           </ng-template>
