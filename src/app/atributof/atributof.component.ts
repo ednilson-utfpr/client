@@ -7,11 +7,13 @@ import {FuncionarioService} from '../funcionario/funcionario.service';
 import {Funcionario} from '../funcionario/funcionario';
 import {Message} from 'primeng/api';
 import {LoginService} from '../login/login.service';
+import {ConfirmationService} from 'primeng/api';
 
 @Component({
   templateUrl: './atributof.component.html',
   styleUrls: ['./atributof.component.css']
 })
+
 export class AtributofComponent implements OnInit {
 
   atributofs: Atributof[];
@@ -21,10 +23,11 @@ export class AtributofComponent implements OnInit {
   atributos: Atributo[];
   funcionarios: Funcionario[];
   pt: any;
+  msgs: Message[] = [];
 
-  constructor(private atributofService: AtributofService, private atributoService: AtributoService
-      , private funcionarioService: FuncionarioService, private loginService: LoginService) {
-  }
+  constructor(private atributofService: AtributofService, private atributoService: AtributoService,
+      private funcionarioService: FuncionarioService, private loginService: LoginService,
+      private confirmationService: ConfirmationService) {}
 
   hasRole(role: string): boolean {
     return this.loginService.hasRole(role);
@@ -68,14 +71,16 @@ export class AtributofComponent implements OnInit {
     this.showDialog = true;
   }
 
-  remover(atributof: Atributof) {
-    this.atributofService.delete(atributof.id).subscribe(() => {
-      this.findAll();
-      this.showConfirm = false;
-    });
-  }
-
-  mostrarConfirm(condicao: boolean) {
-    this.showConfirm = condicao;
-  }
+  confirmDelete(atributof: Atributof) {
+        this.confirmationService.confirm({
+            message: 'Essa ação não poderá ser desfeita',
+            header: 'Deseja remover esse registro?',
+            accept: () => {
+                this.atributofService.delete(atributof.id).subscribe(() => {
+                this.findAll();
+                this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro removido com sucesso'}];
+              });
+            }
+        });
+    }
 }

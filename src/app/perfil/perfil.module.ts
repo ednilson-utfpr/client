@@ -8,6 +8,7 @@ import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
 import {CheckboxModule} from 'primeng/checkbox';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {GrowlModule} from 'primeng/growl';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
     TableModule,
     DialogModule,
     CheckboxModule, 
-    ConfirmDialogModule
+    ConfirmDialogModule, 
+    GrowlModule
   ],
   declarations: [
     PerfilComponent
