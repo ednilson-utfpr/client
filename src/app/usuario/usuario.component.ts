@@ -5,6 +5,8 @@ import {UsuarioService} from './usuario.service';
 import {Usuario} from './usuario';
 import { Perfil } from '../perfil/perfil';
 import {ConfirmationService, Message} from 'primeng/api';
+import {LoginService} from '../login/login.service'; 
+
 
 @Component({
   templateUrl: './usuario.component.html',
@@ -19,8 +21,13 @@ export class UsuarioComponent implements OnInit {
   perfilEdit = new Perfil();
   msgs: Message[] = [];
 
-  constructor(private usuarioService: UsuarioService, private perfilService: PerfilService
-    , private confirmationService: ConfirmationService) {
+  constructor(private usuarioService: UsuarioService, private perfilService: PerfilService,
+      private confirmationService: ConfirmationService, 
+      private loginService: LoginService) {
+  }
+
+  hasRole(role: string): boolean {
+    return this.loginService.hasRole(role);
   }
   
   ngOnInit(): void {

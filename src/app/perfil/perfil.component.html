@@ -3,7 +3,8 @@
   <section _ngcontent-c2="" class="box ">
     <header _ngcontent-c2="" class="panel_header">
       <h4 _ngcontent-c2="" class="title pull-left title1">Perfil</h4>
-      <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
+      <button *ngIf="hasRole('ADMIN')"
+      class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
       
         <p-table [value]="perfils">
           <ng-template pTemplate="header">
@@ -18,10 +19,12 @@
               <td>{{perfil.id}}</td>
               <td>{{perfil.nome}}</td>
               <td>
-                <button class="btn btn-primary" (click)="editar(perfil)">
+                <button *ngIf="hasRole('ADMIN')"
+                  class="btn btn-primary" (click)="editar(perfil)">
                   <i class="fa fa-edit"></i>
                 </button>
-                <button class="btn btn-danger" (click)="confirm(perfil)">
+                <button *ngIf="hasRole('ADMIN')"
+                  class="btn btn-danger" (click)="confirm(perfil)">
                   <i class="fa fa-trash"></i>
                 </button>
             

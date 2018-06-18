@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {PerfilService} from './perfil.service';
 import {Perfil} from './perfil';
 import {ConfirmationService, Message} from 'primeng/api';
+import {LoginService} from '../login/login.service'; 
+
 
 @Component({
   templateUrl: './perfil.component.html',
@@ -13,9 +15,13 @@ export class PerfilComponent implements OnInit {
   showDialog = false;
   perfilEdit = new Perfil();
 
-  constructor(private perfilService: PerfilService, private confirmationService: ConfirmationService) {
+  constructor(private perfilService: PerfilService, private confirmationService: ConfirmationService,
+   private loginService: LoginService) {
   }
 
+  hasRole(role: string): boolean {
+    return this.loginService.hasRole(role);
+  }
   ngOnInit(): void {
     this.findAll();
   }
