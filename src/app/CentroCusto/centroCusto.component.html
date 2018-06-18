@@ -1,22 +1,24 @@
 <button class="btn btn-primary" (click)="novo()">Criar novo</button>
 
-<p-table [value]="produtos">
+<p-table [value]="centroCustos">
   <ng-template pTemplate="header">
     <tr>
       <th>ID</th>
+      <th>Código</th>
       <th>Descrição</th>
       <th>Ações</th>
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-produto>
+  <ng-template pTemplate="body" let-centroCusto>
     <tr>
-      <td>{{produto.id}}</td>
-      <td>{{produto.descricao}}</td>
+      <td>{{centroCusto.id}}</td>
+      <td>{{centroCusto.codigo}}</td>
+      <td>{{centroCusto.descricao}}</td>
       <td>
-        <button class="btn btn-primary" (click)="editar(produto)">
+        <button class="btn btn-primary" (click)="editar(centroCusto)">
           <i class="fa fa-edit"></i>
         </button>
-        <button class="btn btn-danger" (click)="remover(produto)">
+        <button class="btn btn-danger" (click)="remover(centroCusto)">
           <i class="fa fa-trash"></i>
         </button>
       </td>
@@ -32,6 +34,18 @@
           [width]="500">
 
   <div class="row">
+
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="codigo">Código</label>
+        <input type="text"
+               id="codigo"
+               name="codigo"
+               class="form-control"
+               [(ngModel)]="centroCustoEdit.codigo">
+      </div>
+    </div>
+
     <div class="col-sm-12">
       <div class="form-group">
         <label for="descricao">Descrição</label>
@@ -39,9 +53,10 @@
                id="descricao"
                name="descricao"
                class="form-control"
-               [(ngModel)]="produtoEdit.descricao">
+               [(ngModel)]="centroCustoEdit.descricao">
       </div>
     </div>
+
   </div>
 
 

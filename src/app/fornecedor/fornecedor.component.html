@@ -1,22 +1,22 @@
 <button class="btn btn-primary" (click)="novo()">Criar novo</button>
 
-<p-table [value]="produtos">
+<p-table [value]="fornecedores">
   <ng-template pTemplate="header">
     <tr>
       <th>ID</th>
-      <th>Descrição</th>
+      <th>Pessoa</th>
       <th>Ações</th>
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-produto>
+  <ng-template pTemplate="body" let-fornecedor>
     <tr>
-      <td>{{produto.id}}</td>
-      <td>{{produto.descricao}}</td>
+      <td>{{fornecedor.id}}</td>
+      <td>{{fornecedor.idPessoa?.nome}}</td>
       <td>
-        <button class="btn btn-primary" (click)="editar(produto)">
+        <button class="btn btn-primary" (click)="editar(fornecedor)">
           <i class="fa fa-edit"></i>
         </button>
-        <button class="btn btn-danger" (click)="remover(produto)">
+        <button class="btn btn-danger" (click)="remover(fornecedor)">
           <i class="fa fa-trash"></i>
         </button>
       </td>
@@ -32,16 +32,15 @@
           [width]="500">
 
   <div class="row">
+
     <div class="col-sm-12">
       <div class="form-group">
-        <label for="descricao">Descrição</label>
-        <input type="text"
-               id="descricao"
-               name="descricao"
-               class="form-control"
-               [(ngModel)]="produtoEdit.descricao">
+        <label for="fornecedor">Fornecedor</label>
+        <p-dropdown styleClass="width: 100%" [options]="pessoas" [(ngModel)]="fornecedorEdit.idPessoa" placeholder="Selecione a Pessoa" optionLabel="nome" [showClear]="true"></p-dropdown>
+
       </div>
     </div>
+
   </div>
 
 

@@ -7,14 +7,11 @@ import {LoginService} from './login/login.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
   isAuthenticated = false;
   $ = window['jQuery'];
-
   constructor(private loginService: LoginService) {
     this.loginService.isAuthenticated.asObservable().subscribe(e => this.isAuthenticated = e);
   }
-
   ngOnInit(): void {
     setTimeout(() => this.mainMenu(), 1000);
   }

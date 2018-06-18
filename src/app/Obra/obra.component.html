@@ -1,0 +1,179 @@
+<link rel="stylesheet" type="text/css" class=".../styles.css">
+ <div _ngcontent-c2="" class="col-lg-12">
+    <section _ngcontent-c2="" class="box ">
+      <header _ngcontent-c2="" class="panel_header">
+        <h4 _ngcontent-c2="" class="title pull-left title1">Cadastro de Obras</h4>
+        <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
+
+<p-table [value]="obras">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Descricao</th>
+      <th>Cliente</th>
+      <th>Centro de Custo</th>
+      <th>Local</th>
+      <th>Fornecedor</th>
+      <th>Inicio</th>
+      <th>Final</th>
+      <th>Inicio Previsto</th>
+      <th>Final Previsto</th>
+      <th>Custo Total</th>
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-obra>
+    <tr>
+      <td>{{obra?.id}}</td>
+      <td>{{obra?.descricao}}</td>
+      <td>{{obra?.idCliente?.idPessoa.nome}}</td>
+      <td>{{obra?.idCentroCusto?.descricao}}</td>
+      <td>{{obra?.idCidade?.descricao}}</td>
+      <td>{{obra?.idFornecedor?.idPessoa.nome}}</td>
+      <td>{{obra?.inicio | date:'dd/MM/yyyy'}}</td>
+      <td>{{obra?.fim | date:'dd/MM/yyyy'}}</td>
+      <td>{{obra?.inicioPrevisto | date:'dd/MM/yyyy'}}</td>
+      <td>{{obra?.fimPrevisto | date:'dd/MM/yyyy'}}</td>
+      <td>R{{obra?.custoTotal | currency}}</td>
+      <td>
+        <button class="btn btn-primary" (click)="editar(obra)">
+          <i class="fa fa-edit"></i>
+        </button>
+        <button class="btn btn-danger" (click)="remover(obra)">
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+      </header>
+      <div _ngcontent-c2="" class="content-body">
+      </div>
+    </section>
+ </div>
+
+
+<p-dialog header="Cadastro"
+          [(visible)]="showDialog"
+          modal="modal"
+          [responsive]="true"
+          [width]="500">
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="descricao">Descrição</label>
+        <input type="text"
+               id="descricao"
+               name="descricao"
+               class="form-control"
+               [(ngModel)]="obraEdit.descricao">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="cliente">Cliente</label>
+        <p-dropdown styleClass="width: 100%" [options]="clientes" [(ngModel)]="obraEdit.idCliente" placeholder="Selecione o Cliente" optionLabel="idPessoa.descricao" [showClear]="true"></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="centroCusto">Centro de Custo</label>
+        <p-dropdown styleClass="width: 100%" [options]="centroCustos" [(ngModel)]="obraEdit.idCentroCusto" placeholder="Selecione o Centro de Custo" optionLabel="descricao" [showClear]="true"></p-dropdown>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="cidade">Local da Obra</label>
+        <p-dropdown styleClass="width: 100%" [options]="cidades" [(ngModel)]="obraEdit.idCidade" placeholder="Selecione a Cidade" optionLabel="descricao" [showClear]="true"></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="fornecedor">Fornecedor</label>
+        <p-dropdown styleClass="width: 100%" [options]="fornecedores" [(ngModel)]="obraEdit.idFornecedor" placeholder="Selecione o Fornecedor" optionLabel="idPessoa.descricao" [showClear]="true"></p-dropdown>
+      </div>
+    </div>
+  </div>
+
+  <div clas="row">
+    <div class="col-sm-6">
+      <label>Data Inicial</label>
+      <p-calendar [(ngModel)]="obraEdit.inicio" dateFormat="yy-mm-dd" [showIcon]="true"></p-calendar> <span style="margin-left:35px"></span>
+    </div>
+    <div class="col-sm-6">
+      <label>Data Final</label>
+      <p-calendar [(ngModel)]="obraEdit.fim" dateFormat="yy-mm-dd" [showIcon]="true"></p-calendar> <span style="margin-left:35px"></span>
+    </div>
+  </div>
+
+  <div clas="row">
+    <div class="col-sm-6">
+      <label>Data de Inicio Previsto</label>
+      <p-calendar [(ngModel)]="obraEdit.inicioPrevisto" dateFormat="yy-mm-dd" [showIcon]="true"></p-calendar> <span style="margin-left:35px"></span>
+    </div>
+    <div class="col-sm-6">
+      <label>Data de Fim Previsto</label>
+      <p-calendar [(ngModel)]="obraEdit.fimPrevisto" dateFormat="yy-mm-dd" [showIcon]="true"></p-calendar> <span style="margin-left:35px"></span>
+    </div>
+  </div>
+
+  <div clas="row">
+    <div class="col-sm-6">
+      <label>Custo Total</label>
+      <input type="number"
+             id="CustoTotal"
+             name="custoTotal"
+             class="form-control"
+             [(ngModel)]="obraEdit.custoTotal">
+    </div>
+  </div>
+
+  <p-footer>
+
+    <button type="button" class="btn btn-default" (click)="showDialog = false">Cancelar</button>
+    <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
+  </p-footer>
+</p-dialog>
+
+
+<!-- <amCharts id="chartdiv1" [options]="options" [style.width.%]="100" [style.height.px]="500"></amCharts> -->
+<div _ngcontent-c2="" class="col-lg-12">
+  <section _ngcontent-c2="" class="box ">
+  <h4 _ngcontent-c2="" style="padding-left: 15px" class="title pull-left title1">Custo Total por Obra</h4>
+<div id="chartdiv2" [style.width.%]="100" [style.height.px]="500"></div>
+  </section>
+</div>
+
+<div _ngcontent-c2="" class="col-lg-12">
+  <section _ngcontent-c2="" class="box ">
+    <!--<h4 _ngcontent-c2="" style="padding-left: 15px" class="title pull-left title1">Local - Obras</h4> -->
+    <form class="form-inline" #form="ngForm" (ngSubmit)="setCenter($event, cidades)" ac>
+      <div class="form-group">
+        <p-dropdown styleClass="width: 100%" [options]="cidades" [(ngModel)]="obraEdit.idCidade" placeholder="Selecione a Localização" optionLabel="descricao" [showClear]="true"></p-dropdown>
+
+      </div>
+      <!-- <div class="form-group">
+        <input type="text" class="form-control" name="latitude" [(ngModel)]="cidades.latitude" placeholder="Enter latitude" required>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" name="longitude" [(ngModel)]="cidades.longitude" [ngModelOptions]="{standalone: true}" placeholder="Enter longitude" required>
+      </div> -->
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Ir</button>
+    </form>
+<div #gmap style="width:95%;height:400px;margin: 10px"></div>
+      <button style="margin: 5px" (click)="setMapType('terrain')" class="btn btn-primary">Mapa terreste</button>
+      <button (click)="setMapType('satellite')" class="btn btn-danger">Mapa Satélite</button>
+      <button (click)="setMapType('roadmap')" class="btn btn-warning">Mapa de Rota</button>
+  </section>
+</div>

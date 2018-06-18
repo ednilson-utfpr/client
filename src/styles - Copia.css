@@ -9473,23 +9473,3 @@ table.dataTable.display tbody tr:first-child td {
 .ui-dropdown {
   width: 100% !important;
 }
-
-.ids{
-  width:50px;
-}
-
-.acoes{
-  width:130px;
-}
-
-.botao{
-  display:inline-block;
-  top:20px;
-  right:20px;
-  position: absolute;
-  z-index:5;
-}
-
-.title1{
-  margin-bottom:20px;
-}
