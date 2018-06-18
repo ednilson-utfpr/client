@@ -30,10 +30,25 @@
               <button *ngIf="hasRole('ATIVIDADE_EDITAR') || hasRole('ADMIN')" class="btn btn-primary" (click)="editar(atividade)">
                 <i class="fa fa-edit"></i>
               </button>
-              <button *ngIf="hasRole('ATIVIDADE_REMOVER') || hasRole('ADMIN')" class="btn btn-danger" (click)="remover(atividade)">
+
+              <button class="btn btn-danger" (click)="mostrarConfirm(true)">
+              <!--<button *ngIf="hasRole('ATIVIDADE_REMOVER') || hasRole('ADMIN')" class="btn btn-danger" (click)="remover(atividade)">-->
+
                 <i class="fa fa-trash"></i>
               </button>
+
+              <p-confirmDialog header="Confirmação"
+                               message="Deseja remover o registro?"
+                               icon="pi pi-exclamation-triangle" width="425" [(visible)]="showConfirm">
+                <p-footer>
+                  <button type="button" pButton icon="pi pi-check" label="Sim" (click)="remover(atividade)"></button>
+                  <button type="button" pButton icon="pi pi-times" label="Não" (click)="mostrarConfirm(false)"></button>
+                </p-footer>
+              </p-confirmDialog>
+
             </td>
+
+
           </tr>
         </ng-template>
       </p-table>
@@ -62,15 +77,14 @@
 
         <label for="atributo">Atributo(s)</label><br>
         <p-multiSelect name="atributo" id="atributo"
-                       defaultLabel="Escolha os atributos &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                       defaultLabel="Escolha os atributos"
                        optionLabel="descricao"
                        filterPlaceHolder="  Digite aqui o nome do atributo"
                        selectedItemsLabel="{0} atributos selecionados"
                        [options]="atributos"
                        [(ngModel)]="atividadeEdit.atributo"
                        [panelStyle]="{minWidth:'30em'}"
-                       (onChange)="atributoChange()"
-        >
+                       (onPanelShow)="atributoChange()">
         </p-multiSelect>
         <br>
 

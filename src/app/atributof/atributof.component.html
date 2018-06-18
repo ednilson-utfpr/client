@@ -40,12 +40,12 @@
           </tr>
         </ng-template>
       </p-table>
-      
-      </header>
-      <div _ngcontent-c2="" class="content-body">
-      </div>
-    </section>
-  </div>
+    </header>
+    <div _ngcontent-c2="" class="content-body">
+    </div>
+  </section>
+</div>
+
 
 
 <p-dialog header="Cadastro de Atributos Funcionario "
@@ -61,13 +61,13 @@
 
         <label for="atributo">Atributo</label>
         <p-dropdown name="atributo" id="atributo" [options]="atributos"
-                    [(ngModel)]="atributofEdit.atributo" placeholder="Selecione um atributo" optionLabel="nome" 
+                    [(ngModel)]="atributofEdit.atributo" placeholder="Selecione um atributo" optionLabel="nome"
                     [showClear]="true">
         </p-dropdown>
 
         <label for="funcionario">Funcionario - {{atributofEdit.funcionario?.pessoa}}</label>
         <p-dropdown name="funcionario" id="funcionario" [options]="funcionarios"
-                    [(ngModel)]="atributofEdit.funcionario" placeholder="Selecione um funcionário" optionLabel="pessoa" 
+                    [(ngModel)]="atributofEdit.funcionario" placeholder="Selecione um funcionário" optionLabel="pessoa"
                     [showClear]="true">
         </p-dropdown>
 
@@ -90,4 +90,3 @@
     <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
   </p-footer>
 </p-dialog>
-

@@ -7,7 +7,7 @@ import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
 import {
   CalendarModule,
-  CheckboxModule,
+  CheckboxModule, ConfirmationService, ConfirmDialogModule,
   Dropdown,
   DropdownModule,
   InputMaskModule,
@@ -26,13 +26,15 @@ import {AtributofService} from '../atributof/atributof.service';
     InputMaskModule,
     CalendarModule,
     MultiSelectModule,
+    ConfirmDialogModule
   ],
   declarations: [
     AtividadeComponent
   ],
   providers: [
     AtividadeService,
-    AtributofService
+    AtributofService,
+    ConfirmationService
   ]
 })
 export class AtividadeModule {

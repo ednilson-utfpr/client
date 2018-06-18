@@ -23,16 +23,29 @@
                 <button *ngIf="hasRole('CENTROCUSTO_EDITAR') || hasRole('ADMIN')" class="btn btn-primary" (click)="editar(ccusto)">
                   <i class="fa fa-edit"></i>
                 </button>
-                <button *ngIf="hasRole('CENTROCUSTO_REMOVER') || hasRole('ADMIN')" class="btn btn-danger" (click)="remover(ccusto)">
+
+                <button class="btn btn-danger" (click)="mostrarConfirm(true)">
+             <!--   <button *ngIf="hasRole('CENTROCUSTO_REMOVER') || hasRole('ADMIN')" class="btn btn-danger" (click)="remover(ccusto)">-->
+
                   <i class="fa fa-trash"></i>
                 </button>
+
+                <p-confirmDialog header="Confirmação"
+                                 message="Deseja remover o registro?"
+                                 icon="pi pi-exclamation-triangle" width="425" [(visible)]="showConfirm">
+                  <p-footer>
+                    <button type="button" pButton icon="pi pi-check" label="Sim" (click)="remover(ccusto)"></button>
+                    <button type="button" pButton icon="pi pi-times" label="Não" (click)="mostrarConfirm(false)"></button>
+                  </p-footer>
+                </p-confirmDialog>
+
               </td>
             </tr>
           </ng-template>
         </p-table>
       </header>
       <div _ngcontent-c2="" class="content-body">
-      </div>  
+      </div>
     </section>
   </div>
 

@@ -12,6 +12,7 @@ export class ProdutoComponent implements OnInit {
   produtos: Produto[];
   showDialog = false;
   produtoEdit = new Produto();
+  showConfirm = false;
 
   constructor(private produtoService: ProdutoService, 
               private loginService: LoginService) {
@@ -50,7 +51,12 @@ export class ProdutoComponent implements OnInit {
   remover(produto: Produto) {
     this.produtoService.delete(produto.id).subscribe(() => {
       this.findAll();
+      this.showConfirm = false;
     });
+  }
+
+  mostrarConfirm(condicao: boolean) {
+    this.showConfirm = condicao;
   }
 
 }
