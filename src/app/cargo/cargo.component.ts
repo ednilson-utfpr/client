@@ -1,3 +1,4 @@
+import { LoginService } from './../login/login.service';
 import {Component, OnInit} from '@angular/core';
 import {CargoService} from './cargo.service';
 import {Cargo} from './cargo';
@@ -12,8 +13,13 @@ export class CargoComponent implements OnInit {
   showDialog = false;
   cargoEdit = new Cargo();
 
-  constructor(private cargoService: CargoService) {
+  constructor(private cargoService: CargoService, private loginService: LoginService) {
   }
+
+  hasRole(role: string): boolean {
+    return this.loginService.hasRole(role);
+  }
+
 
   ngOnInit(): void {
     this.findAll();

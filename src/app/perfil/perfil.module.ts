@@ -1,3 +1,4 @@
+import { ConfirmationService } from 'primeng/api';
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {PerfilComponent} from './perfil.component';
@@ -7,7 +8,6 @@ import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
 import {CheckboxModule} from 'primeng/checkbox';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import {ConfirmationService} from 'primeng/api';
 
 @NgModule({
   imports: [
