@@ -18,8 +18,10 @@ import {GrowlModule} from 'primeng/growl';
     DialogModule,
     DropdownModule,
     CalendarModule,
+    DropdownModule,
     ConfirmDialogModule,
     GrowlModule
+
   ],
   declarations: [
     AtributofComponent

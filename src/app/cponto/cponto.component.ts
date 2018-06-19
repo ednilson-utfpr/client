@@ -19,15 +19,13 @@ export class CpontoComponent implements OnInit {
   cpontoEdit = new Cponto();
   funcionarioEdit = new Funcionario();
   pt: any;
-  showConfirm = false;
   msgs: Message[] = [];
-
-
 
   constructor(private cpontoService: CpontoService
     , private funcionarioService: FuncionarioService
     , private loginService: LoginService
     , private confirmationService: ConfirmationService
+
   ) {
   }
 
@@ -84,6 +82,7 @@ export class CpontoComponent implements OnInit {
       this.showConfirm = false;
     });
   }
+
 
   confirm(cponto: Cponto) {
     this.confirmationService.confirm({

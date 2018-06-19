@@ -1,15 +1,13 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {CpontoComponent} from './cponto.component';
-import {CpontoService} from './cponto.service';
+import {EstadoComponent} from './estado.component';
+import {EstadoService} from './estado.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
-import {CalendarModule, CheckboxModule, Dropdown, DropdownModule, InputMaskModule, RadioButtonModule} from 'primeng/primeng';
+import {LoginService} from '../login/login.service';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
-import {GrowlModule} from 'primeng/growl';
-
 
 @NgModule({
   imports: [
@@ -17,21 +15,17 @@ import {GrowlModule} from 'primeng/growl';
     FormsModule,
     TableModule,
     DialogModule,
-    DropdownModule,
-    CalendarModule,
-    InputMaskModule,
-    ConfirmDialogModule,
-    GrowlModule,
-
+	ConfirmDialogModule,
   ],
   declarations: [
-    CpontoComponent
+    EstadoComponent
   ],
   providers: [
-    CpontoService,
-    ConfirmationService
+    EstadoService,,
+	ConfirmationService
+	LoginService
   ]
 })
-export class CpontoModule {
+export class EstadoModule {
 
 }

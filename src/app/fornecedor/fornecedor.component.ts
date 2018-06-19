@@ -3,6 +3,14 @@ import {FornecedorService} from './fornecedor.service';
 import {PessoaService} from '../pessoa/pessoa.service';
 import {Fornecedor} from './fornecedor';
 import {Pessoa} from '../pessoa/pessoa';
+import {Fornecedor} from './fornecedor';
+import {EstadoService} from '../estado/estado.service';
+import {CidadeService} from '../cidade/cidade.service';
+import {Estado} from '../estado/estado';
+import {Cidade} from '../cidade/cidade';
+import {Message} from 'primeng/api';
+import {LoginService} from '../login/login.service';
+import {ConfirmationService} from 'primeng/api';
 
 @Component({
   templateUrl: './fornecedor.component.html',
@@ -11,16 +19,33 @@ import {Pessoa} from '../pessoa/pessoa';
 export class FornecedorComponent implements OnInit {
 
   fornecedores: Fornecedor[];
-  pessoas: Pessoa[];
   showDialog = false;
+  showConfirm = false;
   fornecedorEdit = new Fornecedor();
+  cidades: Cidade[];
+  estados: Estado[];
+  msgs: Message[] = [];
 
-  constructor(private fornecedorService: FornecedorService, private pessoaService: PessoaService) {
+  constructor(private fornecedorService: FornecedorService, private confirmationService: ConfirmationService, private loginService: LoginService, private estadoService: EstadoService, private cidadeService:CidadeService) {
+
   }
 
   ngOnInit(): void {
     this.findAll();
-    this.pessoaService.findAll().subscribe(e => this.pessoas = e);
+    this.estadoService.findAll().subscribe(e => this.estados = e);
+  }
+  
+  hasRole(role: string): boolean {
+    return this.loginService.hasRole(role);
+  }
+  
+  mostrarConfirm(condicao: boolean) {
+	this.showConfirm = condicao;
+  }
+  
+  buscaCidades(estado): void{
+  	this.cidadeService.findByEstado(estado).subscribe(c => this.cidades = c);
+
   }
 
   findAll() {
@@ -48,6 +73,20 @@ export class FornecedorComponent implements OnInit {
   remover(fornecedor: Fornecedor) {
     this.fornecedorService.delete(fornecedor.id).subscribe(() => {
       this.findAll();
+	  this.showConfirm = false;
     });
   }
+  
+  confirmDelete(fornecedor: Fornecedor){
+	  this.confirmationService.confirm({
+		  message:'Essa ação não poderá ser desfeita',
+		  header:'Deseja remover esse registro?',
+		  accept:()=>{this.fornecedorService.delete(fornecedor.id).subscribe(()=>{
+			  this.findAll();
+			  this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro removido com sucesso'}];
+		  });
+		}
+	  });
+  }
+
 }

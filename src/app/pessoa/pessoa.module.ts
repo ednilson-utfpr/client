@@ -5,16 +5,18 @@ import {PessoaService} from './pessoa.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
+import {CheckboxModule, Dropdown, DropdownModule, RadioButtonModule} from 'primeng/primeng';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     TableModule,
-    DialogModule
+    DialogModule,
+    DropdownModule,
   ],
   declarations: [
-    PessoaComponent
+
   ],
   providers: [
     PessoaService

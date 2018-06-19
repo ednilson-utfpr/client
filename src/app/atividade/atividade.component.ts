@@ -23,7 +23,6 @@ export class AtividadeComponent implements OnInit {
   // obras: Obra[];
   atributos: Atributo[];
   funcionarios: Funcionario[];
-
   l: Atributof[];
   funcTemp: Array<Funcionario> = [];
 
@@ -31,7 +30,6 @@ export class AtividadeComponent implements OnInit {
   atividadeEdit = new Atividade();
   funcionarioEdit = new Funcionario();
   pt: any;
-  showConfirm = false;
   msgs: Message[] = [];
 
   constructor(private atividadeService: AtividadeService
@@ -41,6 +39,7 @@ export class AtividadeComponent implements OnInit {
     , private loginService: LoginService
     , private confirmationService: ConfirmationService
     // , private obraService: ObraService
+
   ) {
   }
 
@@ -60,9 +59,11 @@ export class AtividadeComponent implements OnInit {
     };
   }
 
+
   hasRole(role: string): boolean {
     return this.loginService.hasRole(role);
   }
+
 
 
   atributoChange() {
@@ -117,6 +118,7 @@ export class AtividadeComponent implements OnInit {
       this.showConfirm = false;
     });
   }
+
 
   confirm(atividade: Atividade) {
     this.confirmationService.confirm({

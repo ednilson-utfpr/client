@@ -5,6 +5,7 @@ import {CcustoService} from './ccusto.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
+import {InputMaskModule, RadioButtonModule} from 'primeng/primeng';
 import {ConfirmationService, ConfirmDialogModule, InputMaskModule} from 'primeng/primeng';
 import {GrowlModule} from 'primeng/growl';
 
@@ -14,9 +15,10 @@ import {GrowlModule} from 'primeng/growl';
     FormsModule,
     TableModule,
     DialogModule,
-    InputMaskModule,
+    InputMaskModule
     ConfirmDialogModule,
     GrowlModule
+
   ],
   declarations: [
     CcustoComponent

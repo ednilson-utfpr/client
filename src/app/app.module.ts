@@ -11,6 +11,7 @@ import {AppRouting} from './app-routing.module';
 import {LoginModule} from './login/login.module';
 import {HomeModule} from './home/home.module';
 import {ProdutoModule} from './produto/produto.module';
+
 import {NotaModule} from './nota/nota.module';
 import {ItemNotaModule} from './itemNota/itemNota.module';
 import {BancohorasModule} from './bancohoras/bancohoras.module';
@@ -30,6 +31,7 @@ import {ClienteModule} from './cliente/cliente.module';
 import {CentroCustoModule} from './CentroCusto/centroCusto.module';
 import {ObraModule} from './Obra/obra.module';
 import {CidadeModule} from './Cidade/cidade.module';
+
 
 
 
@@ -54,7 +56,6 @@ import {CidadeModule} from './Cidade/cidade.module';
     SetorModule,
     CargoModule,
     FuncionarioModule,
-    PerfilModule,
     AtributoModule,
     AtributofModule,
     AtividadeModule,
@@ -68,6 +69,12 @@ import {CidadeModule} from './Cidade/cidade.module';
     ObraModule,
     AmChartsModule,
     CidadeModule
+	  PessoaModule,
+    FornecedorModule,
+	  ClienteModule,
+	  EstadoModule,
+    CidadeModule
+
   ],
   providers: [
     {

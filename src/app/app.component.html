@@ -127,12 +127,29 @@
           </a>
         </li>
 
+        
+        <li *ngIf="hasRole('CIDADE_CRIAR') || hasRole('CIDADE_EDITAR') || hasRole('CIDADE_REMOVER') || hasRole('ADMIN')">
+          <a routerLink="/cidade">
+            <i class="fa fa-address-card"></i>
+            <span  class="title">Cidade</span>
+          </a>
+        </li>
+
         <li *ngIf="hasRole('CLIENTE_CRIAR') || hasRole('CLIENTE_EDITAR') || hasRole('CLIENTE_REMOVER') || hasRole('ADMIN')">
           <a routerLink="/cliente">
             <i class="fa fa-money"></i>
             <span  class="title">Cliente</span>
           </a>
         </li>
+
+        
+        <li *ngIf="hasRole('ESTADO_CRIAR') || hasRole('ESTADO_EDITAR') || hasRole('ESTADO_REMOVER') || hasRole('ADMIN')">
+          <a routerLink="/estado">
+            <i class="fa fa-address-card"></i>
+            <span  class="title">Estado</span>
+          </a>
+        </li>
+
 
         <li *ngIf="hasRole('FORNECEDOR_CRIAR') || hasRole('FORNECEDOR_EDITAR') || hasRole('FORNECEDOR_REMOVER') || hasRole('ADMIN')">
           <a routerLink="/fornecedor">

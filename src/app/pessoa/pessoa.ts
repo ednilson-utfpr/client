@@ -1,17 +1,21 @@
-export class Pessoa {
+export abstract class Pessoa {
 
   id: number;
 
-  descricao: string;
-
   nome: string;
 
-  cgc: string;
+  apelido: string;
 
-  telefone: string;
+  cgc: number;
+
+  telefone: number;
 
   endereco: string;
 
   email: string;
 
+
+  idCidade: number;
 }
+
+

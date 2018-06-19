@@ -5,17 +5,18 @@ import {AtividadeService} from './atividade.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
+import {AtributofService} from '../atributof/atributof.service';
+import {GrowlModule} from 'primeng/growl';
 import {
-  CalendarModule,
-  CheckboxModule, ConfirmationService, ConfirmDialogModule,
+  CalendarModule, CheckboxModule, ConfirmationService, ConfirmDialogModule,
+
   Dropdown,
   DropdownModule,
   InputMaskModule,
   MultiSelectModule,
   RadioButtonModule
 } from 'primeng/primeng';
-import {AtributofService} from '../atributof/atributof.service';
-import {GrowlModule} from 'primeng/growl';
+
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import {GrowlModule} from 'primeng/growl';
     MultiSelectModule,
     GrowlModule,
     ConfirmDialogModule
+
   ],
   declarations: [
     AtividadeComponent
@@ -37,6 +39,7 @@ import {GrowlModule} from 'primeng/growl';
     AtividadeService,
     AtributofService,
     ConfirmationService
+
   ]
 })
 export class AtividadeModule {

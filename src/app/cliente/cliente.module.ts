@@ -7,6 +7,13 @@ import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
 import {DropdownModule} from 'primeng/dropdown';
 import {PessoaService} from '../pessoa/pessoa.service';
+import {EstadoService} from '../estado/estado.service';
+import {CidadeService} from '../cidade/cidade.service';
+import {DropdownModule, CheckboxModule} from 'primeng/primeng';
+import {LoginService} from '../login/login.service';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
+
 
 @NgModule({
   imports: [
@@ -14,7 +21,10 @@ import {PessoaService} from '../pessoa/pessoa.service';
     FormsModule,
     TableModule,
     DialogModule,
-    DropdownModule
+    DropdownModule,
+    CheckboxModule,
+	  ConfirmDialogModule
+
   ],
   declarations: [
     ClienteComponent
@@ -22,6 +32,10 @@ import {PessoaService} from '../pessoa/pessoa.service';
   providers: [
     ClienteService,
     PessoaService
+    CidadeService,
+    EstadoService,
+	  LoginService,
+	  ConfirmationService
   ]
 })
 export class ClienteModule {
