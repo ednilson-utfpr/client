@@ -3,7 +3,7 @@
   <section _ngcontent-c2="" class="box ">
     <header _ngcontent-c2="" class="panel_header">
       <h4 _ngcontent-c2="" class="title pull-left title1">Cargo</h4>
-      <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
+      <button *ngIf="hasRole('CARGO_CRIAR') || hasRole('ADMIN')" class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
 
       <p-table [value]="cargos">
           <ng-template pTemplate="header">
@@ -20,10 +20,10 @@
               <td>{{cargo.nome}}</td>
               <td>{{cargo.descricao}}</td>
               <td>
-                <button class="btn btn-primary" (click)="editar(cargo)">
+                <button *ngIf="hasRole('CARGO_EDITAR') || hasRole('ADMIN')" class="btn btn-primary" (click)="editar(cargo)">
                   <i class="fa fa-edit"></i>
                 </button>
-                <button class="btn btn-danger" (click)="remover(cargo)">
+                <button *ngIf="hasRole('CARGO_REMOVER') || hasRole('ADMIN')" class="btn btn-danger" (click)="remover(cargo)">
                   <i class="fa fa-trash"></i>
                 </button>
               </td>

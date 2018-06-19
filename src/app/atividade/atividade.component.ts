@@ -6,8 +6,12 @@ import {Funcionario} from '../funcionario/funcionario';
 import {AtributoService} from '../atributo/atributo.service';
 import {Atributo} from '../atributo/atributo';
 import {AtributofService} from '../atributof/atributof.service';
+import {ConfirmationService, Message} from 'primeng/api';
 // import {Obra} from '../obra/obra';
 // import {ObraService} from '../obra/obra.service';
+import {LoginService} from '../login/login.service';
+import {Atributof} from '../atributof/atributof';
+
 
 @Component({
   templateUrl: './atividade.component.html',
@@ -19,17 +23,23 @@ export class AtividadeComponent implements OnInit {
   // obras: Obra[];
   atributos: Atributo[];
   funcionarios: Funcionario[];
+  l: Atributof[];
+  funcTemp: Array<Funcionario> = [];
+
   showDialog = false;
   atividadeEdit = new Atividade();
   funcionarioEdit = new Funcionario();
   pt: any;
-
+  msgs: Message[] = [];
 
   constructor(private atividadeService: AtividadeService
     , private funcionarioService: FuncionarioService
-    , private atributoService: AtributoService,
-              private atributoFuncService: AtributofService
-              // , private obraService: ObraService
+    , private atributoService: AtributoService
+    , private atributoFuncService: AtributofService
+    , private loginService: LoginService
+    , private confirmationService: ConfirmationService
+    // , private obraService: ObraService
+
   ) {
   }
 
@@ -49,16 +59,26 @@ export class AtividadeComponent implements OnInit {
     };
   }
 
+
+  hasRole(role: string): boolean {
+    return this.loginService.hasRole(role);
+  }
+
+
+
   atributoChange() {
     if (this.atividadeEdit.atributo.length > 0) {
       this.funcionarios = [];
-      this.atributoFuncService.findAll().subscribe(e => {
+      this.atributoFuncService.findAll().subscribe(e =>{
+
         this.atividadeEdit.atributo.forEach(attrib => {
-          e.filter(af => af.atributo.id === attrib.id);
+          this.l =  e.filter(af => af.atributo.id === attrib.id);
         });
-        e.forEach(af => {
-          this.funcionarios.push(af.funcionario);
+        this.l.forEach(af => {
+          this.funcTemp.push(af.funcionario);
         });
+        this.funcionarios = this.funcTemp;
+        this.funcTemp = [];
       });
     } else {
       this.funcionarioService.findAll().subscribe(e => this.funcionarios = e);
@@ -74,22 +94,42 @@ export class AtividadeComponent implements OnInit {
     this.atividadeEdit = new Atividade();
   }
 
-  salvar() {
+  salvar(){
     this.atividadeService.save(this.atividadeEdit).subscribe(e => {
       this.atividadeEdit = new Atividade();
       this.findAll();
       this.showDialog = false;
+        this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro salvo com sucesso'}];
+      },
+      error => {
+        this.msgs = [{severity:'error', summary:'Erro', detail:'Certifique-se de preencher todos os campos.'}];
     });
   }
 
   editar(atividade: Atividade) {
     this.atividadeEdit = atividade;
     this.showDialog = true;
+  this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro alterado com sucesso'}];
   }
 
   remover(atividade: Atividade) {
     this.atividadeService.delete(atividade.id).subscribe(() => {
       this.findAll();
+      this.showConfirm = false;
+    });
+  }
+
+
+  confirm(atividade: Atividade) {
+    this.confirmationService.confirm({
+      message: 'Essa ação não poderá ser desfeita',
+      header: 'Deseja remover esse registro?',
+      accept: () => {
+        this.atividadeService.delete(atividade.id).subscribe(() => {
+          this.findAll();
+          this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro removido com sucesso'}];
+        });
+      }
     });
   }
 

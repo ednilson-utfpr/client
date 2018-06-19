@@ -25,6 +25,9 @@ import {FornecedorModule} from './fornecedor/fornecedor.module';
 import {ClienteModule} from './cliente/cliente.module';
 import {EstadoModule} from './estado/estado.module';
 import {CidadeModule} from './cidade/cidade.module';
+import {NotaModule} from "./nota/nota.module";
+import {ItemNotaModule} from "./itemNota/itemNota.module";
+
 
 
 @NgModule({
@@ -39,6 +42,8 @@ import {CidadeModule} from './cidade/cidade.module';
     LoginModule,
     HomeModule,
     ProdutoModule,
+    NotaModule,
+    ItemNotaModule,
     PerfilModule,
     UsuarioModule,
     CcustoModule,
@@ -46,16 +51,16 @@ import {CidadeModule} from './cidade/cidade.module';
     SetorModule,
     CargoModule,
     FuncionarioModule,
-    PerfilModule,
     AtributoModule,
     AtributofModule,
     AtividadeModule,
     BancohorasModule,
-	PessoaModule,
+	  PessoaModule,
     FornecedorModule,
-	ClienteModule,
-	EstadoModule,
+	  ClienteModule,
+	  EstadoModule,
     CidadeModule
+
   ],
   providers: [
     {

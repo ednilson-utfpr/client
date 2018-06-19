@@ -19,13 +19,17 @@ import {FornecedorComponent} from './fornecedor/fornecedor.component';
 import {ClienteComponent} from './cliente/cliente.component';
 import {EstadoComponent} from './estado/estado.component';
 import {CidadeComponent} from './cidade/cidade.component';
+import {ItemNotaComponent} from "./itemNota/itemNota.component";
+import {NotaComponent} from "./nota/nota.component";
+
 
 const routes: Routes = [
   {
     path: '', canActivate: [LoginService], children: [
       {path: '', component: HomeComponent},
       {path: 'produto', component: ProdutoComponent},
-      {path: 'setor', component: SetorComponent},
+      {path: 'nota', component: NotaComponent},
+      {path: 'itemNota', component: ItemNotaComponent},
       {path: 'cargo', component: CargoComponent},
       {path: 'funcionario', component: FuncionarioComponent},
       {path: 'perfil', component: PerfilComponent},
@@ -38,8 +42,8 @@ const routes: Routes = [
       {path: 'atributof', component: AtributofComponent},
       {path: 'atividade', component: AtividadeComponent},
       {path: 'bancohoras', component: BancohorasComponent},
-	  {path: 'fornecedor', component: FornecedorComponent},
-	  {path: 'cliente', component: ClienteComponent},
+	    {path: 'fornecedor', component: FornecedorComponent},
+	    {path: 'cliente', component: ClienteComponent},
       {path: 'estado', component: EstadoComponent},
       {path: 'cidade', component: CidadeComponent}
     ]

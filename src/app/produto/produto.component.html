@@ -4,46 +4,47 @@
   <section _ngcontent-c2="" class="box ">
     <header _ngcontent-c2="" class="panel_header">
       <h4 _ngcontent-c2="" class="title pull-left title1">Produto</h4>
-      <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
-      <p-table [value]="produtos">
-        <ng-template pTemplate="header">
-          <tr>
-            <th class="ids">ID</th>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Tipo</th>
-            <th>Saldo em Estoque</th>
-            <th>Valor</th>
-            <th class="acoes">Ações</th>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-produto>
-          <tr>
-            <td>{{produto.id}}</td>
-            <td>{{produto.nome}}</td>
-            <td>{{produto.descricao}}</td>
-            <td>{{produto.tipo}}</td>
-            <td>{{produto.estoque}}</td>
-            <td>{{produto.valor}}</td>
-            <td>
-              <button class="btn btn-primary" (click)="editar(produto)">
-                <i class="fa fa-edit"></i>
-              </button>
-              <button class="btn btn-danger" (click)="remover(produto)">
-                <i class="fa fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-        </ng-template>
-      </p-table>
-    </header>
-    <div _ngcontent-c2="" class="content-body">
-    </div>
-  </section>
-</div>
+      <button *ngIf="hasRole('PRODUTO_CRIAR') || hasRole('ADMIN')" class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
 
+    <p-table [value]="produtos">
+      <ng-template pTemplate="header">
+        <tr>
+          <th class="ids">ID</th>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Tipo</th>
+          <th>Estoque</th>
+          <th>Valor</th>
 
-<p-dialog header="Cadastro de Produto ou Serviço"
+          <th class="acoes">Ações</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-produto>
+        <tr>
+          <td>{{produto.id}}</td>
+          <td>{{produto.nome}}</td>
+          <td>{{produto.descricao}}</td>
+          <td>{{produto.tipo}}</td>
+          <td>{{produto.estoque}}</td>
+          <td>{{produto.valor}}</td>
+          <td>
+            <button class="btn btn-primary" (click)="editar(produto)">
+              <i class="fa fa-edit"></i>
+            </button>
+            <button class="btn btn-danger" (click)="confirm(produto)">
+
+              <i class="fa fa-trash"></i>
+            </button>
+
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-confirmDialog></p-confirmDialog>
+<p-growl [(value)]="msgs"></p-growl>
+
+<p-dialog header="Cadastro de Produtos e Serviços"
           [(visible)]="showDialog"
           modal="modal"
           [responsive]="true"
@@ -93,19 +94,16 @@
 
                class="form-control"
                [(ngModel)]="produtoEdit.valor">
-
-
-
-
       </div>
     </div>
 
   </div>
 
-
   <p-footer>
-
     <button type="button" class="btn btn-default" (click)="showDialog = false">Cancelar</button>
     <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
   </p-footer>
 </p-dialog>
+
+
+

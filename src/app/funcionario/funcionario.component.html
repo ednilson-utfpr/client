@@ -3,7 +3,8 @@
   <section _ngcontent-c2="" class="box ">
     <header _ngcontent-c2="" class="panel_header">
       <h4 _ngcontent-c2="" class="title pull-left title1">FuncionÃ¡rio</h4>
-      <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
+      <button *ngIf="hasRole('FUNCIONARIO_CRIAR') || hasRole('ADMIN')" class="btn btn-primary botao"  
+      (click)="novo()">Criar novo</button>
 
         <p-table [value]="funcionarios">
           <ng-template pTemplate="header">
@@ -32,10 +33,12 @@
               <td>{{funcionario.setor}}</td>
               <td>{{funcionario.cargo}}</td>
               <td>
-                <button class="btn btn-primary" (click)="editar(funcionario)">
+                <button *ngIf="hasRole('FUNCIONARIO_EDITAR') || hasRole('ADMIN')" 
+                class="btn btn-primary" (click)="editar(funcionario)">
                   <i class="fa fa-edit"></i>
                 </button>
-                <button class="btn btn-danger" (click)="remover(funcionario)">
+                <button *ngIf="hasRole('FUNCIONARIO_REMOVER') || hasRole('ADMIN')"
+                class="btn btn-danger" (click)="remover(funcionario)">
                   <i class="fa fa-trash"></i>
                 </button>
               </td>
@@ -44,7 +47,7 @@
         </p-table>
       </header>
       <div _ngcontent-c2="" class="content-body">
-      </div>  
+      </div>
     </section>
   </div>
 
@@ -167,8 +170,10 @@
   </div>
 
       <div class="form-group">
-          <label for="admissao">Admissão</label>
-          <p-calendar name="adissao" [(ngModel)]="funcionarioEdit.admissao"></p-calendar>
+
+          <label for="admissao">AdmissÃ£o</label>
+          <p-calendar name="adissao" [(ngModel)]="funcionarioEdit.admissao" dateFormat="dd/mm/yy"></p-calendar>
+
       </div>
 
       <p-checkbox name="ativo" [(ngModel)]="funcionarioEdit.ativo" label="Ativo" binary="true"></p-checkbox>
@@ -176,17 +181,17 @@
 
       <div class="form-group">
           <label for="setor">Setor</label>
-        <p-dropdown name= "setor" [options]="setores" [(ngModel)]="funcionarioEdit.setor" optionLabel="descricao"></p-dropdown>
+        <p-dropdown [autoDisplayFirst] ="false" name= "setor" [options]="setores" [(ngModel)]="funcionarioEdit.setor" optionLabel="descricao"></p-dropdown>
       </div>
 
       <div class="form-group">
           <label for="cargo">Cargo</label>
-        <p-dropdown name= "cargo" [options]="cargos" [(ngModel)]="funcionarioEdit.cargo" optionLabel="nome"></p-dropdown>
+        <p-dropdown [autoDisplayFirst]="false" name= "cargo" [options]="cargos" [(ngModel)]="funcionarioEdit.cargo" optionLabel="nome"></p-dropdown>
       </div>
 
 
       <div class="form-group">
-        <label for="salario">Salário</label>
+        <label for="salario">Salï¿½rio</label>
         <input type="number"
                id="salario"
                name="salario"

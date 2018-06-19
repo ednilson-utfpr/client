@@ -3,7 +3,7 @@
   <section _ngcontent-c2="" class="box ">
     <header _ngcontent-c2="" class="panel_header">
       <h4 _ngcontent-c2="" class="title pull-left title1">Centro de Custo</h4>
-      <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
+      <button *ngIf="hasRole('CENTROCUSTO_CRIAR') || hasRole('ADMIN')" class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
 
         <p-table [value]="ccustos">
           <ng-template pTemplate="header">
@@ -20,22 +20,29 @@
               <td>{{ccusto.codigo}}</td>
               <td>{{ccusto.descricao}}</td>
               <td>
-                <button class="btn btn-primary" (click)="editar(ccusto)">
+                <button *ngIf="hasRole('CENTROCUSTO_EDITAR') || hasRole('ADMIN')" class="btn btn-primary" (click)="editar(ccusto)">
                   <i class="fa fa-edit"></i>
                 </button>
-                <button class="btn btn-danger" (click)="remover(ccusto)">
+
+                <button *ngIf="hasRole('CENTROCUSTO_REMOVER') || hasRole('ADMIN')" class="btn btn-danger" (click)="confirm(ccusto)">
+
                   <i class="fa fa-trash"></i>
                 </button>
+
               </td>
             </tr>
           </ng-template>
         </p-table>
+
+
       </header>
       <div _ngcontent-c2="" class="content-body">
-      </div>  
+      </div>
     </section>
   </div>
 
+<p-confirmDialog></p-confirmDialog>
+<p-growl [(value)]="msgs"></p-growl>
 
 <p-dialog header="Cadastro de Centro de Custo"
           [(visible)]="showDialog"

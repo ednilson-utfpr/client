@@ -5,10 +5,13 @@ import { CargoService } from '../cargo/cargo.service';
 import { Cargo } from '../cargo/cargo';
 import { SetorService } from '../setor/setor.service';
 import { Setor } from '../setor/setor';
+
 import {EstadoService} from '../estado/estado.service';
 import {CidadeService} from '../cidade/cidade.service';
 import {Estado} from '../estado/estado';
 import {Cidade} from '../cidade/cidade';
+import {LoginService} from '../login/login.service';
+
 
 @Component({
   templateUrl: './funcionario.component.html',
@@ -25,10 +28,13 @@ export class FuncionarioComponent implements OnInit {
   estados: Estado[];
 
   constructor(private funcionarioService: FuncionarioService
-              , private cargoService: CargoService, private setorService: SetorService, private estadoService:EstadoService, private cidadeService:CidadeService
-) {
+              , private cargoService: CargoService, private setorService: SetorService, 
+               private estadoService:EstadoService, private cidadeService:CidadeService
+) {}
 
 
+  hasRole(role: string): boolean {
+    return this.loginService.hasRole(role);
   }
 
   ngOnInit(): void {

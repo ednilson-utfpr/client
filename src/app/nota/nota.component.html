@@ -1,0 +1,157 @@
+<link rel="stylesheet" type="text/css" class=".../styles.css">
+<div _ngcontent-c2="" class="col-lg-12">
+  <section _ngcontent-c2="" class="box ">
+    <header _ngcontent-c2="" class="panel_header">
+      <h4 _ngcontent-c2="" class="title pull-left title1">Funcionário</h4>
+      <button *ngIf="hasRole('NOTA_CRIAR') || hasRole('ADMIN')" class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
+        <p-table [value]="notas">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Nr da Nota</th>
+              <th>Data Emissão</th>
+              <th>Data Entrada</th>
+              <th class="acoes">Ações</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-nota>
+            <tr>
+              <td>{{nota.id}}</td>
+              <td>{{nota.dataEmissao}}</td>
+              <td>{{nota.dataEntrada}}</td>
+
+              <td>
+                <button *ngIf=" hasRole('NOTA_EDITAR') || hasRole('ADMIN')" 
+                  class="btn btn-primary" (click)="editar(nota)">
+                  <i class="fa fa-edit"></i>
+                </button>
+                <button *ngIf="hasRole('NOTA_REMOVER') || hasRole('ADMIN')"
+                  class="btn btn-danger" (click)="remover(nota)">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </header>
+      <div _ngcontent-c2="" class="content-body">
+      </div>  
+    </section>
+  </div>
+
+
+<!-- FORMULÁRIO DE CADASTRO !-->
+<p-dialog header="Cadastro - Nota Fiscal Nr: {{notaEdit.id==null ? '(Novo)' : notaEdit.id}}" [(visible)]="showDialog" modal="modal" [responsive]="true"
+  [width]="1000">
+
+  <div class="row">
+
+  </div>
+
+  <div class="col-sm-12">
+    <!--Abas de navegação-->
+    <p-tabView>
+      <p-tabPanel header="Dados da Nota">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="dataEmissao">Data Emissão: </label>
+            <input type="date" id="dataEmissao" name="dataEmissao" class="form-control" [(ngModel)]="notaEdit.dataEmissao">
+          </div>
+        </div>
+
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="dataEntrada">Data Entrada: </label>
+            <input type="date" id="dataEntrada" name="dataEntrada" class="form-control" [(ngModel)]="notaEdit.dataEntrada">
+          </div>
+        </div>
+
+       
+      </p-tabPanel>
+
+      <p-tabPanel header="Item(s) NF">
+        <!--Lista de produtos-->
+        <div class="form-group">
+          <label class="col-sm-4 control-label" for="produto">Descrição: </label>
+          <div class="col-sm-7">
+            <p-dropdown [autoDisplayFirst]="false" name="idProduto" [options]="idProdutos" [(ngModel)]="itemNotaEdit.produto" optionLabel="descricao"></p-dropdown>
+          </div>
+        </div>
+        <!--fim lista de produtos-->
+<br>
+        <div class="form-group">
+          <label class="col-sm-4 control-label" for="quantidade">Quantidade: </label>
+          <div class="col-sm-2">
+            <input type="number" id="quantidade" name="quantidade" class="form-control" [(ngModel)]="itemNotaEdit.quantidade">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-4 control-label" for="valorUnitario">Valor Unitário: </label>
+          <div class="col-sm-2">
+            <input type="number" id="valorUnitario" name="valorUnitario" class="form-control" 
+            [value]="itemNotaEdit.produto?.valor" disabled>
+          </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+          <label class="col-sm-4 control-label" for="getValorTotal">Valor Total: </label>
+          <div class="col-sm-8">
+
+            <input type="number" readonly="true" id="getValorTotal" name="valorTotal" class="form-control" [(ngModel)]="itemNotaEdit.valorTotal">
+
+          </div>
+        </div>
+
+
+        <p-footer>
+          <button type="button" class="btn btn-default" (click)="showDialog = false">Cancelar</button>
+          <button type="button" class="btn btn-success" (click)="addItem()">Incluir Item</button>
+        </p-footer>
+
+        <br>
+        <p-table [value]="itens">
+          <ng-template pTemplate="header">
+            <tr>
+             
+              <th>NF</th>
+              <th>Descrição</th>
+              <th>Quantidade</th>
+              <th>Valor Unitário</th>
+              <th>Valor Total</th>
+              <th>Ações</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-itemNota>
+            <tr>
+              <td>{{notaEdit.id}}</td>
+              <td>{{itemNota.produto?.descricao}}</td>
+              <td>{{itemNota.quantidade}}</td>
+              <td>{{itemNota.produto?.valor}}</td>
+              <td>{{itemNota.quantidade * itemNota.produto.valor}}</td>
+
+              <td>
+                <button class="btn btn-primary" (click)="editarItem(itemNota)">
+                  <i class="fa fa-edit"></i>
+                </button>
+                <button class="btn btn-danger" (click)="removerItem(itemNota)">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </td>
+
+            </tr>
+          </ng-template>
+
+        </p-table>
+
+      </p-tabPanel>
+    </p-tabView>
+  </div>
+
+  <p-footer>
+      <button type="button" class="btn btn-default" (click)="showDialog = false">Cancelar</button>
+      <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
+    </p-footer>
+
+
+</p-dialog>
