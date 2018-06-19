@@ -14,10 +14,10 @@
 		      <th>Apelido</th>
 		      <th>CGC</th>
 		      <th>Telefone</th>
-		      <th>Endereço</th>
+		      <th>EndereÃ§o</th>
 		      <th>E-mail</th>
 			  <th>Ativo</th>
-		      <th>Ações</th>
+		      <th>AÃ§Ãµes</th>
 		    </tr>
 		  </ng-template>
 		  <ng-template pTemplate="body" let-fornecedor>
@@ -63,6 +63,7 @@
           [width]="500">
 
   <div class="row">
+
     <div class="col-sm-12">
       <div class="form-group">
         <label for="nome">Nome</label>
@@ -165,6 +166,7 @@
 
   <p-checkbox name="ativo" [(ngModel)]="fornecedorEdit.ativo" label="Ativo" binary="true"></p-checkbox>
   
+
   <p-footer>
 
     <button type="button" class="btn btn-default" (click)="showDialog = false">Cancelar</button>

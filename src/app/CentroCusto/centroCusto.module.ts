@@ -1,27 +1,25 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {PessoaComponent} from './pessoa.component';
-import {PessoaService} from './pessoa.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
-import {CheckboxModule, Dropdown, DropdownModule, RadioButtonModule} from 'primeng/primeng';
+import {CentroCustoComponent} from './centroCusto.component';
+import {CentroCustoService} from './centroCusto.service';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     TableModule,
-    DialogModule,
-    DropdownModule,
+    DialogModule
   ],
   declarations: [
-
+    CentroCustoComponent
   ],
   providers: [
-    PessoaService
+    CentroCustoService
   ]
 })
-export class PessoaModule {
+export class CentroCustoModule {
 
 }

@@ -14,10 +14,10 @@
 		      <th>Apelido</th>
 		      <th>CGC</th>
 		      <th>Telefone</th>
-		      <th>Endereço</th>
+		      <th>EndereÃ§o</th>
 		      <th>E-mail</th>
 			  <th>Ativo</th>
-		      <th>Ações</th>
+		      <th>AÃ§Ãµes</th>
 		    </tr>
 		  </ng-template>
 		  <ng-template pTemplate="body" let-cliente>
@@ -56,6 +56,7 @@
   </div>
 
 <p-confirmDialog></p-confirmDialog>
+
 <p-dialog header="Cadastro"
           [(visible)]="showDialog"
           modal="modal"
@@ -165,6 +166,7 @@
   </div>
 
     <p-checkbox name="ativo" [(ngModel)]="clienteEdit.ativo" label="Ativo" binary="true"></p-checkbox>
+
 
   <p-footer>
 
