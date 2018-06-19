@@ -10,11 +10,40 @@ import {ClienteComponent} from './cliente/cliente.component';
 import {CentroCustoComponent} from './CentroCusto/centroCusto.component';
 import {ObraComponent} from './Obra/obra.component';
 import {CidadeComponent} from './Cidade/cidade.component';
+import {ItemNotaComponent} from './itemNota/itemNota.component';
+import {NotaComponent} from './nota/nota.component';
+import {SetorComponent} from './setor/setor.component';
+import {CargoComponent} from './cargo/cargo.component';
+import {FuncionarioComponent} from './funcionario/funcionario.component';
+import {PerfilComponent} from './perfil/perfil.component';
+import {CcustoComponent} from './ccusto/ccusto.component';
+import {CpontoComponent} from './cponto/cponto.component';
+import {AtributoComponent} from './atributo/atributo.component';
+import {AtributofComponent} from './atributof/atributof.component';
+import {AtividadeComponent} from './atividade/atividade.component';
+import {BancohorasComponent} from './bancohoras/bancohoras.component';
+import {UsuarioComponent} from './usuario/usuario.component';
 
 const routes: Routes = [
   {
     path: '', canActivate: [LoginService], children: [
       {path: '', component: HomeComponent},
+      {path: 'produto', component: ProdutoComponent},
+      {path: 'nota', component: NotaComponent},
+      {path: 'itemNota', component: ItemNotaComponent},
+      {path: 'setor', component: SetorComponent},
+      {path: 'cargo', component: CargoComponent},
+      {path: 'funcionario', component: FuncionarioComponent},
+      {path: 'perfil', component: PerfilComponent},
+      {path: 'usuario', component: UsuarioComponent},
+      {path: 'ccusto', component: CcustoComponent},
+      {path: 'setor', component: SetorComponent},
+      {path: 'cargo', component: CargoComponent},
+      {path: 'cponto', component: CpontoComponent},
+      {path: 'atributo', component: AtributoComponent},
+      {path: 'atributof', component: AtributofComponent},
+      {path: 'atividade', component: AtividadeComponent},
+      {path: 'bancohoras', component: BancohorasComponent},
       {path: 'produto', component: ProdutoComponent},
       {path: 'pessoa', component: PessoaComponent},
       {path: 'fornecedor', component: FornecedorComponent},

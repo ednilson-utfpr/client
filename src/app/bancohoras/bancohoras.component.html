@@ -1,0 +1,68 @@
+<p-table #dt [value]="cpontos">
+  <ng-template pTemplate="header" let-cponto>
+    <tr>
+      <th>
+        <label for="funcionario">Funcionário</label>
+        <p-dropdown id="funcionario"
+                    [options]="funcionarios"
+                    placeholder="Selecione o funcionário"
+                    optionLabel="pessoa"
+                    [(ngModel)]="funcionarioFilter"
+        ></p-dropdown>
+      </th>
+      <th>
+        <label for="data-inicial">Data Inicial</label><br/>
+        <p-calendar id="data-inicial"
+                    dataType="string"
+                    dateFormat="dd/mm/yy"
+                    placeholder="Data Inicial"
+                    [(ngModel)]="dataIniFilter"
+        ></p-calendar>
+      </th>
+      <th>
+        <label for="data-final">Data Final</label><br/>
+        <p-calendar id="data-final"
+                    dataType="string"
+                    dateFormat="dd/mm/yy"
+                    placeholder="Data Final"
+                    [(ngModel)]="dataFimFilter"
+        ></p-calendar>
+      </th>
+      <th>
+        <button class="btn btn-primary" (click)="applyFilter()">Filtrar</button>
+      </th>
+    </tr>
+    <tr>
+      <th>ID</th>
+      <th>Data</th>
+      <th>Entrada</th>
+      <th>Saída</th>
+      <th>Horas Trabalhadas</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-cponto>
+    <tr>
+      <td>{{cponto.id}}</td>
+      <td>{{cponto.data}}</td>
+      <td>{{cponto.entrada}}</td>
+      <td>{{cponto.saida}}</td>
+      <td>{{saldoFormatado(cponto.entrada, cponto.saida)}}</td>
+
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="footer" >
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td *ngIf="cpontos.length > 0">
+        <label for="dias-trabalhados">Dias Trabalhados</label><br/>
+        <span id="dias-trabalhados">{{bancoHoras.length}}</span>
+      </td>
+      <td *ngIf="cpontos.length > 0">
+        <label for="saldo-horas">Total de Horas Trabalhadas:</label><br/>
+        <span id="saldo-horas">{{totalHoras()}}</span>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

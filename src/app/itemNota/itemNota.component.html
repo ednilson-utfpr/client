@@ -1,0 +1,117 @@
+
+<button class="btn btn-primary" (click)="novo()">Criar novo</button>
+
+<p-table [value]="itemNotas">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Nr Nota</th>
+      <th>Descrição</th>
+      <th>Quantidade</th>
+      <th>Valor Unitário</th>
+      <th>Valor Total</th>
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-itemNota>
+    <tr>
+      <td>{{itemNota.id}}</td>
+      <td>{{itemNota.nota?.id}}</td>
+      <td>{{itemNota.produto?.descricao}}</td>
+      <td>{{itemNota.quantidade}}</td>
+      <td>{{itemNota.produto?.valor}}</td>
+      <td>{{itemNota.quantidade*itemNota.produto.valor}}</td>
+      
+      <td>
+        <button class="btn btn-primary" (click)="editar(itemNota)">
+          <i class="fa fa-edit"></i>
+        </button>
+        <button class="btn btn-danger" (click)="remover(itemNota)">
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    
+    </tr>
+  </ng-template>
+
+</p-table>
+
+
+<!--FORMULÁRIO DE CADASTRO-->
+<p-dialog header="Cadastro"
+          [(visible)]="showDialog"
+          modal="modal"
+          [responsive]="true"
+          [width]="500">
+
+  <div class="row">
+
+
+ <!--Lista de notas-->
+ <div class="col-sm-12">
+    <div class="form-group">
+        <label for="Nota">Nota: </label>
+        <br>
+      <p-dropdown [autoDisplayFirst] ="false" name= "idNota" 
+      [options]="idNotas" [(ngModel)]="itemNotaEdit.nota" 
+      optionLabel="id"></p-dropdown>
+    </div>
+</div>
+<!--fim lista de produtos-->
+
+
+    <!--Lista de produtos-->
+    <div class="col-sm-12">
+          <div class="form-group">
+              <label for="produto">Descrição: </label>
+              <br>
+            <p-dropdown [autoDisplayFirst] ="false" name= "idProduto" 
+            [options]="idProdutos" [(ngModel)]="itemNotaEdit.produto"
+            optionLabel="descricao"  ></p-dropdown>
+
+          </div>
+    </div>
+<!--fim lista de produtos-->
+
+<div class="col-sm-12">
+  <div class="form-group">
+    <label for="quantidade">Quantidade: </label>
+    <input type="number"
+           id="quantidade"
+           name="quantidade"
+           class="form-control"
+           [(ngModel)]="itemNotaEdit.quantidade">                           
+  </div>
+</div>
+   
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="valorUnitario">Valor Unitário: </label>
+          <input type="number"
+                 id="valorUnitario"
+                 name="valorUnitario"
+                 class="form-control"
+                 [(ngModel)]="itemNotaEdit.produto">                           
+        </div>
+      </div>
+
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="getValorTotal">Valor Total: </label>
+          <input type="number" readonly="true"
+                 id="getValorTotal"
+                 name="valorTotal"
+                 class="form-control"
+                 [(ngModel)]="itemNotaEdit.valorTotal">                           
+        </div>
+      </div>
+
+  </div>
+
+
+  <p-footer>
+
+    <button type="button" class="btn btn-default" (click)="showDialog = false">Cancelar</button>
+    <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
+  </p-footer>
+</p-dialog>
