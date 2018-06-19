@@ -1,3 +1,4 @@
+import { ConfirmationService } from 'primeng/api';
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {PerfilComponent} from './perfil.component';
@@ -6,6 +7,8 @@ import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
 import {CheckboxModule} from 'primeng/checkbox';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {GrowlModule} from 'primeng/growl';
 
 @NgModule({
   imports: [
@@ -13,13 +16,16 @@ import {CheckboxModule} from 'primeng/checkbox';
     FormsModule,
     TableModule,
     DialogModule,
-    CheckboxModule
+    CheckboxModule, 
+    ConfirmDialogModule, 
+    GrowlModule
   ],
   declarations: [
     PerfilComponent
   ],
   providers: [
-    PerfilService
+    PerfilService,
+    ConfirmationService
   ]
 })
 export class PerfilModule {

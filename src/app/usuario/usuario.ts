@@ -16,4 +16,5 @@ export class Usuario {
 
   perfil: Perfil;
 
+  authorities: any[];
 }

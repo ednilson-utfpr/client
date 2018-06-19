@@ -5,6 +5,8 @@ import {NotaService} from './nota.service';
 import {Nota} from './nota';
 import { ProdutoService } from './../produto/produto.service';
 import { Produto } from './../produto/produto';
+import {LoginService} from '../login/login.service'; 
+
 
 
 @Component({
@@ -26,7 +28,11 @@ export class NotaComponent implements OnInit {
   //Array de Itens
   itens: Array<ItemNota> = [];
 
-  constructor(private notaService: NotaService, private produtoService:ProdutoService) {
+  constructor(private notaService: NotaService, private produtoService:ProdutoService, private loginService: LoginService) {
+  }
+
+  hasRole(role: string): boolean {
+    return this.loginService.hasRole(role);
   }
 
   ngOnInit(): void {

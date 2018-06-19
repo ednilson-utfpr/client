@@ -7,9 +7,7 @@ export class Atributof {
 
   dataVenc: Date;
 
-  teste: String;
-
   atributo: Atributo;
 
-  funcionario: Funcionario; 
+  funcionario: Funcionario;
 }

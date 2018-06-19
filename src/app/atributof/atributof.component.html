@@ -3,15 +3,15 @@
   <section _ngcontent-c2="" class="box ">
     <header _ngcontent-c2="" class="panel_header">
       <h4 _ngcontent-c2="" class="title pull-left title1">Atributo Funcionario</h4>
-      <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
+      <button *ngIf="hasRole('ATRIBUTOF_CRIAR') || hasRole('ADMIN')" class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
       <p-table [value]="atributofs">
         <ng-template pTemplate="header">
           <tr>
-            <th>ID</th>
+            <th class="ids">ID</th>
             <th>Atributo</th>
             <th>Funcionario</th>
             <th>Data Vencimento</th>
-            <th>Ações</th>
+            <th class="acoes">Ações</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-atributof>
@@ -21,21 +21,24 @@
             <td>{{atributof.funcionario?.pessoa}}</td>
             <td>{{atributof.dataVenc}}</td>
             <td>
-              <button class="btn btn-primary" (click)="editar(atributof)">
+              <button *ngIf="hasRole('ATRIBUTOF_EDITAR') || hasRole('ADMIN')" class="btn btn-primary" (click)="editar(atributof)">
                 <i class="fa fa-edit"></i>
               </button>
-              <button class="btn btn-danger" (click)="remover(atributof)">
-                <i class="fa fa-trash"></i>
+              <button *ngIf="hasRole('ATRIBUTOF_REMOVER') || hasRole('ADMIN')" class="btn btn-danger" (click)="confirmDelete(atributof)">
+                  <i class="fa fa-trash"></i>
               </button>
             </td>
           </tr>
         </ng-template>
       </p-table>
-      </header>
-      <div _ngcontent-c2="" class="content-body">
-      </div>
-    </section>
-  </div>
+    </header>
+    <div _ngcontent-c2="" class="content-body">
+    </div>
+  </section>
+</div>
+<p-confirmDialog></p-confirmDialog>
+
+<p-growl [(value)]="msgs"></p-growl>
 
 
 <p-dialog header="Cadastro de Atributos Funcionario "
@@ -51,13 +54,13 @@
 
         <label for="atributo">Atributo</label>
         <p-dropdown name="atributo" id="atributo" [options]="atributos"
-                    [(ngModel)]="atributofEdit.atributo" placeholder="Selecione um atributo" optionLabel="nome" 
+                    [(ngModel)]="atributofEdit.atributo" placeholder="Selecione um atributo" optionLabel="nome"
                     [showClear]="true">
         </p-dropdown>
 
         <label for="funcionario">Funcionario - {{atributofEdit.funcionario?.pessoa}}</label>
         <p-dropdown name="funcionario" id="funcionario" [options]="funcionarios"
-                    [(ngModel)]="atributofEdit.funcionario" placeholder="Selecione um funcionário" optionLabel="pessoa" 
+                    [(ngModel)]="atributofEdit.funcionario" placeholder="Selecione um funcionário" optionLabel="pessoa"
                     [showClear]="true">
         </p-dropdown>
 
@@ -66,12 +69,13 @@
                     showIcon="true"
                     dataType="string"
                     dateFormat="dd/mm/yy"
+                    [locale]="pt"
                     [(ngModel)]="atributofEdit.dataVenc"
                     placeholder="Data de vencimento">
         </p-calendar>
-
       </div>
     </div>
+
 
   </div>
   <p-footer>
@@ -79,4 +83,3 @@
     <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
   </p-footer>
 </p-dialog>
-

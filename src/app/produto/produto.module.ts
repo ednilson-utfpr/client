@@ -8,6 +8,9 @@ import {FormsModule} from '@angular/forms';
 import {SpinnerModule} from 'primeng/spinner';
 import {MessageModule} from 'primeng/message';
 import {DropdownModule} from 'primeng/primeng';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
+import {GrowlModule} from 'primeng/growl';
 
 @NgModule({
   imports: [
@@ -17,13 +20,16 @@ import {DropdownModule} from 'primeng/primeng';
     DialogModule,
     SpinnerModule,
     MessageModule,
-    DropdownModule
+    DropdownModule,
+    ConfirmDialogModule,
+    GrowlModule
   ],
   declarations: [
     ProdutoComponent
   ],
   providers: [
-    ProdutoService
+    ProdutoService,
+    ConfirmationService
   ]
 })
 export class ProdutoModule {

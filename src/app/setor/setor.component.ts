@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {SetorService} from './setor.service';
 import {Setor} from './setor';
-import {LoginService} from '../login/login.service';
-
-
+import {LoginService} from '../login/login.service'; 
 
 @Component({
   templateUrl: './setor.component.html',

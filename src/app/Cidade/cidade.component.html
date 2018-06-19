@@ -1,0 +1,77 @@
+<button class="btn btn-primary" (click)="novo()">Criar novo</button>
+
+<p-table [value]="cidades">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Descrição</th>
+      <th>Latidude</th>
+      <th>Longitude</th>
+      <th>Ações</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-cidade>
+    <tr>
+      <td>{{cidade.id}}</td>
+      <td>{{cidade.descricao}}</td>
+      <td>{{cidade.latitude}}</td>
+      <td>{{cidade.longitude}}</td>
+      <td>
+        <button class="btn btn-primary" (click)="editar(cidade)">
+          <i class="fa fa-edit"></i>
+        </button>
+        <button class="btn btn-danger" (click)="remover(cidade)">
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+
+<p-dialog header="Cadastro"
+          [(visible)]="showDialog"
+          modal="modal"
+          [responsive]="true"
+          [width]="500">
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="descricao">Descrição</label>
+        <input type="text"
+               id="descricao"
+               name="descricao"
+               class="form-control"
+               [(ngModel)]="cidadeEdit.descricao">
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="descricao">Latitude</label>
+        <input type="text"
+               id="latitude"
+               name="latitude"
+               class="form-control"
+               [(ngModel)]="cidadeEdit.latitude">
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="descricao">Longitude</label>
+        <input type="text"
+               id="longitude"
+               name="longitude"
+               class="form-control"
+               [(ngModel)]="cidadeEdit.longitude">
+      </div>
+    </div>
+  </div>
+
+
+  <p-footer>
+
+    <button type="button" class="btn btn-default" (click)="showDialog = false">Cancelar</button>
+    <button type="button" class="btn btn-success" (click)="salvar()">Salvar</button>
+  </p-footer>
+</p-dialog>

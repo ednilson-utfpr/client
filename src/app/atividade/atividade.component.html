@@ -3,18 +3,19 @@
   <section _ngcontent-c2="" class="box ">
     <header _ngcontent-c2="" class="panel_header">
       <h4 _ngcontent-c2="" class="title pull-left title1">Atividade</h4>
-      <button class="btn btn-primary botao" (click)="novo()">Criar novo</button>
+      <button *ngIf="hasRole('ATIVIDADE_CRIAR') || hasRole('ADMIN')" class="btn btn-primary botao" (click)="novo()">Criar novo</button>
       <p-table [value]="atividades">
         <ng-template pTemplate="header">
           <tr>
-            <th>ID</th>
+            <th class="ids">ID</th>
             <!--<th>Obra</th>-->
             <th>Descrição da Atividade</th>
             <th>Início</th>
             <th>Fim</th>
             <th>Início Previsto</th>
             <th>Fim Previsto</th>
-            <th>Ações</th>
+            <th class="acoes">Ações</th>
+
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-atividade>
@@ -27,12 +28,14 @@
             <td>{{atividade.inicioPrevisto}}</td>
             <td>{{atividade.fimPrevisto}}</td>
             <td>
-              <button class="btn btn-primary" (click)="editar(atividade)">
+              <button *ngIf="hasRole('ATIVIDADE_EDITAR') || hasRole('ADMIN')" class="btn btn-primary" (click)="editar(atividade)">
                 <i class="fa fa-edit"></i>
               </button>
-              <button class="btn btn-danger" (click)="remover(atividade)">
+
+              <button *ngIf="hasRole('ATIVIDADE_REMOVER') || hasRole('ADMIN')" class="btn btn-danger" (click)="confirm(atividade)">
                 <i class="fa fa-trash"></i>
               </button>
+
             </td>
           </tr>
         </ng-template>
@@ -42,6 +45,10 @@
     </div>
   </section>
 </div>
+
+
+<p-confirmDialog></p-confirmDialog>
+<p-growl [(value)]="msgs"></p-growl>
 
 
 <p-dialog header="Cadastro de Atividades "
@@ -62,7 +69,8 @@
 
         <label for="atributo">Atributo(s)</label><br>
         <p-multiSelect name="atributo" id="atributo"
-                       defaultLabel="Escolha os atributos &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+
+                       defaultLabel="Escolha os atributos"
                        optionLabel="descricao"
                        filterPlaceHolder="  Digite aqui o nome do atributo"
                        selectedItemsLabel="{0} atributos selecionados"
@@ -70,6 +78,7 @@
                        [(ngModel)]="atividadeEdit.atributo"
                        [panelStyle]="{minWidth:'30em'}"
                        (onChange)="atributoChange()"
+
         >
         </p-multiSelect>
         <br>

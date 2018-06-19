@@ -8,6 +8,8 @@ import {FormsModule} from '@angular/forms';
 import {DropdownModule, Dropdown} from 'primeng/dropdown';
 import {CheckboxModule} from 'primeng/checkbox';
 import {CalendarModule} from 'primeng/calendar';
+import {EstadoService} from '../estado/estado.service';
+import {CidadeService} from '../cidade/cidade.service';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import {CalendarModule} from 'primeng/calendar';
     FuncionarioComponent
   ],
   providers: [
-    FuncionarioService
+    FuncionarioService,
+    CidadeService,
+    EstadoService
   ]
 })
 export class FuncionarioModule {

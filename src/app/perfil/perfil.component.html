@@ -3,8 +3,9 @@
   <section _ngcontent-c2="" class="box ">
     <header _ngcontent-c2="" class="panel_header">
       <h4 _ngcontent-c2="" class="title pull-left title1">Perfil</h4>
-      <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
-      
+      <button *ngIf="hasRole('ADMIN')"
+      class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
+
         <p-table [value]="perfils">
           <ng-template pTemplate="header">
             <tr>
@@ -18,21 +19,29 @@
               <td>{{perfil.id}}</td>
               <td>{{perfil.nome}}</td>
               <td>
-                <button class="btn btn-primary" (click)="editar(perfil)">
+                <button *ngIf="hasRole('ADMIN')"
+                  class="btn btn-primary" (click)="editar(perfil)">
                   <i class="fa fa-edit"></i>
                 </button>
-                <button class="btn btn-danger" (click)="remover(perfil)">
-                  <i class="fa fa-trash"></i>
+               
+                <button *ngIf="hasRole('ADMIN')" 
+                    class="btn btn-danger" (click)="confirmDelete(perfil)">
+                    <i class="fa fa-trash"></i>
                 </button>
+
               </td>
             </tr>
           </ng-template>
         </p-table>
     </header>
     <div _ngcontent-c2="" class="content-body">
-    </div>  
+    </div>
   </section>
 </div>
+
+<p-confirmDialog></p-confirmDialog>
+
+<p-growl [(value)]="msgs"></p-growl>
 
 
 <p-dialog header="Cadastro"
@@ -50,18 +59,18 @@
                id="nome"
                name="nome"
                class="form-control"
-               [(ngModel)]="perfilEdit.nome">
+               [(ngModel)]="perfilEdit.nome" required>
 
-        <h5>Permissões</h5> 
+        <h5>Permissões</h5>
         <div class="ui-g" style="width:300px;margin-bottom:10px">
           <div class="ui-g-8"><p-checkbox name="admin" value="ADMIN" label="Usuario ADMIN" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
         </div>
 
         <label>Atividade:</label>
         <div class="ui-g" style="width:300px;margin-bottom:10px">
-          <div class="ui-g-4"><p-checkbox name="atividade" value="ATIVIDADE_CRIAR" label="Criar" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
-          <div class="ui-g-4"><p-checkbox name="atividade" value="ATIVIDADE_EDITAR" label="Editar" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
-          <div class="ui-g-4"><p-checkbox name="atividade" value="ATIVIDADE_REMOVER" label="Remover" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
+          <div class="ui-g-4"><p-checkbox name="funcionario" value="ATIVIDADE_CRIAR" label="Criar" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
+          <div class="ui-g-4"><p-checkbox name="funcionario" value="ATIVIDADE_EDITAR" label="Editar" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
+          <div class="ui-g-4"><p-checkbox name="funcionario" value="ATIVIDADE_REMOVER" label="Remover" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
         </div>
 
         <label>Atributo:</label>
@@ -139,13 +148,18 @@
           <div class="ui-g-4"><p-checkbox name="produto" value="PRODUTO_CRIAR" label="Criar" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
           <div class="ui-g-4"><p-checkbox name="produto" value="PRODUTO_EDITAR" label="Editar" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
           <div class="ui-g-4"><p-checkbox name="produto" value="PRODUTO_REMOVER" label="Remover" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
-        </div>        
+        </div>
 
         <label>Requisitos:</label>
         <div class="ui-g" style="width:300px;margin-bottom:10px">
           <div class="ui-g-4"><p-checkbox name="requisitos" value="REQUISITOS_CRIAR" label="Criar" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
           <div class="ui-g-4"><p-checkbox name="requisitos" value="REQUISITOS_EDITAR" label="Editar" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
           <div class="ui-g-4"><p-checkbox name="requisitos" value="REQUISITOS_REMOVER" label="Remover" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
+        </div>
+
+        <label>Relatorios:</label>
+        <div class="ui-g" style="width:300px;margin-bottom:10px">
+          <div class="ui-g-6"><p-checkbox name="bancohoras" value="RELATORIOBANCOHORAS" label="Banco de Horas" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
         </div>
 
         <label>Setor:</label>
@@ -161,7 +175,7 @@
           <div class="ui-g-4"><p-checkbox name="usuario" value="USUARIO_EDITAR" label="Editar" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
           <div class="ui-g-4"><p-checkbox name="usuario" value="USUARIO_REMOVER" label="Remover" [(ngModel)]="perfilEdit.permissoes"></p-checkbox></div>
         </div>
-        
+
       </div>
     </div>
 

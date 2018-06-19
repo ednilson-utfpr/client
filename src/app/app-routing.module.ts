@@ -17,6 +17,14 @@ import {AtributoComponent} from "./atributo/atributo.component";
 import {AtributofComponent} from "./atributof/atributof.component";
 import {AtividadeComponent} from "./atividade/atividade.component";
 import {BancohorasComponent} from "./bancohoras/bancohoras.component";
+import {FornecedorComponent} from './fornecedor/fornecedor.component';
+import {ClienteComponent} from './cliente/cliente.component';
+import {EstadoComponent} from './estado/estado.component';
+import {CidadeComponent} from './cidade/cidade.component';
+import {ItemNotaComponent} from "./itemNota/itemNota.component";
+import {NotaComponent} from "./nota/nota.component";
+import {ObraComponent} from './Obra/obra.component';
+
 
 const routes: Routes = [
   {
@@ -37,7 +45,17 @@ const routes: Routes = [
       {path: 'atributo', component: AtributoComponent},
       {path: 'atributof', component: AtributofComponent},
       {path: 'atividade', component: AtividadeComponent},
-      {path: 'bancohoras', component: BancohorasComponent}
+      {path: 'bancohoras', component: BancohorasComponent},
+      {path: 'produto', component: ProdutoComponent},
+      {path: 'pessoa', component: PessoaComponent},
+      {path: 'fornecedor', component: FornecedorComponent},
+      {path: 'centroCusto', component: CentroCustoComponent},
+      {path: 'obra', component: ObraComponent},
+	    {path: 'fornecedor', component: FornecedorComponent},
+	    {path: 'cliente', component: ClienteComponent},
+      {path: 'estado', component: EstadoComponent},
+      {path: 'cidade', component: CidadeComponent}
+      
     ]
   },
   {path: 'login', component: LoginComponent}
