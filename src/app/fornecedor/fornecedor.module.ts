@@ -8,6 +8,9 @@ import {FormsModule} from '@angular/forms';
 import {EstadoService} from '../estado/estado.service';
 import {CidadeService} from '../cidade/cidade.service';
 import {DropdownModule, CheckboxModule} from 'primeng/primeng';
+import {LoginService} from '../login/login.service';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
 
 @NgModule({
   imports: [
@@ -16,7 +19,8 @@ import {DropdownModule, CheckboxModule} from 'primeng/primeng';
     TableModule,
     DialogModule,
     DropdownModule,
-    CheckboxModule
+    CheckboxModule,
+	ConfirmDialogModule,
   ],
   declarations: [
     FornecedorComponent
@@ -24,7 +28,9 @@ import {DropdownModule, CheckboxModule} from 'primeng/primeng';
   providers: [
     FornecedorService,
     CidadeService,
-    EstadoService
+    EstadoService,
+	LoginService,
+	ConfirmationService
   ]
 })
 export class FornecedorModule {

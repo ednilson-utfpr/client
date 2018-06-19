@@ -7,6 +7,9 @@ import {DialogModule} from 'primeng/dialog';
 import {FormsModule} from '@angular/forms';
 import {DropdownModule} from 'primeng/primeng';
 import {EstadoService} from '../estado/estado.service';
+import {LoginService} from '../login/login.service';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
 
 @NgModule({
   imports: [
@@ -14,14 +17,17 @@ import {EstadoService} from '../estado/estado.service';
     FormsModule,
     TableModule,
     DialogModule,
-    DropdownModule
+    DropdownModule,
+	ConfirmDialogModule
   ],
   declarations: [
     CidadeComponent
   ],
   providers: [
     CidadeService,
-    EstadoService
+    EstadoService,
+	LoginService,
+	ConfirmationService
   ]
 })
 export class CidadeModule {

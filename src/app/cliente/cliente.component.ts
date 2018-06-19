@@ -5,6 +5,9 @@ import {EstadoService} from '../estado/estado.service';
 import {CidadeService} from '../cidade/cidade.service';
 import {Estado} from '../estado/estado';
 import {Cidade} from '../cidade/cidade';
+import {LoginService} from '../login/login.service';
+import {Message} from 'primeng/api';
+import {ConfirmationService} from 'primeng/api';
 
 @Component({
   templateUrl: './cliente.component.html',
@@ -14,16 +17,26 @@ export class ClienteComponent implements OnInit {
 
   clientes: Cliente[];
   showDialog = false;
+  showConfirm = false;
   clienteEdit = new Cliente();
   cidades: Cidade[];
   estados: Estado[];
+  msgs: Message[] = [];
 
-  constructor(private clienteService: ClienteService, private estadoService: EstadoService, private cidadeService:CidadeService) {
+  constructor(private clienteService: ClienteService, private confirmationService: ConfirmationService, private estadoService: EstadoService, private cidadeService:CidadeService, private loginService: LoginService) {
   }
 
   ngOnInit(): void {
     this.findAll();
     this.estadoService.findAll().subscribe(e => this.estados = e);
+  }
+  
+  hasRole(role: string): boolean {
+    return this.loginService.hasRole(role);
+  }
+  
+  mostrarConfirm(condicao: boolean) {
+	this.showConfirm = condicao;
   }
   
   buscaCidades(estado): void{
@@ -55,6 +68,19 @@ export class ClienteComponent implements OnInit {
   remover(cliente: Cliente) {
     this.clienteService.delete(cliente.id).subscribe(() => {
       this.findAll();
+	  this.showConfirm = false;
     });
+  }
+  
+  confirmDelete(cliente: Cliente){
+	  this.confirmationService.confirm({
+		  message:'Essa ação não poderá ser desfeita',
+		  header:'Deseja remover esse registro?',
+		  accept:()=>{this.clienteService.delete(cliente.id).subscribe(()=>{
+			  this.findAll();
+			  this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro removido com sucesso'}];
+		  });
+		}
+	  });
   }
 }
