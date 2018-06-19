@@ -9473,7 +9473,6 @@ table.dataTable.display tbody tr:first-child td {
   width: 100% !important;
 }
 
-
 .ids{
   width:50px;
 }
@@ -9483,10 +9482,10 @@ table.dataTable.display tbody tr:first-child td {
 }
 
 .botao{
-    display:inline-block; 
-    top:20px; 
-    right:20px; 
-    position: absolute; 
+    display:inline-block;
+    top:20px;
+    right:20px;
+    position: absolute;
     z-index:5;
 }
 
@@ -9494,4 +9493,26 @@ table.dataTable.display tbody tr:first-child td {
   margin-bottom:20px;
 }
 
+.ui-dropdown {
+  width: 100% !important;
+}
 
+.ids{
+  width:50px;
+}
+
+.acoes{
+  width:130px;
+}
+
+.botao{
+  display:inline-block;
+  top:20px;
+  right:20px;
+  position: absolute;
+  z-index:5;
+}
+
+.title1{
+  margin-bottom:20px;
+}

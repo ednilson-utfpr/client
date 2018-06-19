@@ -10,6 +10,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import {GrowlModule} from 'primeng/growl';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -21,6 +22,7 @@ import {GrowlModule} from 'primeng/growl';
     InputMaskModule,
     ConfirmDialogModule,
     GrowlModule,
+
   ],
   declarations: [
     CpontoComponent

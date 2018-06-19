@@ -24,10 +24,10 @@ export class NotaComponent implements OnInit {
   idProdutos: Produto[];
   itemNotaEdit = new ItemNota();
   editandoItem = false;
-  
+
   //Array de Itens
   itens: Array<ItemNota> = [];
- 
+
   constructor(private notaService: NotaService, private produtoService:ProdutoService, private loginService: LoginService) {
   }
 
@@ -48,6 +48,7 @@ export class NotaComponent implements OnInit {
     this.itens = [];
     this.showDialog = true;
     this.notaEdit = new Nota();
+    this.itemNotaEdit = new ItemNota();
   }
 
   salvar() {
@@ -56,34 +57,22 @@ export class NotaComponent implements OnInit {
       this.notaEdit = e;
       this.findAll();
       this.showDialog = false;
-      
-    });
-  }
 
-
-  salvarItem() {
-    this.itemNotaService.save(this.itemNotaEdit).subscribe(e => {
-      this.itemNotaEdit = new ItemNota();
-      this.findAll();
-      this.showDialog = false;
     });
   }
 
   addItem() {
     if(!this.editandoItem){
-    this.itens.push(this.itemNotaEdit); 
-    }  
+      this.itens.push(this.itemNotaEdit);
+    }
     console.log(this.itens);
     this.itemNotaEdit = new ItemNota;
-
     this.editandoItem = false;
-   
   }
-
-
 
   editar(nota: Nota) {
     this.notaEdit = nota;
+    this.itens = nota.itensNota;
     this.showDialog = true;
   }
 
@@ -97,12 +86,12 @@ export class NotaComponent implements OnInit {
     this.itemNotaEdit = itemNota;
     this.editandoItem = true;
   }
-    
+
     removerItem(itemNota: ItemNota) {
 const index = this.itens.indexOf(itemNota);
 this.itens.splice(index,1);
-       
-      
+
+
 
   }
 }
