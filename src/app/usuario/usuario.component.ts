@@ -50,10 +50,10 @@ export class UsuarioComponent implements OnInit {
       this.usuarioEdit = new Usuario();
       this.findAll();
       this.showDialog = false;
-      this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro salvo com sucesso'}];
+      this.msgs = [{severity: 'sucess', summary: 'Confirmado', detail: 'Registro salvo com sucesso'}];
     },
     error => {
-      this.msgs = [{severity:'error', summary:'Erro', detail: error.error.message}];
+      this.msgs = [{severity: 'error', summary: 'Erro', detail: error.error.message}];
     });
   }
 
@@ -61,7 +61,7 @@ export class UsuarioComponent implements OnInit {
     usuario.authorities = null;
     this.usuarioEdit = usuario;
     this.showDialog = true;
-    this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro alterado com sucesso'}];
+    this.msgs = [{severity: 'sucess', summary: 'Confirmado', detail: 'Registro alterado com sucesso'}];
   }
 
   confirmDelete(usuario: Usuario) {
@@ -71,7 +71,7 @@ export class UsuarioComponent implements OnInit {
             accept: () => {
                 this.usuarioService.delete(usuario.id).subscribe(() => {
                 this.findAll();
-                this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro removido com sucesso'}];
+                this.msgs = [{severity: 'sucess', summary: 'Confirmado', detail: 'Registro removido com sucesso'}];
               });
             }
         });
