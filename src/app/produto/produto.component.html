@@ -72,8 +72,8 @@
 
         <label for="tipo">Tipo</label>
         <select id="tipo" name="tipo" class="form-control" [(ngModel)]="produtoEdit.tipo">
-          <option value="P">Produto</option>
-          <option value="S">Serviço</option>
+          <option value="Produto">Produto</option>
+          <option value="Serviço">Serviço</option>
         </select>
 
         <label for="estoque">Saldo em Estoque</label>
@@ -89,9 +89,9 @@
                id="valor"
                name="valor"
                [step]="0.25"
-               min="1" max="100000"
+               min="1" max="100000" required=“required” 
+               class="form-control" placeholder="Informe o valor em R$ separado por vírgula "
 
-               class="form-control"
                [(ngModel)]="produtoEdit.valor">
       </div>
     </div>
