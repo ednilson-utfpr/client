@@ -12,8 +12,8 @@ export class PessoaComponent implements OnInit {
   showDialog = false;
   pessoaEdit = new Pessoa();
 
-  constructor(private pessoaService: PessoaService) {
-  }
+  constructor(private pessoaService: PessoaService) 
+  { }
 
   ngOnInit(): void {
     this.findAll();

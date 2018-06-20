@@ -112,14 +112,6 @@ export class AtividadeComponent implements OnInit {
   this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro alterado com sucesso'}];
   }
 
-  remover(atividade: Atividade) {
-    this.atividadeService.delete(atividade.id).subscribe(() => {
-      this.findAll();
-      this.showConfirm = false;
-    });
-  }
-
-
   confirm(atividade: Atividade) {
     this.confirmationService.confirm({
       message: 'Essa ação não poderá ser desfeita',

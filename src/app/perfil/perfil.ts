@@ -1,5 +1,5 @@
-export class Perfil {
-
+export class Perfil {   
+  
   id: number;
 
   nome: string;

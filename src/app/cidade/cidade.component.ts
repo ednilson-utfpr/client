@@ -19,9 +19,11 @@ export class CidadeComponent implements OnInit {
   cidadeEdit = new Cidade();
   estados: Estado[];
   msgs: Message[] = [];
-
-  constructor(private cidadeService: CidadeService, private confirmationService: ConfirmationService, private estadoService: EstadoService, private loginService: LoginService) {
-  	
+  
+  constructor(private cidadeService: CidadeService, 
+              private confirmationService: ConfirmationService, 
+              private estadoService: EstadoService, 
+              private loginService: LoginService) {
   }
 
   ngOnInit(): void {

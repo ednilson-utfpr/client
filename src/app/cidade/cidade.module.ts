@@ -26,8 +26,8 @@ import {ConfirmationService} from 'primeng/api';
   providers: [
     CidadeService,
     EstadoService,
-	LoginService,
-	ConfirmationService
+	  LoginService,
+	  ConfirmationService
   ]
 })
 export class CidadeModule {

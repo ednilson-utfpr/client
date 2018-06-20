@@ -58,7 +58,7 @@ export class UsuarioComponent implements OnInit {
   }
 
   editar(usuario: Usuario) {
-    usuario.authorities = null;
+    //usuario.authorities = null;
     this.usuarioEdit = usuario;
     this.showDialog = true;
     this.msgs = [{severity: 'sucess', summary: 'Confirmado', detail: 'Registro alterado com sucesso'}];
