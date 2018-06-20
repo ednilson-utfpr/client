@@ -5,47 +5,47 @@
         <h4 _ngcontent-c2="" class="title pull-left title1">Cadastro de Obras</h4>
         <button class="btn btn-primary botao"  (click)="novo()">Criar novo</button>
 
-<p-table [value]="obras">
-  <ng-template pTemplate="header">
-    <tr>
-      <th>ID</th>
-      <th>Descricao</th>
-      <th>Cliente</th>
-      <th>Centro de Custo</th>
-      <th>Local</th>
-      <th>Fornecedor</th>
-      <th>Inicio</th>
-      <th>Final</th>
-      <th>Inicio Previsto</th>
-      <th>Final Previsto</th>
-      <th>Custo Total</th>
-      <th>Ações</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-obra>
-    <tr>
-      <td>{{obra?.id}}</td>
-      <td>{{obra?.descricao}}</td>
-      <td>{{obra?.idCliente?.idPessoa.nome}}</td>
-      <td>{{obra?.idCentroCusto?.descricao}}</td>
-      <td>{{obra?.idCidade?.descricao}}</td>
-      <td>{{obra?.idFornecedor?.idPessoa.nome}}</td>
-      <td>{{obra?.inicio | date:'dd/MM/yyyy'}}</td>
-      <td>{{obra?.fim | date:'dd/MM/yyyy'}}</td>
-      <td>{{obra?.inicioPrevisto | date:'dd/MM/yyyy'}}</td>
-      <td>{{obra?.fimPrevisto | date:'dd/MM/yyyy'}}</td>
-      <td>R{{obra?.custoTotal | currency}}</td>
-      <td>
-        <button class="btn btn-primary" (click)="editar(obra)">
-          <i class="fa fa-edit"></i>
-        </button>
-        <button class="btn btn-danger" (click)="remover(obra)">
-          <i class="fa fa-trash"></i>
-        </button>
-      </td>
-    </tr>
-  </ng-template>
-</p-table>
+        <p-table [value]="obras">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>ID</th>
+              <th>Descricao</th>
+              <th>Cliente</th>
+              <th>Centro de Custo</th>
+              <th>Local</th>
+              <th>Fornecedor</th>
+              <th>Inicio</th>
+              <th>Final</th>
+              <th>Inicio Previsto</th>
+              <th>Final Previsto</th>
+              <th>Custo Total</th>
+              <th>Ações</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-obra>
+            <tr>
+              <td>{{obra?.id}}</td>
+              <td>{{obra?.descricao}}</td>
+              <td>{{obra?.idCliente?.idPessoa.nome}}</td>
+              <td>{{obra?.idCcusto?.descricao}}</td>
+              <td>{{obra?.idCidade?.descricao}}</td>
+              <td>{{obra?.idFornecedor?.idPessoa.nome}}</td>
+              <td>{{obra?.inicio | date:'dd/MM/yyyy'}}</td>
+              <td>{{obra?.fim | date:'dd/MM/yyyy'}}</td>
+              <td>{{obra?.inicioPrevisto | date:'dd/MM/yyyy'}}</td>
+              <td>{{obra?.fimPrevisto | date:'dd/MM/yyyy'}}</td>
+              <td>R{{obra?.custoTotal | currency}}</td>
+              <td>
+                <button class="btn btn-primary" (click)="editar(obra)">
+                  <i class="fa fa-edit"></i>
+                </button>
+                <button class="btn btn-danger" (click)="remover(obra)">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
 
       </header>
       <div _ngcontent-c2="" class="content-body">
@@ -85,8 +85,8 @@
   <div class="row">
     <div class="col-sm-6">
       <div class="form-group">
-        <label for="centroCusto">Centro de Custo</label>
-        <p-dropdown styleClass="width: 100%" [options]="centroCustos" [(ngModel)]="obraEdit.idCentroCusto" placeholder="Selecione o Centro de Custo" optionLabel="descricao" [showClear]="true"></p-dropdown>
+        <label for="ccusto">Centro de Custo</label>
+        <p-dropdown styleClass="width: 100%" [options]="ccustos" [(ngModel)]="obraEdit.idCcusto" placeholder="Selecione o Centro de Custo" optionLabel="descricao" [showClear]="true"></p-dropdown>
       </div>
     </div>
     <div class="col-sm-6">

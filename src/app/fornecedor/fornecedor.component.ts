@@ -1,8 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FornecedorService} from './fornecedor.service';
-import {PessoaService} from '../pessoa/pessoa.service';
-import {Fornecedor} from './fornecedor';
-import {Pessoa} from '../pessoa/pessoa';
 import {Fornecedor} from './fornecedor';
 import {EstadoService} from '../estado/estado.service';
 import {CidadeService} from '../cidade/cidade.service';
@@ -26,10 +23,13 @@ export class FornecedorComponent implements OnInit {
   estados: Estado[];
   msgs: Message[] = [];
 
-  constructor(private fornecedorService: FornecedorService, private confirmationService: ConfirmationService, private loginService: LoginService, private estadoService: EstadoService, private cidadeService:CidadeService) {
-
+  constructor(private fornecedorService: FornecedorService, 
+              private confirmationService: ConfirmationService, 
+              private loginService: LoginService, 
+              private estadoService: EstadoService, 
+              private cidadeService:CidadeService) {
   }
-
+  
   ngOnInit(): void {
     this.findAll();
     this.estadoService.findAll().subscribe(e => this.estados = e);
@@ -45,7 +45,6 @@ export class FornecedorComponent implements OnInit {
   
   buscaCidades(estado): void{
   	this.cidadeService.findByEstado(estado).subscribe(c => this.cidades = c);
-
   }
 
   findAll() {
@@ -88,5 +87,4 @@ export class FornecedorComponent implements OnInit {
 		}
 	  });
   }
-
 }

@@ -75,15 +75,7 @@ export class CpontoComponent implements OnInit {
     this.cpontoEdit = cponto;
     this.showDialog = true;
   }
-
-  remover(cponto: Cponto) {
-    this.cpontoService.delete(cponto.id).subscribe(() => {
-      this.findAll();
-      this.showConfirm = false;
-    });
-  }
-
-
+  
   confirm(cponto: Cponto) {
     this.confirmationService.confirm({
       message: 'Essa ação não poderá ser desfeita',

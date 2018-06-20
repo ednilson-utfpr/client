@@ -3,14 +3,14 @@ import {Obra} from './obra';
 import {ObraService} from './obra.service';
 import {Cliente} from '../cliente/cliente';
 import {Fornecedor} from '../fornecedor/fornecedor';
-import {CentroCusto} from '../CentroCusto/centroCusto';
+import {Ccusto} from '../ccusto/ccusto';
 import {ClienteService} from '../cliente/cliente.service';
 import {FornecedorService} from '../fornecedor/fornecedor.service';
-import {CentroCustoService} from '../CentroCusto/centroCusto.service';
-import { AmChartsService, AmChart } from '@amcharts/amcharts3-angular';
+import {CcustoService} from '../ccusto/ccusto.service';
+import {AmChartsService, AmChart} from '@amcharts/amcharts3-angular';
 import { } from '@types/googlemaps';
-import {Cidade} from '../Cidade/cidade';
-import {CidadeService} from '../Cidade/cidade.service';
+import {Cidade} from '../cidade/cidade';
+import {CidadeService} from '../cidade/cidade.service';
 
 @Component({
   templateUrl: './obra.component.html',
@@ -33,7 +33,7 @@ export class ObraComponent implements OnInit {
   clientes: Cliente[];
   cidades: Cidade[];
   fornecedores: Fornecedor[];
-  centroCustos: CentroCusto[];
+  ccustos: Ccusto[];
   showDialog = false;
   obraEdit = new Obra();
 
@@ -52,7 +52,7 @@ export class ObraComponent implements OnInit {
   }
 
   constructor(private obraService: ObraService, private clienteService: ClienteService, private fornecedorService: FornecedorService,
-              private centroCustoService: CentroCustoService, private AmCharts: AmChartsService, private cidadeService: CidadeService) {
+              private CcustoService: CcustoService, private AmCharts: AmChartsService, private cidadeService: CidadeService) {
   }
 
 
@@ -74,7 +74,7 @@ export class ObraComponent implements OnInit {
 
     this.clienteService.findAll().subscribe(e => this.clientes = e);
     this.fornecedorService.findAll().subscribe(e => this.fornecedores = e);
-    this.centroCustoService.findAll().subscribe(e => this.centroCustos = e);
+    this.CcustoService.findAll().subscribe(e => this.ccustos = e);
     this.cidadeService.findAll().subscribe(e => this.cidades = e);
 
     this.options = this.makeOptions(this.obras);

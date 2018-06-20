@@ -27,9 +27,12 @@ export class FuncionarioComponent implements OnInit {
   cidades: Cidade[];
   estados: Estado[];
 
-  constructor(private funcionarioService: FuncionarioService
-              , private cargoService: CargoService, private setorService: SetorService, 
-               private estadoService:EstadoService, private cidadeService:CidadeService
+  constructor(private funcionarioService: FuncionarioService,
+              private cargoService: CargoService, 
+              private setorService: SetorService, 
+              private estadoService:EstadoService, 
+              private cidadeService:CidadeService,
+              private loginService: LoginService
 ) {}
 
 

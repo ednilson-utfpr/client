@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ClienteService} from './cliente.service';
-import {PessoaService} from '../pessoa/pessoa.service';
 import {Cliente} from './cliente';
-import {Pessoa} from '../pessoa/pessoa';
 import {EstadoService} from '../estado/estado.service';
 import {CidadeService} from '../cidade/cidade.service';
 import {Estado} from '../estado/estado';
@@ -11,7 +9,6 @@ import {LoginService} from '../login/login.service';
 import {Message} from 'primeng/api';
 import {ConfirmationService} from 'primeng/api';
 
-
 @Component({
   templateUrl: './cliente.component.html',
   styleUrls: ['./cliente.component.css']
@@ -19,7 +16,6 @@ import {ConfirmationService} from 'primeng/api';
 export class ClienteComponent implements OnInit {
 
   clientes: Cliente[];
-
   showDialog = false;
   showConfirm = false;
   clienteEdit = new Cliente();

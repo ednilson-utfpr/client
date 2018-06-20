@@ -8,10 +8,10 @@ import {ObraComponent} from './obra.component';
 import {DropdownModule} from 'primeng/dropdown';
 import {CalendarModule, InputMaskModule} from 'primeng/primeng';
 import {ClienteService} from '../cliente/cliente.service';
-import {CentroCustoService} from '../CentroCusto/centroCusto.service';
+import {CcustoService} from '../ccusto/ccusto.service';
 import {FornecedorService} from '../fornecedor/fornecedor.service';
 import { AmChartsModule } from '@amcharts/amcharts3-angular';
-import {CidadeService} from '../Cidade/cidade.service';
+import {CidadeService} from '../cidade/cidade.service';
 
 @NgModule({
   imports: [
@@ -30,7 +30,7 @@ import {CidadeService} from '../Cidade/cidade.service';
   providers: [
     ObraService,
     ClienteService,
-    CentroCustoService,
+    CcustoService,
     FornecedorService,
     CidadeService
   ]

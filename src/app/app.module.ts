@@ -11,7 +11,6 @@ import {AppRouting} from './app-routing.module';
 import {LoginModule} from './login/login.module';
 import {HomeModule} from './home/home.module';
 import {ProdutoModule} from './produto/produto.module';
-
 import {NotaModule} from './nota/nota.module';
 import {ItemNotaModule} from './itemNota/itemNota.module';
 import {BancohorasModule} from './bancohoras/bancohoras.module';
@@ -28,12 +27,9 @@ import {PessoaModule} from './pessoa/pessoa.module';
 import {FornecedorModule} from './fornecedor/fornecedor.module';
 import {DropdownModule} from 'primeng/dropdown';
 import {ClienteModule} from './cliente/cliente.module';
-import {CentroCustoModule} from './CentroCusto/centroCusto.module';
-import {ObraModule} from './Obra/obra.module';
-import {CidadeModule} from './Cidade/cidade.module';
-
-
-
+import {ObraModule} from './obra/obra.module';
+import {CidadeModule} from './cidade/cidade.module';
+import {EstadoModule} from './cidade/cidade.module';
 
 @NgModule({
   declarations: [
@@ -65,11 +61,9 @@ import {CidadeModule} from './Cidade/cidade.module';
     DropdownModule,
     FornecedorModule,
     ClienteModule,
-    CentroCustoModule,
     ObraModule,
     AmChartsModule,
-    CidadeModule
-	  PessoaModule,
+    CidadeModule,
     FornecedorModule,
 	  ClienteModule,
 	  EstadoModule,

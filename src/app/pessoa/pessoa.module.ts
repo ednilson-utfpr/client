@@ -1,6 +1,5 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {PessoaComponent} from './pessoa.component';
 import {PessoaService} from './pessoa.service';
 import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
@@ -13,10 +12,9 @@ import {CheckboxModule, Dropdown, DropdownModule, RadioButtonModule} from 'prime
     FormsModule,
     TableModule,
     DialogModule,
-    DropdownModule,
+    DropdownModule
   ],
   declarations: [
-
   ],
   providers: [
     PessoaService

@@ -21,10 +21,8 @@ import {FornecedorComponent} from './fornecedor/fornecedor.component';
 import {ClienteComponent} from './cliente/cliente.component';
 import {EstadoComponent} from './estado/estado.component';
 import {CidadeComponent} from './cidade/cidade.component';
-import {ItemNotaComponent} from "./itemNota/itemNota.component";
-import {NotaComponent} from "./nota/nota.component";
-import {ObraComponent} from './Obra/obra.component';
-
+import {ObraComponent} from './obra/obra.component';
+import {PessoaComponent} from "./pessoa/pessoa.component";
 
 const routes: Routes = [
   {
@@ -49,7 +47,6 @@ const routes: Routes = [
       {path: 'produto', component: ProdutoComponent},
       {path: 'pessoa', component: PessoaComponent},
       {path: 'fornecedor', component: FornecedorComponent},
-      {path: 'centroCusto', component: CentroCustoComponent},
       {path: 'obra', component: ObraComponent},
 	    {path: 'fornecedor', component: FornecedorComponent},
 	    {path: 'cliente', component: ClienteComponent},

@@ -13,12 +13,12 @@ export class PerfilComponent implements OnInit {
 
   perfils: Perfil[];
   showDialog = false;
-  showConfirm = false;
   perfilEdit = new Perfil();
   msgs: Message[] = [];
 
-  constructor(private perfilService: PerfilService, private confirmationService: ConfirmationService,
-   private loginService: LoginService) {}
+  constructor(private perfilService: PerfilService,
+              private confirmationService: ConfirmationService,
+              private loginService: LoginService) {}
 
   hasRole(role: string): boolean {
     return this.loginService.hasRole(role);

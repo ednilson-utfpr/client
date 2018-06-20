@@ -21,8 +21,8 @@ import {ConfirmationService} from 'primeng/api';
     EstadoComponent
   ],
   providers: [
-    EstadoService,,
-	ConfirmationService
+    EstadoService,
+	ConfirmationService,
 	LoginService
   ]
 })
