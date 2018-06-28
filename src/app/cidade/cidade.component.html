@@ -12,19 +12,20 @@
       <th>ID</th>
       <th>Nome</th>
       <th>Estado</th>
-      <th>Ações</th>
+      <th>AÃ§Ãµes</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-cidade>
     <tr>
       <td>{{cidade.id}}</td>
       <td>{{cidade.nome}}</td>
-      <td>{{cidade.estado}}</td>
+      <td>{{cidade.estado.nome}}</td>
       <td>
         <button *ngIf="hasRole('CIDADE_EDITAR') || hasRole('ADMIN')" class="btn btn-primary" (click)="editar(cidade)">
 			<i class="fa fa-edit"></i>
 		  </button>
-		  <button *ngIf="hasRole('CIDADE_REMOVER') || hasRole('ADMIN')" class="btn btn-danger" (click)="confirmDelete(cidade)">
+      <button *ngIf="hasRole('CIDADE_REMOVER') || hasRole('ADMIN')" class="btn btn-danger"
+       (click)="confirmDelete(cidade)">
 			  <i class="fa fa-trash"></i>
 		  </button>
 		<!--<p-confirmDialog header="Confirmacao"

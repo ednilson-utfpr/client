@@ -18,7 +18,7 @@ import {ConfirmationService} from 'primeng/api';
     TableModule,
     DialogModule,
     DropdownModule,
-	ConfirmDialogModule
+	  ConfirmDialogModule
   ],
   declarations: [
     CidadeComponent

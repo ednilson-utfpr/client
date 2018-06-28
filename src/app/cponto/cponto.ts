@@ -7,6 +7,7 @@ export class Cponto {
   data: Date;
   entrada: String;
   saida: String;
+  
 
 
 }

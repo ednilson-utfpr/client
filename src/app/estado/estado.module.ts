@@ -15,17 +15,18 @@ import {ConfirmationService} from 'primeng/api';
     FormsModule,
     TableModule,
     DialogModule,
-	ConfirmDialogModule,
+	  ConfirmDialogModule,
   ],
   declarations: [
     EstadoComponent
   ],
   providers: [
     EstadoService,
-	ConfirmationService,
-	LoginService
+	  ConfirmationService,
+	  LoginService
   ]
 })
-export class EstadoModule {
+
+export class EstadoModule{
 
 }

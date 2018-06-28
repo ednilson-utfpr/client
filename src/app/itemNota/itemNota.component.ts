@@ -1,10 +1,11 @@
+import { Message, ConfirmationService } from 'primeng/api';
 import { ProdutoService } from './../produto/produto.service';
 import { Produto } from './../produto/produto';
 import { NotaService } from './../nota/nota.service';
 import { Nota } from './../nota/nota';
-import {Component, OnInit} from '@angular/core';
-import {ItemNotaService} from './itemNota.service';
-import {ItemNota} from './itemNota';
+import { Component, OnInit } from '@angular/core';
+import { ItemNotaService } from './itemNota.service';
+import { ItemNota } from './itemNota';
 
 @Component({
   templateUrl: './itemNota.component.html',
@@ -17,15 +18,17 @@ export class ItemNotaComponent implements OnInit {
   itemNotaEdit = new ItemNota();
   idProdutos: Produto[];
   idNotas: Nota[];
+  msgs: Message[] = [];
 
-  constructor(private itemNotaService: ItemNotaService, private produtoService: ProdutoService, 
-    private notaService: NotaService ) {
+
+  constructor(private itemNotaService: ItemNotaService, private produtoService: ProdutoService,
+    private notaService: NotaService, private confirmationService: ConfirmationService) {
   }
 
   ngOnInit(): void {
     this.findAll();
-    this.produtoService.findAll().subscribe(e=> this.idProdutos =e);
-    this.notaService.findAll().subscribe(e=> this.idNotas =e);
+    this.produtoService.findAll().subscribe(e => this.idProdutos = e);
+    this.notaService.findAll().subscribe(e => this.idNotas = e);
   }
 
   findAll() {
@@ -37,12 +40,17 @@ export class ItemNotaComponent implements OnInit {
     this.itemNotaEdit = new ItemNota();
   }
 
-  salvar() {
+  salvarItemNota() {
     this.itemNotaService.save(this.itemNotaEdit).subscribe(e => {
       this.itemNotaEdit = new ItemNota();
       this.findAll();
       this.showDialog = false;
+      this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro salvo com sucesso'}];
+    },
+    error => {
+      this.msgs = [{severity:'error', summary:'Erro', detail:'Certifique-se de preencher todos os campos.'}];
     });
+    
   }
 
   editar(itemNota: ItemNota) {
@@ -55,7 +63,4 @@ export class ItemNotaComponent implements OnInit {
       this.findAll();
     });
   }
-
-
-  
 }

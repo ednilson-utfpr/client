@@ -10,7 +10,7 @@ import {CalendarModule, InputMaskModule} from 'primeng/primeng';
 import {ClienteService} from '../cliente/cliente.service';
 import {CcustoService} from '../ccusto/ccusto.service';
 import {FornecedorService} from '../fornecedor/fornecedor.service';
-import { AmChartsModule } from '@amcharts/amcharts3-angular';
+//import { AmChartsModule } from '@amcharts/amcharts3-angular';
 import {CidadeService} from '../cidade/cidade.service';
 
 @NgModule({
@@ -22,7 +22,7 @@ import {CidadeService} from '../cidade/cidade.service';
     DropdownModule,
     CalendarModule,
     InputMaskModule,
-    AmChartsModule
+    //AmChartsModule
   ],
   declarations: [
     ObraComponent

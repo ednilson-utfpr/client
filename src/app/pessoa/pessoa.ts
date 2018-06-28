@@ -15,5 +15,7 @@ export abstract class Pessoa {
   email: string;
 
   idCidade: number;
+
+  
 }
 

@@ -18,7 +18,9 @@ export class EstadoComponent implements OnInit {
   estadoEdit = new Estado();
   msgs: Message[] = [];
 
-  constructor(private estadoService: EstadoService, private confirmationService: ConfirmationService, private loginService: LoginService) {
+  constructor(private estadoService: EstadoService,
+     private confirmationService: ConfirmationService, 
+     private loginService: LoginService) {
   }
 
   ngOnInit(): void {

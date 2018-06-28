@@ -20,6 +20,6 @@ import {CheckboxModule, Dropdown, DropdownModule, RadioButtonModule} from 'prime
     PessoaService
   ]
 })
-export class PessoaModule {
+export class PessoaModule  {
 
 }

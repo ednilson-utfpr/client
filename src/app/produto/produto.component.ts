@@ -18,7 +18,8 @@ export class ProdutoComponent implements OnInit {
   msgs: Message[] = [];
 
   constructor(private produtoService: ProdutoService,
-              private loginService: LoginService, private confirmationService: ConfirmationService) {
+              private loginService: LoginService, 
+              private confirmationService: ConfirmationService) {
   }
 
   hasRole(role: string): boolean {
@@ -43,7 +44,7 @@ export class ProdutoComponent implements OnInit {
       this.produtoEdit = new Produto();
       this.findAll();
         this.showDialog = false;
-        this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro salvo com sucesso'}];
+       this.msgs = [{severity:'sucess', summary:'Confirmado', detail:'Registro salvo com sucesso'}];
       },
       error => {
         this.msgs = [{severity:'error', summary:'Erro', detail:'Certifique-se de preencher todos os campos.'}];

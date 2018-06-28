@@ -52,7 +52,7 @@ export class ObraComponent implements OnInit {
   }
 
   constructor(private obraService: ObraService, private clienteService: ClienteService, private fornecedorService: FornecedorService,
-              private CcustoService: CcustoService, private AmCharts: AmChartsService, private cidadeService: CidadeService) {
+              private CcustoService: CcustoService, /*private AmCharts: AmChartsService,*/ private cidadeService: CidadeService) {
   }
 
 
@@ -60,17 +60,17 @@ export class ObraComponent implements OnInit {
     console.log(this.obras);
     this.obraService.findAll().subscribe(e => {
       this.obras = e;
-      this.chart2 = this.AmCharts.makeChart('chartdiv2', this.makeOptions(e));
+    //  this.chart2 = this.AmCharts.makeChart('chartdiv2', this.makeOptions(e));
     });
     console.log(this.obras);
 
     // Testando o Google Maps
     const mapProp = {
-      center: new google.maps.LatLng(18.5793, 73.8143),
+      //center: new google.maps.LatLng(18.5793, 73.8143),
       zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      //mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
+    //this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
 
     this.clienteService.findAll().subscribe(e => this.clientes = e);
     this.fornecedorService.findAll().subscribe(e => this.fornecedores = e);
